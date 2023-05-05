@@ -1,0 +1,10 @@
+﻿Version History of DailyUserControls
+====================================
+
+Date			Version		Changes
+------------------------------------------------	
+2023 05 04		0.9.1.0		still writing
+2023 05 04		1.0.0.0		initial release
+
+
+

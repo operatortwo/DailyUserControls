@@ -1,0 +1,108 @@
+# DailyUserControls
+This side work contains some usercontrols that I use in other projects.  
+The goal is to collect some common controls in a library to be able to maintain them in one place.  
+There's a compromise between looking good, working well, and acceptable programming effort.
+The current version offers quick and easy usability, while the graphics and the user input are kept rather simple.  
+The test application is an important part of the project. On the one hand to present and describe the controls, on the other hand for debugging and development.
+
+##
+### The Controls
+
+##
+#### Image Button
+![ImageButton](https://user-images.githubusercontent.com/88147904/236563904-b4d02a48-60af-43fd-9e03-8d6ee09edc90.PNG)  
+ Allows placing a text and an image on a button.
+ 
+##
+#### Numeric Up Down
+![NumericUpDown](https://user-images.githubusercontent.com/88147904/236563999-ddb60ac5-b0bd-439d-b84a-3d27cfa4fd18.PNG)  
+Can be used to increase, decrease or enter a numeric value.
+The value can have decimal places, can be negative and can be restricted to step values.
+
+##
+#### Selector Button
+![SelectorButton](https://user-images.githubusercontent.com/88147904/236564028-7c245dec-0e85-4ff0-a13d-e3afea0b53d5.PNG)  
+Is a combination of a button and an up/down control. The control contains an integer value which can be used as an index to a list of items.
+The user can press the button to open a dialog to choose an item from a list, or can scroll through the list with the up/down buttons and the mouse wheel.  
+The control itself only manages button click, increasing and decreasing the value. Additional code is required for handling the list and displaying the dialog
+
+##
+#### Small Slider
+![SmallSlider](https://user-images.githubusercontent.com/88147904/236564707-593c6bf1-cb88-48b1-bbfd-1c15aa76675a.PNG)  
+Allows increasing and decreasing a numeric value. Responds to mouse wheel and needs only little space.
+
+##
+#### Toggle Button
+![ToggleButton](https://user-images.githubusercontent.com/88147904/236564734-5005cba6-acdb-4b5d-9930-59057779eb31.PNG)  
+Based on the original ToggleButton, it has additional properties for text, background and image, each for checked and unchecked state.
+This allows the control to be used flexibly. For example, an on-off push button switch can be shown that is backlit when ON.
+
+##
+#### VU Bar
+![VU_Bar](https://user-images.githubusercontent.com/88147904/236564761-2143aa9c-e7e7-46b4-96c7-acfc371fe6e4.PNG)  
+Is is a very simple indicator showing activity on an audio track.
+Some additional code for timed value decrease is necessary.
+
+
+##
+#### Progress Circle
+![ProgressCircle](https://user-images.githubusercontent.com/88147904/236564902-81b50848-d7fb-4400-aa28-65f055ec450d.PNG)  
+Visualizes progress or angle.
+
+##
+#### Knob
+![Knob](https://user-images.githubusercontent.com/88147904/236564934-270e07cd-a5e8-4b54-b6fe-ae467bf36556.PNG)  
+Is a value control that simulates a potentiometer.
+
+
+##
+#### Side Panel
+![SidePanel](https://user-images.githubusercontent.com/88147904/236564981-e5dd04d4-f29e-4a35-98a6-0283e260c5d0.PNG)  
+A panel on the left side of the window which can contain SidePanelButtons, each associated with a tool window.
+There are no docking or other functions. Such projects can be found by lookin for *wpf avalondock*.
+
+##
+### Notes
+
+#### Using the controls
+
+- References / Add Reference -> DailyUserControls
+- In XAML header add namespace:  
+````xmlns:duc="clr-namespace:DailyUserControls;assembly=DailyUserControls"````
+- In XAML body (Window Content / Grid etc.) insert the control: ```<duc:NumericUpDown/>```
+- Change the properties in the Properties Window. Brushes can be found at the top while special properties are grouped together in one category at the end.  
+
+
+
+#### SetValueSilent
+Some value controls have a *SetValueSilent* method. This is useful in some special cases, generally when user and program code can set the value of the control.
+*SetValueSilent* causes the control's value to be updated, but does not raises a ValueChanged event.
+#### Known issues
+There seems to be still some bugs in VS 2022 17.5.5  
+One concerns creating a ValueChanged handler by double-clicking the event in the designer.
+It is not due to the user controls but can also be observed with the built-in slider control. An incomplete handler for ValueChanged is inserted:
+
+```
+Private Sub Slider1_ValueChanged(sender As Object, e As RoutedPropertyChangedEventArgs(Of T))
+
+End Sub
+```
+> Error BC30002 Type ‘T’ is not defined.
+
+This can be corrected by completing the handler to:
+```
+Private Sub Slider1_ValueChanged(sender As Object, e As RoutedPropertyChangedEventArgs(Of Double)) Handles Slider1.ValueChanged
+
+End Sub
+```
+There is now also an event in XAML:
+> ValueChanged="Slider1_ValueChanged"  
+
+This should be deleted, else ValueChanged is called twice.  
+
+*'Handles' seems to be VB specific, it might work a little differently in C#.*
+
+
+
+
+
