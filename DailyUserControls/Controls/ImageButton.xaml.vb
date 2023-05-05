@@ -1,0 +1,239 @@
+﻿Imports System.ComponentModel
+
+Public Class ImageButton
+    Public Sub New()
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+
+        '- initial values when inserted to the window
+        Width = 140
+        Height = 30
+        HorizontalAlignment = HorizontalAlignment.Left
+        VerticalAlignment = VerticalAlignment.Top
+        Margin = New Thickness(90, 90, 0, 0)
+
+    End Sub
+
+    Private Const DefaultText As String = "ImageButton"
+
+    Public Enum Location
+        Left
+        Right
+    End Enum
+
+#Region "Appearance"
+
+    Public Shared Shadows ReadOnly BackgroundProperty As DependencyProperty = DependencyProperty.Register("Background", GetType(Brush), GetType(ImageButton), New UIPropertyMetadata(Brushes.LightGray))
+
+    Public Overloads Property Background As Brush
+        Get
+            Return CType(GetValue(BackgroundProperty), Brush)
+        End Get
+        Set(ByVal value As Brush)
+            SetValue(BackgroundProperty, value)
+        End Set
+    End Property
+
+    Public Shared ReadOnly ImgBtn_ForegroundProperty As DependencyProperty = DependencyProperty.Register("Foreground", GetType(Brush), GetType(ImageButton), New UIPropertyMetadata(Brushes.Black))
+
+    Public Overloads Property Foreground As Brush
+        Get
+            Return CType(GetValue(ImgBtn_ForegroundProperty), Brush)
+        End Get
+        Set(ByVal value As Brush)
+            SetValue(ImgBtn_ForegroundProperty, value)
+        End Set
+    End Property
+
+    Public Shared ReadOnly ButtonPressedBackgroundProperty As DependencyProperty = DependencyProperty.Register("ButtonPressedBackground", GetType(Color), GetType(ImageButton), New UIPropertyMetadata(Colors.LightGreen))
+    ' appears in code
+    ''' <summary>
+    ''' Color when the Button is pressed
+    ''' </summary>
+    <Description("Color when the Button is pressed"), Category("ImageButton")>   ' appears in VS property
+    Public Overloads Property ButtonPressedBackground As Color
+        Get
+            Return CType(GetValue(ButtonPressedBackgroundProperty), Color)
+        End Get
+        Set(ByVal value As Color)
+            SetValue(ButtonPressedBackgroundProperty, value)
+        End Set
+    End Property
+
+    Public Shared ReadOnly ButtonPressedBorderProperty As DependencyProperty = DependencyProperty.Register("ButtonPressedBorder", GetType(Color), GetType(ImageButton), New UIPropertyMetadata(Colors.LightSalmon))
+    ' appears in code
+    ''' <summary>
+    ''' Border color when the button is pressed
+    ''' </summary>
+    <Description("Border color when the button is pressed"), Category("ImageButton")>   ' appears in VS property
+    Public Overloads Property ButtonPressedBorder As Color
+        Get
+            Return CType(GetValue(ButtonPressedBorderProperty), Color)
+        End Get
+        Set(ByVal value As Color)
+            SetValue(ButtonPressedBorderProperty, value)
+        End Set
+    End Property
+
+#End Region
+
+#Region "Image"
+
+    Public Shared ReadOnly ImageProperty As DependencyProperty = DependencyProperty.Register("Image", GetType(ImageSource), GetType(ImageButton), New UIPropertyMetadata)
+    ' appears in code
+    ''' <summary>
+    ''' The Image on the button
+    ''' </summary>
+    <Description("The Image on the button"), Category("ImageButton")>   ' appears in VS property
+    Public Property Image As ImageSource
+        Get
+            Return CType(GetValue(ImageProperty), ImageSource)
+        End Get
+        Set(ByVal value As ImageSource)
+            SetValue(ImageProperty, value)
+        End Set
+    End Property
+
+    Public Shared ReadOnly ImageMarginProperty As DependencyProperty = DependencyProperty.Register("ImageMargin", GetType(Thickness), GetType(ImageButton), New UIPropertyMetadata(New Thickness(5, 0, 5, 0)))
+    ' appears in code
+    ''' <summary>
+    ''' Margins of the Image
+    ''' </summary>
+    <Description("Margins of the Image"), Category("ImageButton")>   ' appears in VS property
+    Public Property ImageMargin As Thickness
+
+        Get
+            Return CType(GetValue(ImageMarginProperty), Thickness)
+        End Get
+        Set(ByVal value As Thickness)
+            SetValue(ImageMarginProperty, value)
+        End Set
+
+    End Property
+
+    Public Shared ReadOnly ImageLocationProperty As DependencyProperty = DependencyProperty.Register("ImageLocation", GetType(Location), GetType(ImageButton), New FrameworkPropertyMetadata(Location.Left, New PropertyChangedCallback(AddressOf OnImageLocationChanged), New CoerceValueCallback(AddressOf CoerceImageLocation)))
+    <Description("Location of the Image"), Category("ImageButton")>   ' appears in VS property
+    Public Property ImageLocation() As Location
+        Get
+            Return CType(Me.GetValue(ImageButton.ImageLocationProperty), Location)
+        End Get
+        Set
+            Me.SetValue(ImageButton.ImageLocationProperty, Value)
+        End Set
+    End Property
+
+    Private Shared Sub OnImageLocationChanged(ByVal d As DependencyObject, ByVal args As DependencyPropertyChangedEventArgs)
+        Dim control As ImageButton = CType(d, ImageButton)
+        Dim loc As Location = CType((d.GetValue(ImageLocationProperty)), Location)
+
+        If loc = Location.Left Then
+            control.Image1.SetValue(Grid.ColumnProperty, 0)
+            control.Viewbox1.SetValue(Grid.ColumnProperty, 1)
+
+            control.Grid2.ColumnDefinitions(1).Width = New GridLength(1, GridUnitType.Star)
+            control.Grid2.ColumnDefinitions(0).Width = New GridLength(1, GridUnitType.Auto)
+
+        Else
+            control.Image1.SetValue(Grid.ColumnProperty, 1)
+            control.Viewbox1.SetValue(Grid.ColumnProperty, 0)
+
+            control.Grid2.ColumnDefinitions(0).Width = New GridLength(1, GridUnitType.Star)
+            control.Grid2.ColumnDefinitions(1).Width = New GridLength(1, GridUnitType.Auto)
+
+        End If
+
+        '--- or
+        'Grid.SetColumn(control.Image1, 0)
+        'Grid.SetColumn(control.Viewbox1, 1)
+
+    End Sub
+
+    Private Overloads Shared Function CoerceImageLocation(ByVal d As DependencyObject, ByVal value As Object) As Object
+        Return value        ' no changes
+    End Function
+
+#End Region
+
+#Region "Text"
+
+    Private Shared ReadOnly TextPropertyMetadata As New FrameworkPropertyMetadata(DefaultText)
+    Public Shared ReadOnly TextProperty As DependencyProperty = DependencyProperty.Register("Text", GetType(String), GetType(ImageButton), TextPropertyMetadata)
+    ' appears in code
+    ''' <summary>
+    ''' The Text on the button
+    ''' </summary>
+    <Description("The Text on the button"), Category("ImageButton")>   ' appears in VS property
+    Public Property Text As String
+
+        Get
+            Return CType(GetValue(TextProperty), String)
+        End Get
+        Set(ByVal value As String)
+            SetValue(TextProperty, value)
+        End Set
+
+    End Property
+
+
+    Public Shared ReadOnly TextAlignmentProperty As DependencyProperty = DependencyProperty.Register("TextAlignment", GetType(HorizontalAlignment), GetType(ImageButton), New UIPropertyMetadata(HorizontalAlignment.Stretch))
+    ' appears in code
+    ''' <summary>
+    ''' Horizontal alignment of the text
+    ''' </summary>
+    <Description("Horizontal text alignment"), Category("ImageButton")>   ' appears in VS property
+    Public Property TextAlignment As HorizontalAlignment
+
+        Get
+            Return CType(GetValue(TextAlignmentProperty), HorizontalAlignment)
+        End Get
+        Set(ByVal value As HorizontalAlignment)
+            SetValue(TextAlignmentProperty, value)
+        End Set
+
+    End Property
+
+    Public Shared ReadOnly TextPaddingProperty As DependencyProperty = DependencyProperty.Register("TextPadding", GetType(Thickness), GetType(ImageButton), New UIPropertyMetadata(New Thickness()))
+    ' appears in code
+    ''' <summary>
+    ''' Padding of textblock
+    ''' </summary>
+    <Description("Padding of textblock"), Category("ImageButton")>   ' appears in VS property
+    Public Property TextPadding As Thickness
+
+        Get
+            Return CType(GetValue(TextPaddingProperty), Thickness)
+        End Get
+        Set(ByVal value As Thickness)
+            SetValue(TextPaddingProperty, value)
+        End Set
+
+    End Property
+
+
+#End Region
+
+#Region "Control"
+
+    Public Event Click As RoutedEventHandler
+    Private Sub Button_Click(sender As Object, e As RoutedEventArgs) Handles Button.Click
+        RaiseEvent Click(Me, e)
+    End Sub
+
+
+    Private ReadOnly DisabledOpacityMask As SolidColorBrush = New SolidColorBrush(Color.FromArgb(&H54, 0, 0, 0))
+    Private Sub userControl_IsEnabledChanged(sender As Object, e As DependencyPropertyChangedEventArgs) Handles userControl.IsEnabledChanged
+
+        If CBool(e.NewValue) = True Then
+            Grid2.OpacityMask = Nothing
+        Else
+            Grid2.OpacityMask = DisabledOpacityMask
+        End If
+
+
+    End Sub
+
+#End Region
+
+End Class
