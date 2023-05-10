@@ -72,7 +72,7 @@ There are no docking or other functions. Such projects can be found by lookin fo
 - In XAML body (Window Content / Grid etc.) insert the control: ```<duc:NumericUpDown/>```
 - Change the properties in the Properties Window. Brushes can be found at the top while special properties are grouped together in one category at the end.  
 
-![Category](https://github.com/operatortwo/DailyUserControls/assets/88147904/2be070bf-fcc4-4649-9048-91b6f7f011d8)
+![Category](https://github.com/operatortwo/DailyUserControls/assets/88147904/d96d9bc4-ab6c-4be6-8173-6c0fda000a1b)
 
 
 #### SetValueSilent
