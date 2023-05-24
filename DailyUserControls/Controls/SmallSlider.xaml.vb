@@ -46,6 +46,42 @@ Public Class SmallSlider
         End Set
     End Property
 
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    Public Shared ReadOnly LeftRightLookProperty As DependencyProperty = DependencyProperty.Register("LeftRightLook", GetType(Boolean), GetType(SmallSlider), New PropertyMetadata(New PropertyChangedCallback(AddressOf OnLeftRightLookChanged)))
+
+    ' appears in code
+    ''' <summary>
+    ''' TRUE sets the origin of the value bar to the center, as needed for balance/pan audio control.
+    ''' </summary>      
+    Private Const LRLookdesc = "TRUE sets the origin of the value bar to the center, as needed for balance/pan audio control."
+    <Description(LRLookdesc), Category("Small Slider")>
+    Public Property LeftRightLook As Boolean
+        Get
+            Return GetValue(LeftRightLookProperty)
+        End Get
+        Set(value As Boolean)
+
+        End Set
+    End Property
+
+    Private Shared Sub OnLeftRightLookChanged(ByVal d As DependencyObject, ByVal args As DependencyPropertyChangedEventArgs)
+        Dim control As SmallSlider = CType(d, SmallSlider)
+
+        If control.LeftRightLook = False Then
+            control.ViewboxValue.HorizontalAlignment = HorizontalAlignment.Left
+            'control.CenterMark.Visibility = Visibility.Visible
+            control.ShowSlider()
+        Else
+            control.ViewboxValue.HorizontalAlignment = HorizontalAlignment.Center
+            'control.CenterMark.Visibility = Visibility.Hidden
+            control.ShowSlider()
+        End If
+    End Sub
+
+
 #End Region
 
 #Region "Value Region"
@@ -403,16 +439,40 @@ Public Class SmallSlider
     End Sub
 
     Private Sub ShowSlider()
-        Dim rwidth As Double
+        Dim swidth As Double
         Dim gwidth As Double = SliderRectGrid.RenderSize.Width
         Dim valueRange As Double = MaximumValue - MinimumValue
 
-        If valueRange > 0 Then
-            rwidth = gwidth * (Value - MinimumValue) / valueRange
-            'rwidth = gwidth * Value / valueRange
-            'rwidth = gwidth * Math.Abs(Value) / valueRange
-            SliderRect.Width = rwidth
+        If LeftRightLook = False Then
+            SliderRect.Visibility = Visibility.Visible
+            SliderRectLeft.Visibility = Visibility.Collapsed
+            SliderRectRight.Visibility = Visibility.Collapsed
+
+            If valueRange > 0 Then
+                swidth = gwidth * (Value - MinimumValue) / valueRange
+                SliderRect.Width = swidth
+            End If
+
+        Else
+            Dim Lwidth As Double
+            Dim Rwidth As Double
+
+            SliderRect.Visibility = Visibility.Collapsed
+            SliderRectLeft.Visibility = Visibility.Visible
+            SliderRectRight.Visibility = Visibility.Visible
+
+            If valueRange > 0 Then
+                If Value < valueRange / 2 Then
+                    Lwidth = gwidth * (valueRange / 2 - Value) / valueRange
+                ElseIf Value > valueRange / 2 Then
+                    Rwidth = gwidth * (Value - valueRange / 2) / valueRange
+                End If
+
+                SliderRectLeft.Width = Lwidth
+                SliderRectRight.Width = Rwidth
+            End If
         End If
+
     End Sub
 
     Private Sub UserControl_PreviewKeyDown(sender As Object, e As KeyEventArgs)

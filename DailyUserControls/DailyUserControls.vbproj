@@ -179,10 +179,10 @@
     <Resource Include="xDevelopment\Version History DUC.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="xDevelopment\Private\ToDo.txt" />
+    <Resource Include="xDevelopment\Version History Test DUC.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="xDevelopment\Version History Test DUC.txt" />
+    <Folder Include="xDevelopment\Private\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

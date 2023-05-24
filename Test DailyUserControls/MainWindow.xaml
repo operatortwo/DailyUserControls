@@ -110,8 +110,9 @@
                     <!-- Test Area -->
                     <TextBox x:Name="tbSmallSliderValueChanged" Margin="25,266,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Height="134" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
                     <duc:SmallSlider x:Name="SmallSlider1" HorizontalAlignment="Left" Margin="50,202,0,0" VerticalAlignment="Top" Value="46" Height="24" Width="104" BorderBrush="Black" BorderThickness="0.5,0.5,0.5,0.5" Background="#FFE5EFFF"/>
-                    <Label Content="-64 ... +63" HorizontalAlignment="Left" Margin="332,200,0,0" VerticalAlignment="Top"/>
-                    <duc:SmallSlider Margin="229,201,0,0" MaximumValue="127" DisplayedValueOffset="-64" Value="64" Width="90" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Background="#FFC1D9FF" SliderBrush="#FF003EFF"/>
+                    <Label Content="-64 ... +63" HorizontalAlignment="Left" Margin="238,161,0,0" VerticalAlignment="Top"/>
+                    <duc:SmallSlider Margin="229,201,0,0" MaximumValue="127" DisplayedValueOffset="-64" Value="64" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Background="#FFC1D9FF" SliderBrush="#FF003EFF" LeftRightLook="{Binding IsChecked, ElementName=cbLeftRightLook}"/>
+                    <CheckBox x:Name="cbLeftRightLook" Content="LeftRightLook" HorizontalAlignment="Left" Margin="352,205,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tiToggleButton" Header="Toggle Button" Background="{DynamicResource TabItemBackground1}">
