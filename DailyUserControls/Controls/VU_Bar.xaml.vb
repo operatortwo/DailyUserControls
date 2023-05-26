@@ -117,16 +117,38 @@ Public Class VU_Bar
         Dim foreHeight As Single = height / MaximumValue * Value
         Dim backHeight As Single = height - foreHeight
 
-        'Dim backRect As New Rect(New Point(0, 0), New Size(RenderSize.Width, RenderSize.Height))
-        'Dim foreRect As New Rect(New Point(0, 0), New Size(RenderSize.Width, RenderSize.Height / 2))
-
         Dim backRect As New Rect(New Point(0, 0), New Size(RenderSize.Width, height - foreHeight))
-        Dim foreRect As New Rect(New Point(0, height - foreHeight), New Size(RenderSize.Width, foreHeight))
+        Dim foreRect As New Rect(New Point(0, 0), New Size(RenderSize.Width, height))
 
-        dc.DrawRectangle(BackFill, Nothing, backRect)
         dc.DrawRectangle(Fill, Nothing, foreRect)
+        dc.DrawRectangle(BackFill, Nothing, backRect)
+
+        ' first we divide (calculate) the control rectangle into a lower part and an upper part.
+        ' the lower part represents the value, the upper part simulates transparency and is using the background brush
+        ' this would work with SolidColorBrush for the 'Fill' Property but not with LinearGradientBrush
+        ' for that reason, we fill the whole control rectangle with the 'Fill' brush, and overlay the upper part
+        ' with the BackFill (Background) Brush.
 
     End Sub
+
+    '--- first version, works only with SolidColorBrush (Fill Property)
+    '
+    'Protected Overrides Sub OnRender(ByVal dc As DrawingContext)
+
+    '    Dim height As Single = CSng(RenderSize.Height)
+
+    '    Dim foreHeight As Single = height / MaximumValue * Value
+    '    Dim backHeight As Single = height - foreHeight
+
+    '    Dim backRect As New Rect(New Point(0, 0), New Size(RenderSize.Width, height - foreHeight))
+    '    Dim foreRect As New Rect(New Point(0, height - foreHeight), New Size(RenderSize.Width, foreHeight))
+
+    '    dc.DrawRectangle(BackFill, Nothing, backRect)
+    '    dc.DrawRectangle(Fill, Nothing, foreRect)
+
+    'End Sub
+
+
 #End Region
 
 

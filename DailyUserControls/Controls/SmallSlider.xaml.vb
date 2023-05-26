@@ -445,6 +445,7 @@ Public Class SmallSlider
 
         If LeftRightLook = False Then
             SliderRect.Visibility = Visibility.Visible
+            CenterMark.Visibility = Visibility.Visible
             SliderRectLeft.Visibility = Visibility.Collapsed
             SliderRectRight.Visibility = Visibility.Collapsed
 
@@ -458,6 +459,7 @@ Public Class SmallSlider
             Dim Rwidth As Double
 
             SliderRect.Visibility = Visibility.Collapsed
+            CenterMark.Visibility = Visibility.Collapsed
             SliderRectLeft.Visibility = Visibility.Visible
             SliderRectRight.Visibility = Visibility.Visible
 

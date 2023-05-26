@@ -40,8 +40,9 @@ This allows the control to be used flexibly. For example, an on-off push button 
 ##
 #### VU Bar
 ![VU_Bar](https://user-images.githubusercontent.com/88147904/236564761-2143aa9c-e7e7-46b4-96c7-acfc371fe6e4.PNG)  
-Is is a very simple indicator showing activity on an audio track.
-Some additional code for timed value decrease is necessary.
+Is a very simple indicator showing activity on an audio track.
+Some additional code for timed value decrease is necessary.  
+Bar can be SolidColorBrush, LinearGradientBrush or ImageBrush.
 
 
 ##

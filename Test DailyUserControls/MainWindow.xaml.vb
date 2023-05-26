@@ -95,6 +95,8 @@
 
         If VU_RefreshTimer.Enabled = False Then VU_RefreshTimer.Start()
         VU_Bar1.Value = VU_Bar1.MaximumValue
+        VU_Bar2.Value = VU_Bar1.Value
+        VU_Bar3.Value = VU_Bar1.Value
 
     End Sub
 
@@ -112,9 +114,13 @@
         'decrease value at each refresh                        
         If VU_Bar1.Value < VU_Bar1.MaximumValue / 10 Then
             VU_Bar1.Value = 0
+            VU_Bar2.Value = 0
+            VU_Bar3.Value = 0
             VU_RefreshTimer.Stop()
         Else
             VU_Bar1.Value = VU_Bar1.Value * VU_decFactor.Value
+            VU_Bar2.Value = VU_Bar1.Value
+            VU_Bar3.Value = VU_Bar1.Value
         End If
 
     End Sub

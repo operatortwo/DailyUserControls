@@ -181,12 +181,29 @@
                     <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
                     <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                     <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                    <!-- Test Area -->
                     <Button x:Name="btnVU_Tap" Content="Tap" HorizontalAlignment="Left" Margin="100,225,0,0" VerticalAlignment="Top" Width="50"/>
                     <duc:VU_Bar x:Name="VU_Bar1" HorizontalAlignment="Left" Margin="73,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98"/>
                     <duc:NumericUpDown x:Name="VU_decFactor" HorizontalAlignment="Left" Margin="177,259,0,0" VerticalAlignment="Top" Height="26" Width="78" DecimalPlaces="2" MinimumValue="0.4" MaximumValue="0.95" StepValue="0.05" Value="0.75"/>
                     <Label Content="decrease factor" HorizontalAlignment="Left" Margin="177,230,0,0" VerticalAlignment="Top"/>
-
-                    <!-- Test Area -->
+                    <duc:VU_Bar x:Name="VU_Bar2" HorizontalAlignment="Left" Margin="300,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98">
+                        <duc:VU_Bar.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="LightGreen" Offset="1"/>
+                                <GradientStop Color="#FFF59A9A" Offset="0"/>
+                                <GradientStop Color="#FFFFF856" Offset="0.265"/>
+                            </LinearGradientBrush>
+                        </duc:VU_Bar.Fill>
+                    </duc:VU_Bar>
+                    <duc:VU_Bar x:Name="VU_Bar3" HorizontalAlignment="Left" Margin="400,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98">
+                        <duc:VU_Bar.Fill>
+                            <ImageBrush ImageSource="/Resources/Images/VU_20_Segemnts.png"/>
+                        </duc:VU_Bar.Fill>
+                    </duc:VU_Bar>
+                    <Label Content="Solid" HorizontalAlignment="Left" Margin="60,293,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Gradient" HorizontalAlignment="Left" Margin="275,293,0,0" VerticalAlignment="Top"/>
+                    <Label Content="ImageBrush" HorizontalAlignment="Left" Margin="365,293,0,0" VerticalAlignment="Top"/>
+                    
                 </Grid>
             </TabItem>
             <TabItem x:Name="tiProgressCircle" Header="Progress Circle" Background="{DynamicResource TabItemBackground1}">

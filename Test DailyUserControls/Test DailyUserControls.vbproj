@@ -164,5 +164,8 @@
   <ItemGroup>
     <Resource Include="Resources\Images\Unchecked_x32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\VU_20_Segemnts.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
