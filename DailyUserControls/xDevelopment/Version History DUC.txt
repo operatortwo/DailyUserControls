@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------	
+2023 09 05		1.0.2.1		ToggleButton: fixed bug: checked/unchecked Event was raised twice
 2023 05 26		1.0.2.0		VU_Bar: improvement, allow Gradient and Image for bar
 2023 05 24		1.0.1.0		small slider: added LeftRightLook property
 2023 05 04		1.0.0.0		initial release

@@ -388,12 +388,14 @@ Public Class ToggleButton
         Dim control As ToggleButton = CType(d, ToggleButton)
 
         If control.IsChecked = True Then
-            control.ToggleButton_Checked(control, New RoutedEventArgs)
+            ' fix: either call 'tgbtn_checked' OR use 'Handles tgbtn_checked', but not both,
+            ' else the checked Event is raised twice
+            ' control.ToggleButton_Checked(control, New RoutedEventArgs) -> not needed, Handles is used
             UpdateBackground(control)
             UpdateText(control)
             UpdateImage(control)
         Else
-            control.ToggleButton_Unchecked(control, New RoutedEventArgs)
+            'control.ToggleButton_Unchecked(control, New RoutedEventArgs)
             UpdateBackground(control)
             UpdateText(control)
             UpdateImage(control)

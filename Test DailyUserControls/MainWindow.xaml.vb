@@ -86,7 +86,9 @@
 #End Region
 
 #Region "Toggle button"
+    Private Sub ToggleButton1_Checked(sender As Object, e As RoutedEventArgs) Handles ToggleButton1.Checked
 
+    End Sub
 #End Region
 
 #Region "VU-Bar"
@@ -140,6 +142,7 @@
         tbKnobMsg.AppendText("---" & vbCrLf)
         tbKnobMsg.ScrollToEnd()
     End Sub
+
 #End Region
 
 
