@@ -177,5 +177,28 @@
 
     <!--#endregion-->
 
+    <!--#region DgTxtColX -->
+    <TextBlock x:Key="dsc_DgTxtColX" TextWrapping="Wrap">
+        <Bold>DataGridTextColumnX</Bold> is a CustomControl that adds TextAlignment and Color Properties to a DataGridTextColumn.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_DgTxtColX" TextWrapping="Wrap">
+        It can be used in a DataGrid when  
+        <Run Foreground="Red">AutoGenerateColumns</Run>
+         is set to 
+        <Run Foreground="Blue">False</Run>.
+        This control overwrites the CellStyle in code, therefore it is recommended to use the normal DataGridTextColumn 
+        when a Style is applied.
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_DgTxtColX" TextWrapping="Wrap">
+
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_DgTxtColX" TextWrapping="Wrap">
+
+    </TextBlock>
+
+    <!--#endregion-->
 
 </ResourceDictionary>

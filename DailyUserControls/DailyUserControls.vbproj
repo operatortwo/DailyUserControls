@@ -61,6 +61,7 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\DataGridTextColumnX.vb" />
     <Compile Include="SidePanel\SidePanel.xaml.vb">
       <DependentUpon>SidePanel.xaml</DependentUpon>
     </Compile>

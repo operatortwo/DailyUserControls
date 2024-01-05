@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RgbData.vb" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -166,6 +167,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\VU_20_Segemnts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\WPFCustomControl_48x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

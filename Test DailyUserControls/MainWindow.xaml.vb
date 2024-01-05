@@ -1,4 +1,6 @@
-﻿Class MainWindow
+﻿Imports DailyUserControls
+
+Class MainWindow
 
     Private Shared VU_RefreshTimer As New Timers.Timer(50)       ' 50 ms Screen Timer (= 20 FPS)
 
@@ -144,6 +146,42 @@
     End Sub
 
 #End Region
+
+#Region "DataGridTextColumnX"
+
+    Private BrushCounter As Integer
+    Private DgBackBrushes() As Brush = {Brushes.LightGoldenrodYellow, Brushes.LightGreen, Brushes.LightBlue, Brushes.White}
+    Private DgSelBrushes() As Brush = {Brushes.Violet, Brushes.Blue, Brushes.ForestGreen, Brushes.Black}
+
+    Private Sub btnSetDgColOptionsByCode_Click(sender As Object, e As RoutedEventArgs) Handles btnSetDgColOptionsByCode.Click
+
+        Try
+            Dim dg As DataGrid = DataGrid1
+
+            For Each col In dg.Columns
+                ' only if col is GetType(DataGridTextColumnX)
+                Dim colx = TryCast(col, DataGridTextColumnX)
+                If colx IsNot Nothing Then
+                    colx.Background = DgBackBrushes(BrushCounter)
+                    colx.FocusedBackground = Brushes.Yellow
+                    colx.FocusedForeground = Brushes.Red
+                    colx.SelectedBackground = DgSelBrushes(BrushCounter)
+                    colx.SelectedForeground = SystemColors.HighlightTextBrush
+                End If
+            Next
+
+            BrushCounter += 1
+            If BrushCounter >= 4 Then
+                BrushCounter = 0
+            End If
+
+        Catch
+        End Try
+
+    End Sub
+
+#End Region
+
 
 
 End Class
