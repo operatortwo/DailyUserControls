@@ -61,7 +61,7 @@ A CustomControl that adds TextAlignment and Color Properties to a DataGridTextCo
 
 ##
 #### CheckboxFilterList
-
+![CheckboxFilterList](https://github.com/operatortwo/DailyUserControls/assets/88147904/7db2466d-a989-47b9-a2f4-1dbec5e7aa4f)  
 Based on a List or an Enum the user can select items in a Listbox Window.
 The control then returns a list of the selected items.
 
