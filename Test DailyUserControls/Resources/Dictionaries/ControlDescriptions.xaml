@@ -201,4 +201,26 @@
 
     <!--#endregion-->
 
+    <!--#region CheckboxFilterList -->
+    <TextBlock x:Key="dsc_CbFilterList" TextWrapping="Wrap">
+ <Bold>Checkbox Filter List</Bold> Based on a List or an enum the user can select items in a Listbox Window.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_CbFilterList" TextWrapping="Wrap">
+ With little effort in the main window, a list of filter criteria can be created.
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_CbFilterList" TextWrapping="Wrap">
+ Input: <LineBreak/> 
+ Enum, Value List or List(Of T)
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_CbFilterList" TextWrapping="Wrap">
+ Output: <LineBreak/>
+ List of SelectedItems
+ SelectionChanged Event
+    </TextBlock>
+
+    <!--#endregion-->
+
 </ResourceDictionary>

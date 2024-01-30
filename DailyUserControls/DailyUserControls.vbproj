@@ -61,45 +61,60 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\DataGridTextColumnX.vb" />
+    <Compile Include="Controls\Data\DataGridTextColumnX.vb" />
+    <Compile Include="Controls\Data\Filter\CheckboxFilterList.xaml.vb">
+      <DependentUpon>CheckboxFilterList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Data\Filter\CheckboxFilterListSub.vb" />
+    <Compile Include="Controls\Data\Filter\FilterListWindow.xaml.vb">
+      <DependentUpon>FilterListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SidePanel\SidePanel.xaml.vb">
       <DependentUpon>SidePanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="SidePanel\SidePanelButton.xaml.vb">
       <DependentUpon>SidePanelButton.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\ImageButton.xaml">
+    <Page Include="Controls\Common\ImageButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="Controls\ImageButton.xaml.vb">
+    <Compile Include="Controls\Common\ImageButton.xaml.vb">
       <DependentUpon>ImageButton.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\Knob.xaml">
+    <Page Include="Controls\Data\Filter\CheckboxFilterList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\NumericUpDown.xaml">
+    <Page Include="Controls\Data\Filter\FilterListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ProgressCircle.xaml">
+    <Page Include="Controls\Graphic\Knob.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\SelectorButton.xaml">
+    <Page Include="Controls\Common\NumericUpDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\SmallSlider.xaml">
+    <Page Include="Controls\Graphic\ProgressCircle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ToggleButton.xaml">
+    <Page Include="Controls\Common\SelectorButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\VU_Bar.xaml">
+    <Page Include="Controls\Common\SmallSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Common\ToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Graphic\VU_Bar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,25 +147,25 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Knob.xaml.vb">
+    <Compile Include="Controls\Graphic\Knob.xaml.vb">
       <DependentUpon>Knob.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NumericUpDown.xaml.vb">
+    <Compile Include="Controls\Common\NumericUpDown.xaml.vb">
       <DependentUpon>NumericUpDown.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProgressCircle.xaml.vb">
+    <Compile Include="Controls\Graphic\ProgressCircle.xaml.vb">
       <DependentUpon>ProgressCircle.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SelectorButton.xaml.vb">
+    <Compile Include="Controls\Common\SelectorButton.xaml.vb">
       <DependentUpon>SelectorButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SmallSlider.xaml.vb">
+    <Compile Include="Controls\Common\SmallSlider.xaml.vb">
       <DependentUpon>SmallSlider.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ToggleButton.xaml.vb">
+    <Compile Include="Controls\Common\ToggleButton.xaml.vb">
       <DependentUpon>ToggleButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\VU_Bar.xaml.vb">
+    <Compile Include="Controls\Graphic\VU_Bar.xaml.vb">
       <DependentUpon>VU_Bar.xaml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb">
@@ -184,6 +199,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="xDevelopment\Private\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Filter_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FilterDropdown_x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

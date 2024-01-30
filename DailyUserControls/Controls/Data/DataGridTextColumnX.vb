@@ -25,8 +25,7 @@ Public Class DataGridTextColumnX
 
     Public Shared Shadows ReadOnly BackgroundProperty As DependencyProperty = DependencyProperty.Register("Background",
             GetType(Brush), GetType(DataGridTextColumnX),
-            New UIPropertyMetadata(Brushes.AliceBlue,
-            New PropertyChangedCallback(AddressOf OnBackgroundChanged)))
+            New UIPropertyMetadata(New PropertyChangedCallback(AddressOf OnBackgroundChanged)))
     <Description("Background brush"), Category("Column Options")>
     Public Property Background As Brush
         Get

@@ -55,6 +55,15 @@ Visualizes progress or angle.
 ![Knob](https://user-images.githubusercontent.com/88147904/236564934-270e07cd-a5e8-4b54-b6fe-ae467bf36556.PNG)  
 Is a value control that simulates a potentiometer.
 
+##
+#### DataGridTextColumnX
+A CustomControl that adds TextAlignment and Color Properties to a DataGridTextColumn
+
+##
+#### CheckboxFilterList
+
+Based on a List or an Enum the user can select items in a Listbox Window.
+The control then returns a list of the selected items.
 
 ##
 #### Side Panel

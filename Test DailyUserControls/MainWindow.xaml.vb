@@ -5,14 +5,20 @@ Class MainWindow
     Private Shared VU_RefreshTimer As New Timers.Timer(50)       ' 50 ms Screen Timer (= 20 FPS)
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
-        Dim appver As String = My.Application.Info.Version.ToString(3)
+        'Dim appver As String = My.Application.Info.Version.ToString(3)
+        Dim appver As String = My.Application.Info.Version.ToString
         Dim libname As Reflection.AssemblyName = GetType(DailyUserControls.ImageButton).Assembly.GetName()
-        Dim libver As String = libname.Version.ToString(3)
+        Dim libver As String = libname.Version.ToString
         Me.Title = Title & " V " & appver & " - Library V " & libver
 
         AddHandler VU_RefreshTimer.Elapsed, AddressOf VU_RefreshTimer_Tick
 
         tiImageButton.Focus()
+
+        '--- Data to CheckboxFilterList
+        cbflistE.ItemList = [Enum].GetValues(GetType(Months))
+        cbflistVal.ItemList = ValueList
+        cbflistRef.ItemList = ColorList
 
     End Sub
 
@@ -177,6 +183,10 @@ Class MainWindow
 
         Catch
         End Try
+
+    End Sub
+
+    Private Sub cbflistE_SelectionChanged(sender As Object, e As RoutedEventArgs) Handles cbflistE.SelectionChanged
 
     End Sub
 

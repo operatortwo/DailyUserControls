@@ -3,6 +3,8 @@
 
 Date			Version		Changes
 ------------------------------------------------	
+2024 01	29		1.0.4.0		Added CheckboxFilterList
+2024 01 07		1.0.3.1		DataGridTextColumnX: removed default value for background
 2024 01	05		1.0.3.0		Added DataGridTextColumnX (CustomControl)
 2023 09 05		1.0.2.1		ToggleButton: fixed bug: checked/unchecked Event was raised twice
 2023 05 26		1.0.2.0		VU_Bar: improvement, allow Gradient and Image for bar
