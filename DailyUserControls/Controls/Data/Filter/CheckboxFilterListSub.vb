@@ -18,15 +18,18 @@ Partial Public Class CheckboxFilterList
     ''' <param name="NewValue"></param>
     Private Shared Sub ItemListChanged(control As CheckboxFilterList, NewValue As Object)
 
-        If NewValue Is Nothing Then
-            control.AllItems.Clear()
-            control.SelectedItems.Clear()
-            Exit Sub
-        End If
-
         '--- remove old items, if any
         control.AllItems.Clear()
         control.SelectedItems.Clear()
+
+        control.DoFilter = False            ' reset Image on the Button to 'not Filtered' (all selected)
+
+        If NewValue Is Nothing Then Exit Sub                        ' exit when NewValue is Nothing
+
+        Dim nv As IEnumerable = TryCast(NewValue, IEnumerable)
+        If nv Is Nothing Then Exit Sub                              ' exit when TryCast failed (not IEnumerable)
+        Dim enu As IEnumerator = nv.GetEnumerator
+        If enu.MoveNext = False Then Exit Sub           ' exit when count = 0, else the next codeline fails
 
         ' get item Type
         Dim tp As Type = NewValue(0).GetType()

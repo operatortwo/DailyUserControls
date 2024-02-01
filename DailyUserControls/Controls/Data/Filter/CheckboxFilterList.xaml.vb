@@ -152,6 +152,17 @@ Public Class CheckboxFilterList
 #End Region
 
 #Region "List"
+    ''' <summary>
+    ''' Required when the existing item list object is used, but one or more items in the list have been added or removed. 
+    ''' This has the same effect as consecutively detach and attach the ItemList object to the control.
+    ''' </summary>
+    Public Sub ItemListUpdate()
+        Dim itlist As IEnumerable = GetValue(ItemListProperty)
+        If itlist IsNot Nothing Then
+            SetValue(ItemListProperty, Nothing)
+            SetValue(ItemListProperty, itlist)
+        End If
+    End Sub
 
     ' appears in code
     ''' <summary>
@@ -206,6 +217,9 @@ Public Class CheckboxFilterList
     Private Shared IsFilteredImage = New BitmapImage(urisfi)
 
     Private _DoFilter As Boolean
+    ''' <summary>
+    ''' Determines which image is displayed on the button. True: IsFilteredImage, False: CanFilterImage
+    ''' </summary>    
     Friend Property DoFilter As Boolean
         Get
             Return _DoFilter
