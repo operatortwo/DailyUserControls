@@ -157,11 +157,7 @@ Public Class CheckboxFilterList
     ''' This has the same effect as consecutively detach and attach the ItemList object to the control.
     ''' </summary>
     Public Sub ItemListUpdate()
-        Dim itlist As IEnumerable = GetValue(ItemListProperty)
-        If itlist IsNot Nothing Then
-            SetValue(ItemListProperty, Nothing)
-            SetValue(ItemListProperty, itlist)
-        End If
+        ItemListChanged(Me, ItemList)
     End Sub
 
     ' appears in code

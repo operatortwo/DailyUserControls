@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------	
+2024 02 02		1.0.4.2		CheckboxFilterList: improved 'ItemListUpdate' Sub
 2024 02 01		1.0.4.1		little fixes in CheckboxFilterList
 2024 01	29		1.0.4.0		Added CheckboxFilterList
 2024 01 07		1.0.3.1		DataGridTextColumnX: removed default value for background
