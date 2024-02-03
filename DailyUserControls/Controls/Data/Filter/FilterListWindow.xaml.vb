@@ -96,7 +96,6 @@
 
     Public Sub MySetFocus()
         If Owner IsNot Nothing Then
-            Owner.Topmost = True
             Owner.Activate()
             Owner.Focus()
         End If
