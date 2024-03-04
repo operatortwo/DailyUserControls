@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------	
+2024 03 04		1.0.4.4		CheckboxFilterList: fixes on FilterListWindow owner
 2024 02 03		1.0.4.3		CheckboxFilterList: important fix! removed Topmost setting when returning from Filter list
 2024 02 02		1.0.4.2		CheckboxFilterList: improved 'ItemListUpdate' Sub
 2024 02 01		1.0.4.1		little fixes in CheckboxFilterList

@@ -87,7 +87,9 @@
             control.RaiseSelectionChangedEvent()
         End If
 
-        Owner.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, New SetFocusDelegate(AddressOf MySetFocus))
+        If Owner IsNot Nothing Then
+            Owner.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, New SetFocusDelegate(AddressOf MySetFocus))
+        End If
 
     End Sub
 

@@ -381,7 +381,15 @@ Public Class CheckboxFilterList
         pt = Me.PointToScreen(New Point)
 
         Dim win As New FilterListWindow(Me)
-        win.Owner = Application.Current.MainWindow         ' problems in non debug when owner is set
+
+        ' Fix if the control runs in a WinForms ElementHost (owner will be nothing)
+        If Application.Current IsNot Nothing Then
+            Dim mwin As Window = Application.Current.MainWindow
+            If mwin IsNot Nothing Then
+                win.Owner = Application.Current.MainWindow
+            End If
+        End If
+
         win.WindowStartupLocation = WindowStartupLocation.Manual
         win.Left = pt.X / ScreenScale
         win.Top = (pt.Y + Me.ActualHeight + 2) / ScreenScale
