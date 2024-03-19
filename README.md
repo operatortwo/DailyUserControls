@@ -89,9 +89,10 @@ There are no docking or other functions. Such projects can be found by lookin fo
 Some value controls have a *SetValueSilent* method. This is useful in some special cases, generally when user and program code can set the value of the control.
 *SetValueSilent* causes the control's value to be updated, but does not raises a ValueChanged event.
 #### Known issues
-There seems to be still some bugs in VS 2022 17.5.5  
-One concerns creating a ValueChanged handler by double-clicking the event in the designer.
-It is not due to the user controls but can also be observed with the built-in slider control. An incomplete handler for ValueChanged is inserted:
+There seems to be a bug in VS 2022 17.5.5+  
+and also in VS 2019 when *Preview  features* */New WPF-XAML Designer for .NET Framework* is checked:  
+When creating a ValueChanged handler by double-clicking the event in the designer, an incomplete handler for ValueChanged is inserted.
+It is not due to the user controls but can also be observed with the built-in slider control.
 
 ```
 Private Sub Slider1_ValueChanged(sender As Object, e As RoutedPropertyChangedEventArgs(Of T))
