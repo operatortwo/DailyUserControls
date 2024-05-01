@@ -14,6 +14,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "xTest SidePanel", "xTest Si
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "xTest SidePanel Tab", "xTest SidePanel Tab\xTest SidePanel Tab.vbproj", "{C3079A54-F64F-40C8-AF40-622BB4F1E01A}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "xTest TabControlExpander", "xTest TabControlExpander\xTest TabControlExpander.vbproj", "{EC4621F8-69BE-4219-B1F7-4895C40C764D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{C3079A54-F64F-40C8-AF40-622BB4F1E01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3079A54-F64F-40C8-AF40-622BB4F1E01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3079A54-F64F-40C8-AF40-622BB4F1E01A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC4621F8-69BE-4219-B1F7-4895C40C764D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC4621F8-69BE-4219-B1F7-4895C40C764D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC4621F8-69BE-4219-B1F7-4895C40C764D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC4621F8-69BE-4219-B1F7-4895C40C764D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,69 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:xTest_TabControlExpander"
+        xmlns:duc="clr-namespace:DailyUserControls;assembly=DailyUserControls"
+        mc:Ignorable="d"
+        Title="xTest TabContolExpander" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Tab 1">
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF98745B" Offset="1"/>
+                            <GradientStop Color="White" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+
+
+                    <duc:TabControlExpander Height="200" Margin="116,126,484,0" Background="#FFE6E6E6" VerticalAlignment="Top" HeaderPanelBackground="#FFFAFDCD" HelpButtonClick="TabControlExpander_HelpButtonClick" HelpButtonVisibility="Visible">
+                        <TabItem x:Name="Ti1" Header="Tab 1">
+                            <Grid Background="#FFC8DEEF">
+                                <Button x:Name="btnTest1" Content="Btn 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="69,49,0,0" Width="40"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="Ti2" Header="Tab 2">
+                            <Grid Background="#FFE2B7B7">
+
+                            </Grid>
+                        </TabItem>
+                    </duc:TabControlExpander>
+                    <TextBox HorizontalAlignment="Left" Margin="277,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="When the Collapse Button is checked &#xD;&#xA;the Content Panel is only expanded&#xD;&#xA;when the Tabcontrol has the Focus&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="39,32,0,0" VerticalAlignment="Top" Height="60" Width="211"/>
+
+                    <StackPanel Margin="447,71,106,80" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                        <duc:TabControlExpander Height="150">
+                            <TabItem Header="Tab 1">
+                                <Grid Background="#FFFFEBD9">
+                                    <Label Content="Content of Tab 1" HorizontalAlignment="Left" Margin="69,0,0,0" VerticalAlignment="Center"/>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Tab 2">
+                                <Grid Background="#FFF0FFE7">
+                                    <Label Content="Content of Tab 2" HorizontalAlignment="Left" Margin="69,0,0,0" VerticalAlignment="Center"/>
+                                </Grid>
+                            </TabItem>
+                        </duc:TabControlExpander>
+
+                        <Grid Height="220" Background="#FFD5E3FF">
+                            <Label Content="Stacked Grid 1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,32,0,0"/>
+                            <Ellipse Width="30" Height="30" Margin="28,28,0,162" Stroke="#FF071A29" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tab 2">
+                <Grid Background="#FFEDEDE5">
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
+
+    </Grid>
+</Window>
