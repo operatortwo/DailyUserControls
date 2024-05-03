@@ -21,31 +21,36 @@ Public Class ImageButton
     Public Enum Location
         Left
         Right
+        Top
+        Bottom
     End Enum
 
 #Region "Appearance"
 
-    Public Shared Shadows ReadOnly BackgroundProperty As DependencyProperty = DependencyProperty.Register("Background", GetType(Brush), GetType(ImageButton), New UIPropertyMetadata(Brushes.LightGray))
+    ' V 1.0.5.1
+    ' the following prevents updating the color in design-time with VS2019 --> commented out
+    ' --> UserControl already has a Background and a Foreground Property, no sense to define it again.
+    'Public Shared Shadows ReadOnly BackgroundProperty As DependencyProperty = DependencyProperty.Register("Background", GetType(Brush), GetType(ImageButton), New UIPropertyMetadata(Brushes.LightGray))
 
-    Public Overloads Property Background As Brush
-        Get
-            Return CType(GetValue(BackgroundProperty), Brush)
-        End Get
-        Set(ByVal value As Brush)
-            SetValue(BackgroundProperty, value)
-        End Set
-    End Property
+    'Public Overloads Property Background As Brush
+    '    Get
+    '        Return CType(GetValue(BackgroundProperty), Brush)
+    '    End Get
+    '    Set(ByVal value As Brush)
+    '        SetValue(BackgroundProperty, value)
+    '    End Set
+    'End Property
 
-    Public Shared ReadOnly ImgBtn_ForegroundProperty As DependencyProperty = DependencyProperty.Register("Foreground", GetType(Brush), GetType(ImageButton), New UIPropertyMetadata(Brushes.Black))
+    'Public Shared ReadOnly ImgBtn_ForegroundProperty As DependencyProperty = DependencyProperty.Register("Foreground", GetType(Brush), GetType(ImageButton), New UIPropertyMetadata(Brushes.Black))
 
-    Public Overloads Property Foreground As Brush
-        Get
-            Return CType(GetValue(ImgBtn_ForegroundProperty), Brush)
-        End Get
-        Set(ByVal value As Brush)
-            SetValue(ImgBtn_ForegroundProperty, value)
-        End Set
-    End Property
+    'Public Overloads Property Foreground As Brush
+    '    Get
+    '        Return CType(GetValue(ImgBtn_ForegroundProperty), Brush)
+    '    End Get
+    '    Set(ByVal value As Brush)
+    '        SetValue(ImgBtn_ForegroundProperty, value)
+    '    End Set
+    'End Property
 
     Public Shared ReadOnly ButtonPressedBackgroundProperty As DependencyProperty = DependencyProperty.Register("ButtonPressedBackground", GetType(Color), GetType(ImageButton), New UIPropertyMetadata(Colors.LightGreen))
     ' appears in code
@@ -128,21 +133,56 @@ Public Class ImageButton
         Dim control As ImageButton = CType(d, ImageButton)
         Dim loc As Location = CType((d.GetValue(ImageLocationProperty)), Location)
 
-        If loc = Location.Left Then
-            control.Image1.SetValue(Grid.ColumnProperty, 0)
-            control.Viewbox1.SetValue(Grid.ColumnProperty, 1)
+        Select Case loc
+            Case Location.Left
+                control.Image1.SetValue(Grid.RowProperty, 0)
+                control.Image1.SetValue(Grid.ColumnProperty, 0)
+                control.Viewbox1.SetValue(Grid.RowProperty, 0)
+                control.Viewbox1.SetValue(Grid.ColumnProperty, 1)
 
-            control.Grid2.ColumnDefinitions(1).Width = New GridLength(1, GridUnitType.Star)
-            control.Grid2.ColumnDefinitions(0).Width = New GridLength(1, GridUnitType.Auto)
+                control.Grid2.RowDefinitions(0).Height = New GridLength(1, GridUnitType.Star)
+                control.Grid2.RowDefinitions(1).Height = New GridLength(1, GridUnitType.Auto)
 
-        Else
-            control.Image1.SetValue(Grid.ColumnProperty, 1)
-            control.Viewbox1.SetValue(Grid.ColumnProperty, 0)
+                control.Grid2.ColumnDefinitions(0).Width = New GridLength(1, GridUnitType.Auto)
+                control.Grid2.ColumnDefinitions(1).Width = New GridLength(1, GridUnitType.Star)
 
-            control.Grid2.ColumnDefinitions(0).Width = New GridLength(1, GridUnitType.Star)
-            control.Grid2.ColumnDefinitions(1).Width = New GridLength(1, GridUnitType.Auto)
+            Case Location.Right
+                control.Image1.SetValue(Grid.RowProperty, 0)
+                control.Image1.SetValue(Grid.ColumnProperty, 1)
+                control.Viewbox1.SetValue(Grid.RowProperty, 0)
+                control.Viewbox1.SetValue(Grid.ColumnProperty, 0)
 
-        End If
+                control.Grid2.RowDefinitions(0).Height = New GridLength(1, GridUnitType.Star)
+                control.Grid2.RowDefinitions(1).Height = New GridLength(1, GridUnitType.Auto)
+
+                control.Grid2.ColumnDefinitions(0).Width = New GridLength(1, GridUnitType.Star)
+                control.Grid2.ColumnDefinitions(1).Width = New GridLength(1, GridUnitType.Auto)
+
+            Case Location.Top
+                control.Image1.SetValue(Grid.RowProperty, 0)
+                control.Image1.SetValue(Grid.ColumnProperty, 0)
+                control.Viewbox1.SetValue(Grid.RowProperty, 1)
+                control.Viewbox1.SetValue(Grid.ColumnProperty, 0)
+
+                control.Grid2.RowDefinitions(0).Height = New GridLength(1, GridUnitType.Star)
+                control.Grid2.RowDefinitions(1).Height = New GridLength(1, GridUnitType.Star)
+
+                control.Grid2.ColumnDefinitions(0).Width = New GridLength(1, GridUnitType.Star)
+                control.Grid2.ColumnDefinitions(1).Width = New GridLength(1, GridUnitType.Auto)
+
+            Case Location.Bottom
+                control.Image1.SetValue(Grid.RowProperty, 1)
+                control.Image1.SetValue(Grid.ColumnProperty, 0)
+                control.Viewbox1.SetValue(Grid.RowProperty, 0)
+                control.Viewbox1.SetValue(Grid.ColumnProperty, 0)
+
+                control.Grid2.RowDefinitions(0).Height = New GridLength(1, GridUnitType.Star)
+                control.Grid2.RowDefinitions(1).Height = New GridLength(1, GridUnitType.Star)
+
+                control.Grid2.ColumnDefinitions(0).Width = New GridLength(1, GridUnitType.Star)
+                control.Grid2.ColumnDefinitions(1).Width = New GridLength(1, GridUnitType.Auto)
+
+        End Select
 
         '--- or
         'Grid.SetColumn(control.Image1, 0)

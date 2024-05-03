@@ -40,13 +40,17 @@
     <Grid Background="{Binding Background, ElementName=userControl}">
         <Button x:Name="Button" BorderBrush="{x:Null}" Background="#00000000" Foreground="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Template="{DynamicResource ButtonControlTemplate}" >
             <Grid x:Name="Grid2" Margin="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Image x:Name="Image1" Source="{Binding Image, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Margin="{Binding ImageMargin, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"/>
                 <Viewbox x:Name="Viewbox1" Grid.Column="1" HorizontalAlignment="{Binding TextAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" >
-                    <TextBlock Text="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Margin="0" Padding="{Binding TextPadding, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Foreground="Black"/>
+                    <TextBlock Text="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Margin="0" Padding="{Binding TextPadding, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Foreground="{Binding Foreground, ElementName=userControl}"/>
                 </Viewbox>
             </Grid>
         </Button>

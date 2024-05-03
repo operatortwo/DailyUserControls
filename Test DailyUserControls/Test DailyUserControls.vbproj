@@ -171,5 +171,11 @@
   <ItemGroup>
     <Resource Include="Resources\Images\WPFCustomControl_48x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\go_down_x22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\go_up_x22.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

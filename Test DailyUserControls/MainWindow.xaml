@@ -47,6 +47,9 @@
                     <Border Height="40" Width="200" Margin="432,209,0,0" Background="#FFEFFFE5" BorderBrush="#FF4C64CB" BorderThickness="2" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <TextBlock x:Name="tblk_ImageButtonMsg" Margin="0" TextWrapping="Wrap" Text="- Message -" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
+                    <Label Content="Image alignment Top and Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="432,267,0,0"/>
+                    <duc:ImageButton Margin="445,301,0,0" HorizontalAlignment="Left" Width="83" Height="81" VerticalAlignment="Top" Text="On Top" Image="/Resources/Images/go_up_x22.png" ImageLocation="Top" Background="#FFC7F1B8" TextPadding="0,6,0,3" BorderBrush="#FF2E46A5" BorderThickness="0.5,0.5,0.5,0.5"/>
+                    <duc:ImageButton Margin="549,301,0,0" HorizontalAlignment="Left" Width="83" Height="80" VerticalAlignment="Top" Text="Bottom" Image="/Resources/Images/go_down_x22.png" ImageLocation="Bottom" TextPadding="0,2,0,10" BorderBrush="#FF2E46A5" BorderThickness="0.5,0.5,0.5,0.5" Background="#FFC7F1B8"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tiNumericUpDown" Header="Numeric UpDown" Background="{DynamicResource TabItemBackground1}">

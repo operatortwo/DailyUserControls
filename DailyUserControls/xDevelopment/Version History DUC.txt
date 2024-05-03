@@ -2,7 +2,9 @@
 ====================================
 
 Date			Version		Changes
-------------------------------------------------	
+------------------------------------------------
+2024 05 03		1.0.5.2		ImageButton: added Top and Bottom location for Image
+2024 05 03		1.0.5.1		ImageButton: removed Overloads Background and Foreground
 2024 05 01		1.0.5.0		Added TabControlExpander
 2024 03 04		1.0.4.4		CheckboxFilterList: fixes on FilterListWindow owner
 2024 02 03		1.0.4.3		CheckboxFilterList: important fix! removed Topmost setting when returning from Filter list
