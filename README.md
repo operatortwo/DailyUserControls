@@ -11,7 +11,8 @@ The test application is an important part of the project. On the one hand to pre
 ##
 #### Image Button
 ![ImageButton](https://user-images.githubusercontent.com/88147904/236563904-b4d02a48-60af-43fd-9e03-8d6ee09edc90.PNG)  
- Allows placing a text and an image on a button.
+ Allows placing a text and an image on a button. The image location can be set to left, right, top or bottom.
+ The view can be adjusted using *ImageMargin* and *TextPadding*.
  
 ##
 #### Numeric Up Down
@@ -70,6 +71,15 @@ The control then returns a list of the selected items.
 ![SidePanel](https://user-images.githubusercontent.com/88147904/236564981-e5dd04d4-f29e-4a35-98a6-0283e260c5d0.PNG)  
 A panel on the left side of the window which can contain SidePanelButtons, each associated with a tool window.
 There are no docking or other functions. Such projects can be found by lookin for *wpf avalondock*.
+
+##
+#### TabControlExpander
+
+A combination of TabControl and Expander.
+Since it wasn't possible to have named TabItem's
+(such as x:Name="Tab 1") in a UserControl, this control was created as a CustomControl.
+The basic function is inspired by the Ribbon Control: TabItems can be filled with controls and, if desired, the height of the TabControl can be reduced to the height of the header.  
+It is necessary to set a fixed height like: Height="150" and currently only TabStripPlacement TOP can be used.
 
 ##
 ### Notes
