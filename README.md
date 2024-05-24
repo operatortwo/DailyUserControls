@@ -74,7 +74,7 @@ There are no docking or other functions. Such projects can be found by lookin fo
 
 ##
 #### TabControlExpander
-
+![TabControlExpander](https://github.com/operatortwo/DailyUserControls/assets/88147904/1f424a6b-2d52-471d-a7a6-372abc70c024)  
 A combination of TabControl and Expander.
 Since it wasn't possible to have named TabItem's
 (such as x:Name="Tab 1") in a UserControl, this control was created as a CustomControl.
