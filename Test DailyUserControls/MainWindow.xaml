@@ -66,11 +66,19 @@
                     <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                     <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_NumericUpDown}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
                     <!-- Test Area -->
-                    <TextBox x:Name="tbNudMsg" HorizontalAlignment="Left" Margin="33,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Height="159" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                    <TextBox x:Name="tbNudMsg" HorizontalAlignment="Left" Margin="33,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="159" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
                     <duc:NumericUpDown x:Name="nud1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Height="50" Margin="33,176,0,0" MinimumValue="-10" MaximumValue="10" StepValue="0.25" DecimalPlaces="2" Value="1" />
-                    <duc:NumericUpDown x:Name="nud2" Margin="271,258,0,0"/>
-                    <Button x:Name="btnNudSilent" Content="SetValueSilent 5.5" Width="139" Margin="192,186,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" ToolTip="Special function to set the value without raising the ValueChanged event"/>
-                    <duc:NumericUpDown x:Name="nud3" HorizontalAlignment="Left" Margin="496,258,0,0" VerticalAlignment="Top"/>
+                    <duc:NumericUpDown x:Name="nud2" Margin="269,273,0,0"/>
+                    <Button x:Name="btnNudSilent" Content="SetValueSilent 5.5" Width="139" Margin="205,186,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" ToolTip="Special function to set the value without raising the ValueChanged event"/>
+                    <duc:NumericUpDown x:Name="nud3" HorizontalAlignment="Left" Margin="445,273,0,0" VerticalAlignment="Top" MaximumValue="10"/>
+                    <Label Content="10.00" HorizontalAlignment="Left" Margin="133,152,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                    <Label Content="-10.00" HorizontalAlignment="Left" Margin="126,231,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                    <Label Content="skip ValueChanged event" HorizontalAlignment="Left" Margin="197,162,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                    <Label Content="100" HorizontalAlignment="Left" Margin="317,249,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                    <Label Content="0" HorizontalAlignment="Left" Margin="328,308,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                    <Label Content="0" HorizontalAlignment="Left" Margin="504,308,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                    <Label Content="10" HorizontalAlignment="Left" Margin="500,249,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                    <Label Content="handles SpinUp/Down" HorizontalAlignment="Left" Margin="413,231,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
 
                 </Grid>
             </TabItem>

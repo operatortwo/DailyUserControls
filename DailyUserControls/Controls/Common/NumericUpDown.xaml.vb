@@ -257,27 +257,36 @@ Public Class NumericUpDown
 
 #Region "Control Region"
     Private Sub upButton_Click(ByVal sender As Object, ByVal e As EventArgs)
-
+        If Value = MaximumValue Then
+            RaiseSpinUpEvent()
+            Exit Sub
+        End If
         Value += StepValue
-
-        'Dim x As Double
-
-        'x = Value
-        'x = MinimumValue
-
     End Sub
 
     Private Sub downButton_Click(ByVal sender As Object, ByVal e As EventArgs)
+        If Value = MinimumValue Then
+            RaiseSpinDownEvent()
+            Exit Sub
+        End If
         Value -= StepValue
     End Sub
 
     Private Sub userControl_PreviewKeyDown(sender As Object, e As KeyEventArgs) Handles userControl.PreviewKeyDown
         If e.Key = Key.Up Then
+            e.Handled = True
+            If Value = MaximumValue Then
+                RaiseSpinUpEvent()
+                Exit Sub
+            End If
             Value += StepValue
-            e.Handled = True
         ElseIf e.Key = Key.Down Then
-            Value -= StepValue
             e.Handled = True
+            If Value = MinimumValue Then
+                RaiseSpinDownEvent()
+                Exit Sub
+            End If
+            Value -= StepValue
         End If
     End Sub
     Private Sub userControl_MouseWheel(sender As Object, e As MouseWheelEventArgs) Handles userControl.MouseWheel
@@ -287,11 +296,19 @@ Public Class NumericUpDown
         '   --> see also MouseWheelDeltaForOneLine (= 120)
 
         If e.Delta > 0 Then
+            If Value = MaximumValue Then
+                RaiseSpinUpEvent()
+                Exit Sub
+            End If
             Value += StepValue
         End If
 
         ' If the mouse wheel delta is negative, move the box down.
         If e.Delta < 0 Then
+            If Value = MinimumValue Then
+                RaiseSpinDownEvent()
+                Exit Sub
+            End If
             Value -= StepValue
         End If
 
@@ -313,6 +330,59 @@ Public Class NumericUpDown
     Private Sub userControl_MouseDown(sender As Object, e As MouseButtonEventArgs) Handles userControl.MouseDown
         Me.Focus()
     End Sub
+
+#Region "SpinUp/Down events"
+    Public Shared ReadOnly SpinUpEvent As RoutedEvent = EventManager.RegisterRoutedEvent("SpinUp", RoutingStrategy.Bubble, GetType(RoutedEventHandler), GetType(NumericUpDown))
+
+    ' Provide CLR accessors for the event
+    <Description("Occurs when the user wants to increase and the value is at maximum. This can be used to cascade multiple NumericUpDowns."), Category("Numeric UpDown")>   ' appears in VS property
+    Public Custom Event SpinUp As RoutedEventHandler
+        AddHandler(ByVal value As RoutedEventHandler)
+            Me.AddHandler(SpinUpEvent, value)
+        End AddHandler
+
+        RemoveHandler(ByVal value As RoutedEventHandler)
+            Me.RemoveHandler(SpinUpEvent, value)
+        End RemoveHandler
+
+        RaiseEvent(ByVal sender As Object, ByVal e As RoutedEventArgs)
+            Me.RaiseEvent(e)
+        End RaiseEvent
+    End Event
+
+    ' This method raises the SpinUp event
+    Private Sub RaiseSpinUpEvent()
+        Dim newEventArgs As New RoutedEventArgs(SpinUpEvent)
+        MyBase.RaiseEvent(newEventArgs)
+    End Sub
+
+
+    Public Shared ReadOnly SpinDownEvent As RoutedEvent = EventManager.RegisterRoutedEvent("SpinDown", RoutingStrategy.Bubble, GetType(RoutedEventHandler), GetType(NumericUpDown))
+
+    ' Provide CLR accessors for the event
+    <Description("Occurs when the user wants to decrease and the value is at minimum. This can be used to cascade multiple NumericUpDowns."), Category("Numeric UpDown")>   ' appears in VS property
+    Public Custom Event SpinDown As RoutedEventHandler
+        AddHandler(ByVal value As RoutedEventHandler)
+            Me.AddHandler(SpinDownEvent, value)
+        End AddHandler
+
+        RemoveHandler(ByVal value As RoutedEventHandler)
+            Me.RemoveHandler(SpinDownEvent, value)
+        End RemoveHandler
+
+        RaiseEvent(ByVal sender As Object, ByVal e As RoutedEventArgs)
+            Me.RaiseEvent(e)
+        End RaiseEvent
+    End Event
+
+    ' This method raises the SpinDown event
+    Private Sub RaiseSpinDownEvent()
+        Dim newEventArgs As New RoutedEventArgs(SpinDownEvent)
+        MyBase.RaiseEvent(newEventArgs)
+    End Sub
+
+#End Region
+
 #End Region
 
 #Region "TextBox Region"

@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------
+2024 07 17		1.0.5.3		NumericUpDown: added SpinUp/Down events
 2024 05 03		1.0.5.2		ImageButton: added Top and Bottom location for Image
 2024 05 03		1.0.5.1		ImageButton: removed Overloads Background and Foreground
 2024 05 01		1.0.5.0		Added TabControlExpander

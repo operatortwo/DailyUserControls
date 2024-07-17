@@ -52,9 +52,13 @@ Class MainWindow
         'e.Handled = True
     End Sub
 
+    Private Sub btnNudSilent_Click(sender As Object, e As RoutedEventArgs) Handles btnNudSilent.Click
+        nud1.SetValueSilent(5.5)
+    End Sub
+
     Private Sub nud2_ValueChanged(sender As Object, e As RoutedPropertyChangedEventArgs(Of Double)) Handles nud2.ValueChanged
         If tbNudMsg.LineCount > 200 Then tbNudMsg.Clear()
-        tbNudMsg.AppendText(e.NewValue & vbCrLf)
+        tbNudMsg.AppendText("nud2 value: " & e.NewValue & vbCrLf)
         tbNudMsg.ScrollToEnd()
     End Sub
 
@@ -63,8 +67,18 @@ Class MainWindow
         tbNudMsg.ScrollToEnd()
     End Sub
 
-    Private Sub btnNudSilent_Click(sender As Object, e As RoutedEventArgs) Handles btnNudSilent.Click
-        nud1.SetValueSilent(5.5)
+    Private Sub nud3_SpinUp(sender As Object, e As RoutedEventArgs) Handles nud3.SpinUp
+        If tbNudMsg.LineCount > 200 Then tbNudMsg.Clear()
+        tbNudMsg.AppendText("SpinUp Event => Min" & vbCrLf)
+        tbNudMsg.ScrollToEnd()
+        nud3.SetValueSilent(nud3.MinimumValue)
+    End Sub
+
+    Private Sub nud3_SpinDown(sender As Object, e As RoutedEventArgs) Handles nud3.SpinDown
+        If tbNudMsg.LineCount > 200 Then tbNudMsg.Clear()
+        tbNudMsg.AppendText("SpinDown Event => Max" & vbCrLf)
+        tbNudMsg.ScrollToEnd()
+        nud3.SetValueSilent(nud3.MaximumValue)
     End Sub
 
 #End Region
@@ -189,6 +203,8 @@ Class MainWindow
     Private Sub cbflistE_SelectionChanged(sender As Object, e As RoutedEventArgs) Handles cbflistE.SelectionChanged
 
     End Sub
+
+
 
 #End Region
 
