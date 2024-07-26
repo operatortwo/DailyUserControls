@@ -9,12 +9,14 @@ Public Class NumericUpDown
 
         ' Add any initialization after the InitializeComponent() call.
 
-        '- initial values when inserted to the window
-        Width = 75
-        Height = 30
-        HorizontalAlignment = HorizontalAlignment.Left
-        VerticalAlignment = VerticalAlignment.Top
-        Margin = New Thickness(140, 130, 0, 0)
+        '- initial values when inserted to the window (until 1.0.5.3)
+        ' default initial values concerning sizing should not be set here, it can restrict the use of the control,
+        ' f.e. it can prevent setting Alignment to stretch
+        'Width = 75
+        'Height = 30
+        'HorizontalAlignment = HorizontalAlignment.Left
+        'VerticalAlignment = VerticalAlignment.Top
+        'Margin = New Thickness(140, 130, 0, 0)
 
     End Sub
 
@@ -24,8 +26,7 @@ Public Class NumericUpDown
     Private Const DefaultStepValue As Double = 1
     Private Const DefaultDecimalPlaces As Integer = 0
     Private Const MaximumDecimalPlaces As Integer = 10
-
-    Public FocusBrush As New SolidColorBrush(Color.FromArgb(&HFF, &H56, &H9D, &HE5))
+    Private Const DefaultUpDownColMinWidth As Double = 25   ' adjustment for Grid Column with UpDown buttons. used together with 'Width="Auto"'
 
 #Region "Value Region"
 
@@ -255,6 +256,94 @@ Public Class NumericUpDown
 
 #End Region
 
+#Region "Appearance"
+
+    Public Shared ReadOnly TextBoxForegroundProperty As DependencyProperty = DependencyProperty.Register("TextBoxForeground", GetType(Brush), GetType(NumericUpDown), New UIPropertyMetadata(Brushes.Black))
+    ' appears in code
+    ''' <summary>
+    ''' Background of the TextBox
+    ''' </summary>
+    <Description("Foregroundground of the TextBox"), Category("Numeric UpDown")>   ' appears in VS property
+    Public Property TextBoxForeground As Brush
+        Get
+            Return CType(GetValue(TextBoxForegroundProperty), Brush)
+        End Get
+        Set(ByVal value As Brush)
+            SetValue(TextBoxForegroundProperty, value)
+        End Set
+    End Property
+
+    Public Shared ReadOnly TextBoxBackgroundProperty As DependencyProperty = DependencyProperty.Register("TextBoxBackground", GetType(Brush), GetType(NumericUpDown), New UIPropertyMetadata(Brushes.White))
+    ' appears in code
+    ''' <summary>
+    ''' Background of the TextBox
+    ''' </summary>
+    <Description("Background of the TextBox"), Category("Numeric UpDown")>   ' appears in VS property
+    Public Property TextBoxBackground As Brush
+        Get
+            Return CType(GetValue(TextBoxBackgroundProperty), Brush)
+        End Get
+        Set(ByVal value As Brush)
+            SetValue(TextBoxBackgroundProperty, value)
+        End Set
+    End Property
+
+    Private Shared ReadOnly DefaultFocusStrokeBrush As New SolidColorBrush(Color.FromArgb(&HFF, &H56, &H9D, &HE5))
+    Public Shared ReadOnly FocusStrokeBrushProperty As DependencyProperty = DependencyProperty.Register("FocusStrokeBrush", GetType(Brush), GetType(NumericUpDown), New UIPropertyMetadata(DefaultFocusStrokeBrush))
+    ''' <summary>
+    ''' Stroke Brush of the focus rectangle
+    ''' </summary>
+    <Description("Stroke Brush of the focus rectangle"), Category("Numeric UpDown")>
+    Public Property FocusStrokeBrush As Brush
+        Get
+            Return CType(GetValue(FocusStrokeBrushProperty), Brush)
+        End Get
+        Set(ByVal value As Brush)
+            SetValue(FocusStrokeBrushProperty, value)
+        End Set
+    End Property
+
+    Public Shared ReadOnly FocusStrokeThicknessProperty As DependencyProperty = DependencyProperty.Register("FocusStrokeThickness", GetType(Double), GetType(NumericUpDown), New UIPropertyMetadata(1.0))
+    ''' <summary>
+    ''' Stroke Thickness of the focus rectangle
+    ''' </summary>
+    <Description("Stroke Thickness of the focus rectangle"), Category("Numeric UpDown")>
+    Public Property FocusStrokeThickness As Double
+        Get
+            Return CType(GetValue(FocusStrokeThicknessProperty), Double)
+        End Get
+        Set(ByVal value As Double)
+            SetValue(FocusStrokeThicknessProperty, value)
+        End Set
+    End Property
+
+#End Region
+
+#Region "UpDown Column MinWidth"
+
+    Public Shared ReadOnly UpDownColMinWidthProperty As DependencyProperty = DependencyProperty.Register("UpDownColMinWidth", GetType(Double), GetType(NumericUpDown), New FrameworkPropertyMetadata(DefaultUpDownColMinWidth, Nothing, New CoerceValueCallback(AddressOf CoerceUpDownColMinWidth)))
+    <Description("Design adjustment for the Up/Dow buttons column. Default is 25"), Category("Numeric UpDown")>
+    Public Property UpDownColMinWidth() As Double
+        Get
+            Return CDbl(GetValue(UpDownColMinWidthProperty))
+        End Get
+        Set(ByVal value As Double)
+            SetValue(UpDownColMinWidthProperty, value)
+        End Set
+    End Property
+
+    Private Overloads Shared Function CoerceUpDownColMinWidth(ByVal d As DependencyObject, ByVal value As Object) As Object
+        Dim newValue As Double = CDbl(value)
+
+        If newValue < 0 Then
+            Return 0
+        End If
+
+        Return newValue
+    End Function
+
+#End Region
+
 #Region "Control Region"
     Private Sub upButton_Click(ByVal sender As Object, ByVal e As EventArgs)
         If Value = MaximumValue Then
@@ -265,6 +354,28 @@ Public Class NumericUpDown
     End Sub
 
     Private Sub downButton_Click(ByVal sender As Object, ByVal e As EventArgs)
+        If Value = MinimumValue Then
+            RaiseSpinDownEvent()
+            Exit Sub
+        End If
+        Value -= StepValue
+    End Sub
+
+    ''' <summary>
+    ''' Simulate UpButton_Click. This can be used for cascading controls.
+    ''' </summary>
+    Public Sub PushUpButton()
+        If Value = MaximumValue Then
+            RaiseSpinUpEvent()
+            Exit Sub
+        End If
+        Value += StepValue
+    End Sub
+
+    ''' <summary>
+    ''' Simulate DownButton_Click. This can be used for cascading controls.
+    ''' </summary>
+    Public Sub PushDownButton()
         If Value = MinimumValue Then
             RaiseSpinDownEvent()
             Exit Sub
@@ -314,13 +425,14 @@ Public Class NumericUpDown
 
     End Sub
     Private Sub userControl_GotFocus(sender As Object, e As RoutedEventArgs) Handles userControl.GotFocus
-        FocusRect.Stroke = FocusBrush
+        FocusRect.Stroke = FocusStrokeBrush
     End Sub
 
     Private Sub userControl_LostFocus(sender As Object, e As RoutedEventArgs) Handles userControl.LostFocus
         CheckInput()
         ' check and set value
-        FocusRect.Stroke = Brushes.Transparent
+        'FocusRect.Stroke = Brushes.Transparent
+        FocusRect.Stroke = Nothing
     End Sub
     Private Sub userControl_Loaded(sender As Object, e As RoutedEventArgs) Handles userControl.Loaded
         ' make sure value is shown at startup (if = default value)        
@@ -330,6 +442,13 @@ Public Class NumericUpDown
     Private Sub userControl_MouseDown(sender As Object, e As MouseButtonEventArgs) Handles userControl.MouseDown
         Me.Focus()
     End Sub
+    Private Sub upBotton_PreviewMouseDown(sender As Object, e As MouseButtonEventArgs) Handles upBotton.PreviewMouseDown
+        Focus()
+    End Sub
+    Private Sub downButton_PreviewMouseDown(sender As Object, e As MouseButtonEventArgs) Handles downButton.PreviewMouseDown
+        Focus()
+    End Sub
+
 
 #Region "SpinUp/Down events"
     Public Shared ReadOnly SpinUpEvent As RoutedEvent = EventManager.RegisterRoutedEvent("SpinUp", RoutingStrategy.Bubble, GetType(RoutedEventHandler), GetType(NumericUpDown))
@@ -390,7 +509,7 @@ Public Class NumericUpDown
         If e.Key = Key.Enter Then
             CheckInput()                    ' check and set value
 
-            Keyboard.Focus(ContentPresenter1)               ' set KeyboardFocus away from Textbox
+            Keyboard.Focus(ContentPresenter1)               ' set KeyboardFocus away from Textbox            
         End If
     End Sub
 
@@ -447,6 +566,19 @@ Public Class NumericUpDown
 
         TextBox1.Text = str
     End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #End Region

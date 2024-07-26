@@ -56,7 +56,7 @@
                 <Grid>
                     <!-- Description -->
                     <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
-                    <duc:NumericUpDown Margin="42,25,0,0" Background="#FF87CA94"/>
+                    <duc:NumericUpDown Margin="42,25,0,0" Background="#FF87CA94" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Height="27" TextBoxBackground="#FFD7FFCF" TextBoxForeground="#FF001BFF"/>
                     <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                     <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_NumericUpDown}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
                     <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
@@ -68,9 +68,9 @@
                     <!-- Test Area -->
                     <TextBox x:Name="tbNudMsg" HorizontalAlignment="Left" Margin="33,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="159" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
                     <duc:NumericUpDown x:Name="nud1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Height="50" Margin="33,176,0,0" MinimumValue="-10" MaximumValue="10" StepValue="0.25" DecimalPlaces="2" Value="1" />
-                    <duc:NumericUpDown x:Name="nud2" Margin="269,273,0,0"/>
+                    <duc:NumericUpDown x:Name="nud2" Margin="269,273,0,0" Width="75" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <Button x:Name="btnNudSilent" Content="SetValueSilent 5.5" Width="139" Margin="205,186,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" ToolTip="Special function to set the value without raising the ValueChanged event"/>
-                    <duc:NumericUpDown x:Name="nud3" HorizontalAlignment="Left" Margin="445,273,0,0" VerticalAlignment="Top" MaximumValue="10"/>
+                    <duc:NumericUpDown x:Name="nud3" HorizontalAlignment="Left" Margin="445,273,0,0" VerticalAlignment="Top" MaximumValue="10" Width="75" Height="30"/>
                     <Label Content="10.00" HorizontalAlignment="Left" Margin="133,152,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
                     <Label Content="-10.00" HorizontalAlignment="Left" Margin="126,231,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
                     <Label Content="skip ValueChanged event" HorizontalAlignment="Left" Margin="197,162,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
