@@ -223,4 +223,13 @@
 
     <!--#endregion-->
 
+    <!--#region Miscellaneous -->
+
+    <TextBlock x:Key="dsc_Miscellaneous" TextWrapping="Wrap">
+<Bold>Miscellaneous</Bold> <LineBreak/>
+    Various controls without own example Tab.
+    </TextBlock>
+
+    <!--#endregion-->
+
 </ResourceDictionary>

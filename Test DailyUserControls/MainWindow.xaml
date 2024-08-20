@@ -387,7 +387,17 @@
                     <ListBox x:Name="lbResult_cbflistRef" Width="100" Margin="511,270,0,0" Height="143" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=cbflistRef}" DisplayMemberPath="Name" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                 </Grid>
             </TabItem>
-
+            <TabItem x:Name="tiMisc" Header="Miscellaneous" Background="{DynamicResource TabItemBackground1}">
+                <Grid Focusable="True">
+                    <!-- Description -->
+                    <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                    <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                    <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_Miscellaneous}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                    <!-- ComboBox -->
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,179,0,0" TextWrapping="Wrap" Height="42"><Run Text="ComboBox with changeable"/><LineBreak/><Run Language="de-ch" Text="Background and BorderBrush"/></TextBlock>
+                    <duc:ComboBox Width="113" Height="22" HorizontalAlignment="Left" Margin="121,231,0,0" VerticalAlignment="Top" Background="#FFFFEDD7" BorderBrush="#FFF3A648" BorderThickness="1,1,1,1"/>
+                </Grid>
+            </TabItem>
 
         </TabControl>
 

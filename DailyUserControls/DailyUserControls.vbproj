@@ -61,6 +61,7 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Custon\ComboBox.vb" />
     <Compile Include="Controls\Custon\TabControlExpander.vb" />
     <Compile Include="Controls\Data\DataGridTextColumnX.vb" />
     <Compile Include="Controls\Data\Filter\CheckboxFilterList.xaml.vb">

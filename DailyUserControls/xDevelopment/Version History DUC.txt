@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------
+2024 08	19		1.0.5.7		Added ComboBox
 2024 07 26		1.0.5.6		NumericUpDown:added Focus Brush and Thickness property, some focus improvements
 2024 07 22		1.0.5.5		NumericUpDown: added TextBoxForeground/Background property
 2024 07 17		1.0.5.4		NumericUpDown: initial values removed, added buttom column MinWidth
