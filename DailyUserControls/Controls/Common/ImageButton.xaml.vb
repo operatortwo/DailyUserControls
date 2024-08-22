@@ -84,6 +84,44 @@ Public Class ImageButton
 
 #End Region
 
+#Region "Role"
+
+    Private Const IsCancelDescription = "Gets or sets a value that indicates whether a Button is a Cancel button. A user can activate the Cancel button by pressing the ESC key."
+
+    Public Shared ReadOnly IsCancelProperty As DependencyProperty = DependencyProperty.Register("IsCancel", GetType(Boolean), GetType(ImageButton))
+    ' appears in code
+    ''' <summary>
+    ''' Gets or sets a value that indicates whether a Button is a Cancel button. A user can activate the Cancel button by pressing the ESC key.
+    ''' </summary>
+    <Description(IsCancelDescription), Category("Common Properties")>   ' appears in VS property
+    Public Overloads Property IsCancel As Boolean
+        Get
+            Return GetValue(IsCancelProperty)
+        End Get
+        Set(ByVal value As Boolean)
+            SetValue(IsCancelProperty, value)
+        End Set
+    End Property
+
+    Private Const IsDefaultlDescription = "Gets or sets a value that indicates whether a Button is the default button. A user invokes the default button by pressing the ENTER key."
+
+    Public Shared ReadOnly IsDefaultlProperty As DependencyProperty = DependencyProperty.Register("IsDefault", GetType(Boolean), GetType(ImageButton))
+    ' appears in code
+    ''' <summary>
+    ''' Gets or sets a value that indicates whether a Button is the default button. A user invokes the default button by pressing the ENTER key.
+    ''' </summary>
+    <Description(IsDefaultlDescription), Category("Common Properties")>   ' appears in VS property
+    Public Overloads Property IsDefault As Boolean
+        Get
+            Return GetValue(IsDefaultlProperty)
+        End Get
+        Set(value As Boolean)
+            SetValue(IsDefaultlProperty, value)
+        End Set
+    End Property
+
+#End Region
+
 #Region "Image"
 
     Public Shared ReadOnly ImageProperty As DependencyProperty = DependencyProperty.Register("Image", GetType(ImageSource), GetType(ImageButton), New UIPropertyMetadata)

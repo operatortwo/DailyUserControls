@@ -38,7 +38,8 @@
         </ControlTemplate>
     </UserControl.Resources>
     <Grid Background="{Binding Background, ElementName=userControl}">
-        <Button x:Name="Button" BorderBrush="{x:Null}" Background="#00000000" Foreground="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Template="{DynamicResource ButtonControlTemplate}" >
+        <Button x:Name="Button" BorderBrush="{x:Null}" Background="#00000000" Foreground="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Template="{DynamicResource ButtonControlTemplate}"
+            IsCancel="{Binding IsCancel, ElementName=userControl}" IsDefault="{Binding IsDefault, ElementName=userControl}">
             <Grid x:Name="Grid2" Margin="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
