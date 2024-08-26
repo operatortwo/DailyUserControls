@@ -1,0 +1,261 @@
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <RootNamespace>DailyUserControls</RootNamespace>
+    <AssemblyName>DailyUserControls</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <Deterministic>true</Deterministic>
+    <ProjectGuid>{A37681E9-38FB-48E6-B2E6-1200CBA74725}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>true</IncrementalBuild>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>DailyUserControls.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>false</IncrementalBuild>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>DailyUserControls.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\Custon\ComboBox.vb" />
+    <Compile Include="Controls\Custon\TabControlExpander.vb" />
+    <Compile Include="Controls\Data\DataGridTextColumnX.vb" />
+    <Compile Include="Controls\Data\Filter\CheckboxFilterList.xaml.vb">
+      <DependentUpon>CheckboxFilterList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Data\Filter\CheckboxFilterListSub.vb" />
+    <Compile Include="Controls\Data\Filter\FilterListWindow.xaml.vb">
+      <DependentUpon>FilterListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SidePanel\SidePanel.xaml.vb">
+      <DependentUpon>SidePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SidePanel\SidePanelButton.xaml.vb">
+      <DependentUpon>SidePanelButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MessageWindow.xaml.vb">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\QuestionWindow.xaml.vb">
+      <DependentUpon>QuestionWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\Common\ImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Controls\Common\ImageButton.xaml.vb">
+      <DependentUpon>ImageButton.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\Data\Filter\CheckboxFilterList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Data\Filter\FilterListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Graphic\Knob.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Common\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Graphic\ProgressCircle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Common\SelectorButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Common\SmallSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Common\ToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Graphic\VU_Bar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SidePanel\SidePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SidePanel\SidePanelButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\TabControlExpander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\QuestionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="System.Threading.Tasks" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Shapes" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Navigation" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\Graphic\Knob.xaml.vb">
+      <DependentUpon>Knob.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\NumericUpDown.xaml.vb">
+      <DependentUpon>NumericUpDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Graphic\ProgressCircle.xaml.vb">
+      <DependentUpon>ProgressCircle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\SelectorButton.xaml.vb">
+      <DependentUpon>SelectorButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\SmallSlider.xaml.vb">
+      <DependentUpon>SmallSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Common\ToggleButton.xaml.vb">
+      <DependentUpon>ToggleButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Graphic\VU_Bar.xaml.vb">
+      <DependentUpon>VU_Bar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xDevelopment\Version History DUC.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xDevelopment\Version History Test DUC.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="xDevelopment\Private\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Filter_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FilterDropdown_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\StatusHelp_20x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\Error_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\Information_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\StatusOk_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\Warning_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\Question_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\Cancel_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\NotOkGray_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\Ok_g_x32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

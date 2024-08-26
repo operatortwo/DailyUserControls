@@ -1,0 +1,35 @@
+﻿Version History of DailyUserControls
+====================================
+
+Date			Version		Changes
+------------------------------------------------
+2024 10 30		1.0.8.0		Release
+2024 10 29		1.0.7.3		ImageButton: added default border
+2024 10 17		1.0.7.2		added QuestionWindow
+2024 10 15		1.0.7.1		ImageButton: Grid2 Margin 2 -> 0 to increase text size
+2024 09	23		1.0.7.0		added MessageWindow
+2024 09 10		1.0.6.0		removed initial size settings in user controls to regain full control over sizing
+2024 09 02		1.0.5.9		small slider: fix to allow negative MinimumValue
+2024 08 22		1.0.5.8		ImageButton: added IsCancel and IsDefault property
+2024 08	19		1.0.5.7		Added ComboBox
+2024 07 26		1.0.5.6		NumericUpDown:added Focus Brush and Thickness property, some focus improvements
+2024 07 22		1.0.5.5		NumericUpDown: added TextBoxForeground/Background property
+2024 07 17		1.0.5.4		NumericUpDown: initial values removed, added buttom column MinWidth
+2024 07 17		1.0.5.3		NumericUpDown: added SpinUp/Down events
+2024 05 03		1.0.5.2		ImageButton: added Top and Bottom location for Image
+2024 05 03		1.0.5.1		ImageButton: removed Overloads Background and Foreground
+2024 05 01		1.0.5.0		Added TabControlExpander
+2024 03 04		1.0.4.4		CheckboxFilterList: fixes on FilterListWindow owner
+2024 02 03		1.0.4.3		CheckboxFilterList: important fix! removed Topmost setting when returning from Filter list
+2024 02 02		1.0.4.2		CheckboxFilterList: improved 'ItemListUpdate' Sub
+2024 02 01		1.0.4.1		little fixes in CheckboxFilterList
+2024 01	29		1.0.4.0		Added CheckboxFilterList
+2024 01 07		1.0.3.1		DataGridTextColumnX: removed default value for background
+2024 01	05		1.0.3.0		Added DataGridTextColumnX (CustomControl)
+2023 09 05		1.0.2.1		ToggleButton: fixed bug: checked/unchecked Event was raised twice
+2023 05 26		1.0.2.0		VU_Bar: improvement, allow Gradient and Image for bar
+2023 05 24		1.0.1.0		small slider: added LeftRightLook property
+2023 05 04		1.0.0.0		initial release
+
+
+
