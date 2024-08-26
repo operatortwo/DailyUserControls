@@ -1,0 +1,56 @@
+﻿<UserControl x:Name="userControl" x:Class="ImageButton" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DailyUserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="120" Background="#FFE6E6E6">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="ButtonPressedBackground" Color="{Binding ButtonPressedBackground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"/>
+        <SolidColorBrush x:Key="ButtonPressedBorder" Color="{Binding ButtonPressedBorder, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"/>
+        <SolidColorBrush x:Key="MouseOverBackground" Color="{Binding MouseOverBackground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" />
+        <SolidColorBrush x:Key="MouseOverBorder" Color="{Binding MouseOverBorder, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" />
+        <ControlTemplate x:Key="ButtonControlTemplate" TargetType="{x:Type Button}">
+            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsDefaulted" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource MouseOverBackground}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource MouseOverBorder}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource ButtonPressedBackground}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ButtonPressedBorder}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                    <Setter Property="Foreground" Value="#FF838383"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="Grid1" Background="{Binding Background, ElementName=userControl}">
+        <Button x:Name="Button" BorderBrush="{x:Null}" Background="#00000000" Foreground="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Template="{DynamicResource ButtonControlTemplate}"
+            IsCancel="{Binding IsCancel, ElementName=userControl}" IsDefault="{Binding IsDefault, ElementName=userControl}">
+            <Grid x:Name="Grid2" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Image1" Source="{Binding Image, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Margin="{Binding ImageMargin, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"/>
+                <Viewbox x:Name="Viewbox1" Grid.Column="1" HorizontalAlignment="{Binding TextAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" >
+                    <TextBlock Text="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Margin="0" Padding="{Binding TextPadding, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Foreground="{Binding Foreground, ElementName=userControl}"/>
+                </Viewbox>
+            </Grid>
+        </Button>
+    </Grid>
+</UserControl>

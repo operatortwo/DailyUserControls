@@ -1,0 +1,10 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DailyUserControls;component/Themes/TabControlExpander.xaml" />
+        <ResourceDictionary Source="/DailyUserControls;component/Themes/SizeableExpander.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+          
+</ResourceDictionary>

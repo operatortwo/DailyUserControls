@@ -1,0 +1,571 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test_DailyUserControls"            
+        xmlns:duc="clr-namespace:DailyUserControls;assembly=DailyUserControls"                
+        mc:Ignorable="d"
+        Title="Test DailyUserControls" Height="600" Width="900" Loaded="Window_Loaded">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="TabItemBackground1" EndPoint="0,1">
+            <GradientStop Color="White"/>
+            <GradientStop Color="#FFE5F1FF" Offset="1"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="SampleStroke" Color="Black"/>
+        <SolidColorBrush x:Key="SampleFill" Color="#FFFFFDED"/>
+        <!-- for DataGrid -->
+        <SolidColorBrush x:Key="DgSelectedFore" Color="Black"/>
+        <SolidColorBrush x:Key="DgSelectedBack" Color="#FFD7F6FF"/>
+        <SolidColorBrush x:Key="DgSelectedBorder" Color="#FF5757F7"/>
+        <SolidColorBrush x:Key="DgFocusedFore" Color="White"/>
+        <SolidColorBrush x:Key="DgFocusedBack" Color="#FF559BF9"/>
+        <SolidColorBrush x:Key="DgFocusedBorder" Color="White"/>
+    </Window.Resources>
+    <Grid Background="#FFE0E9FE">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Height="22" Background="#FFEEF5FD">
+                <MenuItem x:Name="MiAbout" Header="About" Margin="5,1,0,0" FontSize="14" BorderBrush="#FFACACAC" Width="80" >
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Images/Information_x16.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </Menu>
+            <TabControl x:Name="TabControl1" TabStripPlacement="Left" FontSize="14" Margin="2,2,5,5">
+                <TabItem x:Name="tiImageButton" Background="{DynamicResource TabItemBackground1}" Header="Image Button">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:ImageButton Margin="30,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Text="Btn" Image="/Resources/Images/Play_x22.png" TextAlignment="Center" Background="#FFD5E0FF" Height="26"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc_ImageButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_ImageButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_ImageButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_ImageButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+                        <GroupBox Header="Toggle IsEnabled" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,194,0,0" Height="100" Width="185" FontSize="12">
+                            <Grid>
+                                <duc:ImageButton x:Name="ImageButton1" Margin="10,10,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFFFFB96" Height="28" Width="150" BorderBrush="#FF1300FF"/>
+                                <CheckBox x:Name="cbToggleIsEnabled" Content="IsEnabled" HorizontalAlignment="Left" Margin="45,52,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                            </Grid>
+                        </GroupBox>
+                        <duc:ImageButton x:Name="PlayButton" HorizontalAlignment="Left" Margin="290,194,0,0" VerticalAlignment="Top" Image="/Resources/Images/Play_x22.png" Background="#FFDDF0FF" Text="Play" Width="100" ImageLocation="Right" BorderBrush="#FF2E46A5" BorderThickness="0.5,0.5,0.5,0.5" Height="28" ImageMargin="5,2,5,2"/>
+                        <duc:ImageButton x:Name="StopButton" HorizontalAlignment="Left" Margin="290,244,0,0" VerticalAlignment="Top" Image="/Resources/Images/process_stop x22.png" Background="#FFDDF0FF" Text="Stop" Width="100" ImageLocation="Right" BorderBrush="#FF2E46A5" BorderThickness="0.5,0.5,0.5,0.5" Height="28" ImageMargin="5,1,5,1"/>
+                        <Border Height="40" Width="200" Margin="432,209,0,0" Background="#FFEFFFE5" BorderBrush="#FF4C64CB" BorderThickness="2" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock x:Name="tblk_ImageButtonMsg" Margin="0" TextWrapping="Wrap" Text="- Message -" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                        <Label Content="Image alignment Top and Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="432,267,0,0"/>
+                        <duc:ImageButton Margin="445,301,0,0" HorizontalAlignment="Left" Width="83" Height="81" VerticalAlignment="Top" Text="On Top" Image="/Resources/Images/go_up_x22.png" ImageLocation="Top" Background="#FFC7F1B8" TextPadding="0,6,0,3"/>
+                        <duc:ImageButton Margin="549,301,0,0" HorizontalAlignment="Left" Width="83" Height="80" VerticalAlignment="Top" Text="Bottom" Image="/Resources/Images/go_down_x22.png" ImageLocation="Bottom" TextPadding="0,2,0,10" Background="#FFC7F1B8"/>
+                        <duc:ImageButton x:Name="ImageButton1_Kopieren" Margin="65,354,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFDDF0FF" Height="28" Width="150" MouseOverBackground="#FFFFC8FD" MouseOverBorder="#FFFF8686"/>
+                        <Label Content="MouseOver-Colors modified" HorizontalAlignment="Left" Margin="66,330,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tiNumericUpDown" Header="Numeric UpDown" Background="{DynamicResource TabItemBackground1}">
+                    <Grid x:Name="NumericUpDownGrid">
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:NumericUpDown Margin="30,26,0,0" Background="#FF87CA94" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="27" TextBoxBackground="#FFD7FFCF" TextBoxForeground="#FF001BFF"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_NumericUpDown}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_NumericUpDown}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_NumericUpDown}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_NumericUpDown}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+                        <TextBox x:Name="tbNudMsg" HorizontalAlignment="Left" Margin="33,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="150" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                        <duc:NumericUpDown x:Name="NumericUpDown1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Height="50" Margin="33,176,0,0" MinimumValue="-10" MaximumValue="10" StepValue="0.25" DecimalPlaces="2" Value="1" />
+                        <duc:NumericUpDown x:Name="nud2" Margin="269,273,0,0" Width="75" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Button x:Name="btnNudSilent" Content="SetValueSilent 5.5" Width="139" Margin="205,186,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" ToolTip="Special function to set the value without raising the ValueChanged event"/>
+                        <duc:NumericUpDown x:Name="nud3" HorizontalAlignment="Left" Margin="445,273,0,0" VerticalAlignment="Top" MaximumValue="10" Width="75" Height="30"/>
+                        <Label Content="10.00" HorizontalAlignment="Left" Margin="133,152,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="-10.00" HorizontalAlignment="Left" Margin="126,231,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="skip ValueChanged event" HorizontalAlignment="Left" Margin="197,162,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="100" HorizontalAlignment="Left" Margin="317,249,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="0" HorizontalAlignment="Left" Margin="328,308,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="0" HorizontalAlignment="Left" Margin="504,308,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="10" HorizontalAlignment="Left" Margin="500,249,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="handles SpinUp/Down" HorizontalAlignment="Left" Margin="413,231,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <CheckBox x:Name="cbNumericUpDownWheelHandled" Content="MousewheelHandled" HorizontalAlignment="Left" Margin="33,420,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="tbNumericUpDownWheel" Margin="33,450,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="56" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="156,456,0,0" VerticalAlignment="Top" Background="#FFFFFDED" Width="159" Padding="5,0,0,0" Height="44" TextWrapping="Wrap" TextAlignment="Center"><Run Text="Wheel Event"/><Run Text="s"/><Run Text=" "/><Run Language="de-ch" Text="bubbled"/><Run Text=" "/><Run Language="de-ch" Text="to"/><Run Text=" the Grid"/></TextBlock>
+
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tiSelectorButton" Header="Selector Button" Background="{DynamicResource TabItemBackground1}">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:SelectorButton Margin="30,25,0,0" Background="#FFEDF1C6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="25"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_SelectorButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_SelectorButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_SelectorButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_SelectorButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+                        <duc:SelectorButton x:Name="SelectorButton1" HorizontalAlignment="Left" Margin="65,179,0,0" VerticalAlignment="Top" Height="26" IsEnabled="{Binding IsChecked, ElementName=cbSelBtnIsEnabled}" Width="100">
+                            <duc:SelectorButton.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="White"/>
+                                    <GradientStop Color="#FFF9DEFF" Offset="1"/>
+                                </RadialGradientBrush>
+                            </duc:SelectorButton.Background>
+                        </duc:SelectorButton>
+                        <TextBox x:Name="tbSelButtonMsg" HorizontalAlignment="Left" Margin="64,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="185" VerticalScrollBarVisibility="Auto"/>
+                        <CheckBox x:Name="cbSelBtnIsEnabled" Content="IsEnabled" HorizontalAlignment="Left" Margin="198,183,0,0" VerticalAlignment="Top" IsChecked="True"/>
+
+
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tiSmallSlider" Header="Small Slider" Background="{DynamicResource TabItemBackground1}">
+                    <Grid x:Name="SmallSliderGrid">
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:SmallSlider Margin="25,25,0,0" Value="50" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="25" Background="#FF87CA94"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_SmallSlider}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_SmallSlider}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_SmallSlider}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_SmallSlider}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+                        <TextBox x:Name="tbSmallSliderValueChanged" Margin="25,210,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Height="130" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                        <duc:SmallSlider x:Name="SmallSlider1" HorizontalAlignment="Left" Margin="50,175,0,0" VerticalAlignment="Top" Value="46" Height="24" Width="104" BorderBrush="Black" BorderThickness="0.5,0.5,0.5,0.5" Background="#FFE5EFFF"/>
+
+                        <Label Content="-99 ... +99" HorizontalAlignment="Left" Margin="250,172,0,0" VerticalAlignment="Top"/>
+                        <duc:SmallSlider Margin="241,212,0,0" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Background="#FFADE68E" SliderBrush="#FFFF2845" LeftRightLook="{Binding IsChecked, ElementName=cbLeftRightLook1}" MinimumValue="-99" MaximumValue="99"/>
+                        <CheckBox x:Name="cbLeftRightLook1" Content="LeftRightLook" HorizontalAlignment="Left" Margin="364,216,0,0" VerticalAlignment="Top"/>
+
+                        <Label Content="-64 ... +63" HorizontalAlignment="Left" Margin="250,275,0,0" VerticalAlignment="Top"/>
+                        <duc:SmallSlider Margin="241,315,0,0" MaximumValue="127" DisplayedValueOffset="-64" Value="64" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Background="#FFC1D9FF" SliderBrush="#FF003EFF" LeftRightLook="{Binding IsChecked, ElementName=cbLeftRightLook2}"/>
+                        <CheckBox x:Name="cbLeftRightLook2" Content="LeftRightLook" HorizontalAlignment="Left" Margin="364,319,0,0" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="364,351,0,0" VerticalAlignment="Top" Background="#FFFFFDED" Width="288" Padding="5,0,0,0" Height="61"><Run Text="DisplayedValueOffset"/><Run Text=" is set to -64"/><LineBreak/><Run Text="- -&gt; "/><Run Text="Value"/><Run Language="de-ch" Text=" range is"/><Run Text="  0 to 127"/><LineBreak/><Run Text="a practical example "/><Run Language="de-ch" Text="for this is MIDI Pan"/><LineBreak/><Run/></TextBlock>
+                        <CheckBox x:Name="cbSmallSliderWheelHandled" Content="MousewheelHandled" HorizontalAlignment="Left" Margin="25,350,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="tbSmallSliderWheel" Margin="25,380,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Height="56" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="25,441,0,0" VerticalAlignment="Top" Background="#FFFFFDED" Width="153" Padding="5,0,0,0" Height="40" TextWrapping="Wrap" TextAlignment="Center"><Run Text="Wheel Event"/><Run Text="s"/><Run Text=" "/><Run Language="de-ch" Text="bubbled"/><Run Text=" "/><Run Language="de-ch" Text="to "/><Run Text="the Grid"/></TextBlock>
+
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tiToggleButton" Header="Toggle Button" Background="{DynamicResource TabItemBackground1}">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:ToggleButton Margin="27,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" TextChecked="Toggle +" TextUnchecked="Toggle" IsChecked="True" Height="28"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_ToggleButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_ToggleButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_ToggleButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_ToggleButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+                        <duc:ToggleButton x:Name="ToggleButton1" Margin="50,152,0,0" BackgroundUnchecked="#FFECECEC" ClickMode="Press" TextChecked="ToggleButton1" TextUnchecked="ToggleButton1" IsEnabled="{Binding IsChecked, ElementName=cbTgBtn_IsEnabled}" Width="140" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <duc:ToggleButton.BackgroundChecked>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFFF8E8E" Offset="1"/>
+                                    <GradientStop Color="#FFFF5C5C" Offset="0"/>
+                                    <GradientStop Color="#FFFFE6E6" Offset="0"/>
+                                </LinearGradientBrush>
+                            </duc:ToggleButton.BackgroundChecked>
+                        </duc:ToggleButton>
+                        <CheckBox x:Name="cbTgBtn_IsEnabled" Content="IsEnabled" Margin="209,158,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
+                        <Label Content="Toggle Background:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,196,0,0"/>
+                        <duc:ToggleButton Margin="240,230,0,0" BackgroundChecked="#FF90EC87" ClickMode="Press" ImageMargin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="30" />
+                        <Label Content="Toggle Text:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,196,0,0"/>
+                        <duc:ToggleButton Margin="50,230,0,0" ClickMode="Press" ImageMargin="10,0,0,0" TextUnchecked="Unchecked" TextChecked="Checked" BackgroundChecked="#FFE6E6E6" Width="130" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label Content="Toggle Image:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,276,0,0"/>
+                        <duc:ToggleButton Margin="50,310,0,0" TextChecked="Toggle Button" ClickMode="Press" ImageChecked="/Resources/Images/Checked_x32.png" Height="30" ImageMargin="10,2,0,4" Width="130" ImageUnchecked="/Resources/Images/Unchecked_x32.png" TextUnchecked="Toggle Button" BackgroundChecked="#FFE6E6E6" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label Content="Background + Text:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,276,0,0"/>
+                        <duc:ToggleButton Margin="240,310,0,0" BackgroundChecked="#FF90EC87" BackgroundUnchecked="#FFDEDCDC" TextChecked="Checked" ClickMode="Press" ImageMargin="10,0,0,0" TextUnchecked="Unchecked" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="30"/>
+                        <Label Content="Background + Image:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,356,0,0"/>
+                        <duc:ToggleButton Margin="240,390,0,0" BackgroundChecked="#FF90EC87" BackgroundUnchecked="#FFDEDCDC" ClickMode="Press" ImageChecked="/Resources/Images/Checked_x32.png" ImageMargin="10,2,0,4" ImageUnchecked="/Resources/Images/Unchecked_x32.png" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="30"/>
+                        <Label Content="Text + Image:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,356,0,0"/>
+                        <duc:ToggleButton Margin="50,390,0,0" BackgroundUnchecked="#FFDEDCDC" TextChecked="Checked" ClickMode="Press" ImageChecked="/Resources/Images/Checked_x32.png" ImageMargin="10,2,0,4" BackgroundChecked="#FFDEDCDC" ImageUnchecked="/Resources/Images/Unchecked_x32.png" TextUnchecked="Unchecked" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="30"/>
+                        <Label Content="Background + Text + Image:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="437,356,0,0"/>
+                        <duc:ToggleButton Margin="437,390,0,0" BackgroundChecked="#FF90EC87" BackgroundUnchecked="#FFDEDCDC" TextChecked="Checked" ClickMode="Press" ImageChecked="/Resources/Images/Checked_x32.png" ImageMargin="10,2,0,4" ImageUnchecked="/Resources/Images/Unchecked_x32.png" TextUnchecked="Unchecked" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="30"/>
+                        <Label Content="Click modes:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,164,0,0"/>
+                        <duc:ToggleButton  Margin="415,198,0,0" BackgroundChecked="#FFD2E892" BackgroundUnchecked="#FFE6E6E6" TextChecked="Release" TextUnchecked="Release" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" />
+                        <duc:ToggleButton Margin="415,238,0,0" BackgroundChecked="#FFD2E892" ClickMode="Press" TextChecked="Press" TextUnchecked="Press" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30"/>
+                        <duc:ToggleButton Margin="415,281,0,0" BackgroundChecked="#FFD2E892" ClickMode="Hover" TextChecked="Hover" TextUnchecked="Hover" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30"/>
+                        <duc:ToggleButton Margin="560,158,0,0" TextChecked="M" Width="23" BackgroundChecked="#FFB1EDFF" ClickMode="Press" ImageMargin="0" TextUnchecked="M" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"/>
+                        <duc:ToggleButton Margin="560,198,0,0" TextChecked="M" Width="23" BackgroundChecked="#FFC8F2FF" ClickMode="Press" TextUnchecked="M" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"/>
+                        <duc:ToggleButton Margin="560,238,0,0" TextChecked="M" Width="23" BackgroundChecked="#FFC8F2FF" ClickMode="Press" TextUnchecked="M" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29"/>
+                        <duc:ToggleButton Margin="560,278,0,0" TextChecked="M" Width="23" BackgroundChecked="#FFC8F2FF" ClickMode="Press" TextUnchecked="M" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"/>
+                        <duc:ToggleButton Margin="600,158,0,0" TextChecked="S" Width="23" ClickMode="Press" TextUnchecked="S" BackgroundChecked="#FFE2FF8C" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"/>
+                        <duc:ToggleButton Margin="600,198,0,0" TextChecked="S" Width="23" BackgroundChecked="#FFE2FF8C" ClickMode="Press" TextUnchecked="S" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"/>
+                        <duc:ToggleButton Margin="600,238,0,0" TextChecked="S" Width="23" BackgroundChecked="#FFE2FF8C" ClickMode="Press" TextUnchecked="S" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"/>
+                        <duc:ToggleButton Margin="600,278,0,0" TextChecked="S" Width="23" BackgroundChecked="#FFE2FF8C" ClickMode="Press" TextUnchecked="S" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"/>
+                    </Grid>
+                </TabItem>
+
+                <TabItem x:Name="tiProgressCircle" Header="Progress Circle" Background="{DynamicResource TabItemBackground1}">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:ProgressCircle Margin="55,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" ArcAngle="270"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_ProgressCircle}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_ProgressCircle}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_ProgressCircle}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_ProgressCircle}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+
+                        <duc:ProgressCircle Margin="30,190,0,0" Width="200" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" ArcAngle="{Binding Value, ElementName=ArcAngleSlider}" BorderThickness="0" Foreground="{x:Null}" StartAngle="{Binding Value, ElementName=StartAngleSlider}">
+                            <duc:ProgressCircle.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FFE7F388" Offset="0"/>
+                                    <GradientStop Color="#FF7BE42E" Offset="1"/>
+                                </RadialGradientBrush>
+                            </duc:ProgressCircle.Fill>
+                        </duc:ProgressCircle>
+                        <duc:ProgressCircle Width="100" Height="100" Margin="0,280,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Fill="#FFF3EC5A" BackFill="#FFFFF8C9" ProgressValue="{Binding Value, ElementName=ProgressSlider}" StartAngle="{Binding Value, ElementName=StartAngleSlider}"/>
+
+
+                        <Slider x:Name="StartAngleSlider" HorizontalAlignment="Left" Margin="447,330,0,0" VerticalAlignment="Top" Height="21" Width="100" SmallChange="10" Maximum="360" IsSnapToTickEnabled="True" TickFrequency="10" Value="270" ToolTip="Binding from green and yellow circle" TabIndex="30"/>
+                        <Label x:Name="lblStartAngleValue" Content="{Binding Value, ElementName=StartAngleSlider}" HorizontalAlignment="Left" Margin="563,326,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Start Angle" HorizontalAlignment="Left" Margin="469,363,0,0" VerticalAlignment="Top"/>
+
+                        <Slider x:Name="ProgressSlider" Width="100" Margin="447,230,0,0" Interval="10" Value="33" Maximum="100" HorizontalAlignment="Left" VerticalAlignment="Top" SmallChange="1" IsSnapToTickEnabled="True" Height="21" ToolTip="Binding from yellow circle" TabIndex="20"/>
+                        <Label x:Name="lblProgressValue" Content="{Binding Value, ElementName=ProgressSlider}" HorizontalAlignment="Left" Margin="571,220,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Progress Value" HorizontalAlignment="Left" Margin="331,226,0,0" VerticalAlignment="Top"/>
+
+                        <Slider x:Name="ArcAngleSlider" Width="100" Margin="447,188,0,0" Interval="10" Value="244" Maximum="360" HorizontalAlignment="Left" VerticalAlignment="Top" IsSnapToTickEnabled="True" ToolTip="Binding from green circle" TabIndex="10"/>
+                        <Label x:Name="lblArcAngleValue" Content="{Binding Value, ElementName=ArcAngleSlider}" HorizontalAlignment="Left" Margin="563,183,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Arc Angle" HorizontalAlignment="Left" Margin="337,183,0,0" VerticalAlignment="Top"/>
+
+
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tiProgressRing" Header="Progress Ring" Background="{DynamicResource TabItemBackground1}">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:ProgressRing Margin="55,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" ProgressValue="75" RingWidthRatio="30" />
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_ProgressRing}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_ProgressRing}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_ProgressRing}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_ProgressRing}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+
+                        <!-- ProgressRing1 -->
+                        <duc:ProgressRing x:Name="ProgressRing1" Width="200" Height="200" Margin="30,190,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" StartAngle="{Binding Value, ElementName=SldProgressRingStartAngle}" ProgressValue="{Binding Value, ElementName=SldProgressRingValue}" RingWidthRatio="30"/>
+                        <Slider x:Name="SldProgressRingValue" HorizontalAlignment="Left" Margin="64,419,0,0" VerticalAlignment="Top" Height="21" Width="100" SmallChange="1" Maximum="100" IsSnapToTickEnabled="True" ToolTip="Binding from green and yellow circle" TabIndex="30" Value="66"/>
+                        <Label x:Name="lblStartAngleValueProgRing_Kopieren" Content="{Binding Value, ElementName=SldProgressRingValue}" HorizontalAlignment="Left" Margin="191,414,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="Value" HorizontalAlignment="Left" Margin="97,449,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="lblProgRingArcAngle" Content="{Binding ArcAngle, ElementName=ProgressRing1, Mode=OneWay}" HorizontalAlignment="Left" Margin="199,169,0,0" VerticalAlignment="Top" Padding="0,0,0,0" Width="37" HorizontalContentAlignment="Right"/>
+                        <!-- ProgressRing2 -->
+                        <duc:ProgressRing x:Name="ProgressRing2" Width="100" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="381,190,0,0" RingBackFill="#FFFFF8C9" RingFill="#FFF3EC5A" StartAngle="{Binding Value, ElementName=SldProgressRingStartAngle}" ProgressValue="{Binding Value, ElementName=SldProgressRing2Value}" MinimumValue="{Binding Value, ElementName=SldProgressRing2Minimum1}" MaximumValue="{Binding Value, ElementName=SldProgressRing2Maximum1}"  />
+
+
+                        <!-- start angle for both -->
+                        <Slider x:Name="SldProgressRingStartAngle" HorizontalAlignment="Left" Margin="254,459,0,0" VerticalAlignment="Top" Height="21" Width="100" SmallChange="10" Maximum="360" IsSnapToTickEnabled="True" TickFrequency="10" Value="270" ToolTip="Binding from green and yellow circle" TabIndex="30"/>
+                        <Label Content="Start Angle" HorizontalAlignment="Left" Margin="270,485,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="lblStartAngleValueProgRing" Content="{Binding Value, ElementName=SldProgressRingStartAngle}" HorizontalAlignment="Left" Margin="370,455,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Button x:Name="btnSetProgRingDefaultStartA" Content="Default" HorizontalAlignment="Left" Margin="370,483,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="LblProgressRingPercent" Content="{Binding ProgressPercent, ElementName=ProgressRing2, Mode=OneWay}" HorizontalAlignment="Left" Margin="515,193,0,0" VerticalAlignment="Top" Padding="0,0,0,0" HorizontalContentAlignment="Right" Width="27"/>
+                        <Label Content="%" HorizontalAlignment="Left" Margin="547,193,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Slider x:Name="SldProgressRing2Value" HorizontalAlignment="Left" Margin="381,314,0,0" VerticalAlignment="Top" Width="100" Minimum="{Binding Value, ElementName=SldProgressRing2Minimum1}" Maximum="{Binding Value, ElementName=SldProgressRing2Maximum1}"/>
+                        <Slider x:Name="SldProgressRing2Maximum1" HorizontalAlignment="Left" Margin="522,372,0,0" VerticalAlignment="Top" Width="100" Minimum="101" Maximum="250" Value="150"/>
+                        <Slider x:Name="SldProgressRing2Minimum1" HorizontalAlignment="Left" Margin="522,405,0,0" VerticalAlignment="Top" Width="100" Maximum="100" Minimum="-50" Value="-20"/>
+                        <Label Content="Value" HorizontalAlignment="Left" Margin="336,313,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="SldProgressRing2Minimum" Content="Minimum" HorizontalAlignment="Left" Margin="445,405,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="SldProgressRing2Maximum" Content="Maximum" HorizontalAlignment="Left" Margin="445,372,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="LblProgRing2Value" Content="{Binding Value, ElementName=SldProgressRing2Value, StringFormat=\{0:F4\}}" HorizontalAlignment="Left" Margin="496,313,0,0" VerticalAlignment="Top" Padding="0,0,0,0" ContentStringFormat="{}{0:F1}"/>
+                        <Label x:Name="LblProgRing2Min" Content="{Binding Value, ElementName=SldProgressRing2Minimum1}" HorizontalAlignment="Left" Margin="635,405,0,0" VerticalAlignment="Top" Padding="0,0,0,0" ContentStringFormat="{}{0:F1}"/>
+                        <Label x:Name="LblProgRing2Max" Content="{Binding Value, ElementName=SldProgressRing2Maximum1}" HorizontalAlignment="Left" Margin="635,372,0,0" VerticalAlignment="Top" Padding="0,0,0,0" ContentStringFormat="{}{0:F1}"/>
+                        <Label Content="degrees" HorizontalAlignment="Left" Margin="241,169,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="lblProgRingArcAngle_Kopieren" Content="{Binding ArcAngle, ElementName=ProgressRing2, Mode=OneWay}" HorizontalAlignment="Left" Margin="505,169,0,0" VerticalAlignment="Top" Padding="0,0,0,0" Width="37" HorizontalContentAlignment="Right" ContentStringFormat="{}{0:F1}"/>
+                        <Label Content="degrees" HorizontalAlignment="Left" Margin="547,169,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="LblProgressRingPercent_Kopieren" Content="{Binding ProgressPercent, ElementName=ProgressRing1, Mode=OneWay}" HorizontalAlignment="Left" Margin="209,193,0,0" VerticalAlignment="Top" Padding="0,0,0,0" HorizontalContentAlignment="Right" Width="27"/>
+                        <Label Content="%" HorizontalAlignment="Left" Margin="241,193,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tiKnob" Header="Knob" Background="{DynamicResource TabItemBackground1}">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:Knob Margin="50,9,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_Knob}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_Knob}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_Knob}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_Knob}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+                        <TextBox x:Name="tbKnobMsg" HorizontalAlignment="Left" Margin="21,308,0,10" TextWrapping="Wrap" Width="149" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
+
+                        <duc:Knob x:Name="knob1" Width="120" Height="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,154,0,0" ProgressValue="{Binding Value, ElementName=ProgressValueSlider2, Mode=TwoWay}" MaximumValue="10" DecimalPlaces="1" StepValue="0.5" TabIndex="11" MinimumValue="-10" ArcAngle="100"/>
+                        <Slider x:Name="ProgressValueSlider2" Width="100" Margin="362,174,0,0" Interval="10" Maximum="100" HorizontalAlignment="Left" VerticalAlignment="Top" IsSnapToTickEnabled="True" TabIndex="1" Value="50" ToolTip="TwoWay Binding to the big knob"/>
+                        <Slider x:Name="ArcAngleSlider2" Width="100" Margin="362,202,0,0" Interval="10" Maximum="300" HorizontalAlignment="Left" VerticalAlignment="Top" IsSnapToTickEnabled="True" TabIndex="2" Value="244" ToolTip="Can set all the litte knobs simultaneously"/>
+
+                        <Label x:Name="lblProgressValue2" Content="{Binding Value, ElementName=ProgressValueSlider2}" HorizontalAlignment="Left" Margin="479,163,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Progress Value" HorizontalAlignment="Left" Margin="257,163,0,0" VerticalAlignment="Top"/>
+
+                        <Label x:Name="lblArcAngleValue2" Content="{Binding Value, ElementName=ArcAngleSlider2}" HorizontalAlignment="Left" Margin="479,197,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Arc Angle" HorizontalAlignment="Left" Margin="272,197,0,0" VerticalAlignment="Top"/>
+
+                        <duc:Knob x:Name="knob3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="356,249,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" BackFill="#FFFFF8C9" Fill="#FFF3EC5A" TabIndex="13"/>
+                        <duc:Knob x:Name="knob4" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="442,249,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" BackFill="#FFFFC9C9" Fill="#FFF35A5A" TabIndex="14"/>
+                        <duc:Knob x:Name="knob5" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="257,347,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" BackFill="#FFC9C9F8" Fill="#FF9090EE" TabIndex="15" MinimumValue="10" MaximumValue="60"/>
+                        <duc:Knob x:Name="knob2" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="257,249,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" TabIndex="12" ProgressValue="8.188889E+19"/>
+                        <duc:Knob x:Name="knob6" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="354,347,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" BackFill="#FFFFF5B9" Fill="#FFFFFF16" TabIndex="16" MaximumValue="63" MinimumValue="-63"/>
+
+                        <Label Content="-10                  10" Margin="47,284,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Background="WhiteSmoke"/>
+                        <Label Content="0 - 100" Margin="265,299,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label Content="0 - 100" Margin="362,299,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label Content="0 - 100" Margin="449,299,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label Content="10 - 60" Margin="265,397,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label Content="-63   63" Margin="360,397,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tiVUBar" Header="VU-Bar" Background="{DynamicResource TabItemBackground1}">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:VU_Bar Width="14" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,19,0,0" BorderBrush="Black" BorderThickness="1,1,1,1" Value="50"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+                        <Button x:Name="btnVU_Tap" Content="Tap" HorizontalAlignment="Left" Margin="100,225,0,0" VerticalAlignment="Top" Width="50"/>
+                        <duc:VU_Bar x:Name="VU_Bar1" HorizontalAlignment="Left" Margin="73,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98" Width="14"/>
+                        <duc:NumericUpDown x:Name="VU_decFactor" HorizontalAlignment="Left" Margin="177,259,0,0" VerticalAlignment="Top" Height="26" Width="78" DecimalPlaces="2" MinimumValue="0.4" MaximumValue="0.95" StepValue="0.05" Value="0.75"/>
+                        <Label Content="decrease factor" HorizontalAlignment="Left" Margin="177,230,0,0" VerticalAlignment="Top"/>
+                        <duc:VU_Bar x:Name="VU_Bar2" HorizontalAlignment="Left" Margin="300,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98" Width="14">
+                            <duc:VU_Bar.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="LightGreen" Offset="1"/>
+                                    <GradientStop Color="#FFF59A9A" Offset="0"/>
+                                    <GradientStop Color="#FFFFF856" Offset="0.265"/>
+                                </LinearGradientBrush>
+                            </duc:VU_Bar.Fill>
+                        </duc:VU_Bar>
+                        <duc:VU_Bar x:Name="VU_Bar3" HorizontalAlignment="Left" Margin="400,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98" Width="14">
+                            <duc:VU_Bar.Fill>
+                                <ImageBrush ImageSource="/Resources/Images/VU_20_Segemnts.png"/>
+                            </duc:VU_Bar.Fill>
+                        </duc:VU_Bar>
+                        <Label Content="Solid" HorizontalAlignment="Left" Margin="60,293,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Gradient" HorizontalAlignment="Left" Margin="275,293,0,0" VerticalAlignment="Top"/>
+                        <Label Content="ImageBrush" HorizontalAlignment="Left" Margin="365,293,0,0" VerticalAlignment="Top"/>
+
+                    </Grid>
+                </TabItem>
+
+                <TabItem x:Name="tiDgColX" Header="DataGridTextColumnX" Background="{DynamicResource TabItemBackground1}">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl HorizontalAlignment="Left" VerticalAlignment="Top" Height="48
+                        " Width="140.3" Margin="10,15,0,0">
+                            <Image Source="/Resources/Images/WPFCustomControl_48x.png"/>
+                        </ContentControl>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_DgTxtColX}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_DgTxtColX}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_DgTxtColX}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_DgTxtColX}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+                        <DataGrid x:Name="DataGrid1" Margin="126,173,118,38"  AutoGenerateColumns="False" ItemsSource="{Binding ColorList, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" CanUserDeleteRows="False" CanUserResizeRows="False"   >
+                            <DataGrid.Columns>
+                                <!-- Cell Colors must be defined as StaticResource not DynamicResource -->
+                                <duc:DataGridTextColumnX x:Name="IndexCol" Header="Index" Binding="{Binding BaseIndex}"  TextAlignment="Right" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <duc:DataGridTextColumnX x:Name="NameCol"  Header="Name" Binding="{Binding Name}" Width="80" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <duc:DataGridTextColumnX x:Name="HexCol"  Header="HexValue" Binding="{Binding HexValue}" Width="80" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <duc:DataGridTextColumnX x:Name="RPercCol"  Header="R %" Binding="{Binding R_Percent}" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <duc:DataGridTextColumnX x:Name="GPercCol"  Header="G %" Binding="{Binding G_Percent}" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <duc:DataGridTextColumnX x:Name="BPercCol"  Header="B %" Binding="{Binding B_Percent}" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <DataGridTemplateColumn x:Name="SampleCol" Header="Sample">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <Button Background="{Binding HexValue}" Content="{Binding HexValue}">
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button x:Name="btnSetDgColOptionsByCode" HorizontalAlignment="Left" Margin="33,231,0,0" VerticalAlignment="Top" Height="46" Width="78" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FFEDFEE0">
+                            <Button.Content>
+                                <TextBlock TextWrapping="Wrap">Set colors by code</TextBlock>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tiCbFilLi" Header="Filter List" Background="{DynamicResource TabItemBackground1}">
+                    <Grid Focusable="True">
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="140.3" Margin="10,15,0,0">
+                            <duc:CheckboxFilterList HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="95" Margin="23,12,0,0"/>
+
+                        </ContentControl>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_CbFilterList}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,0,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="127" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_CbFilterList}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="101" FontSize="12"/>
+                        <Rectangle Height="64" Margin="142,80,0,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="162" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="156,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_CbFilterList}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="136" FontSize="12"/>
+                        <Rectangle Height="64" Margin="309,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="323,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_CbFilterList}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+                        <!-- enum -->
+                        <duc:CheckboxFilterList x:Name="CbflistEnum" Margin="45,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" ImageLocation="Right" Text="From Enum" ListWindowHeight="235"/>
+                        <Label Content="Result:" HorizontalAlignment="Left" Margin="75,221,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="20,240,0,0" Stroke="#FFDEDEDE"/>
+                        <CheckBox x:Name="cbcbflistEall" Content="All" HorizontalAlignment="Left" Margin="45,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=CbflistEnum, Mode=OneWay}" IsEnabled="False"/>
+                        <CheckBox x:Name="cbcbflistEnone" Content="None" HorizontalAlignment="Left" Margin="95,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=CbflistEnum, Mode=OneWay}" IsEnabled="False"/>
+                        <ListBox x:Name="LbResult_CbflistEnum" Width="100" Margin="45,275,0,0" Height="143" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=CbflistEnum}"/>
+                        <!-- val -->
+                        <duc:CheckboxFilterList x:Name="CbflistVal" Margin="215,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="120" ImageLocation="Right" Text="Value from List" ListWindowWidth="100"/>
+                        <Label Content="Result:" HorizontalAlignment="Left" Margin="256,221,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="200,240,0,0" Stroke="#FFDEDEDE"/>
+                        <CheckBox x:Name="cbcbflistValall" Content="All" HorizontalAlignment="Left" Margin="226,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=CbflistVal, Mode=OneWay}" IsEnabled="False"/>
+                        <CheckBox x:Name="cbcbflistValnone" Content="None" HorizontalAlignment="Left" Margin="281,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=CbflistVal, Mode=OneWay}" IsEnabled="False"/>
+                        <ListBox x:Name="LbResult_CbflistVal" Width="100" Margin="226,275,0,0" Height="142" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=CbflistVal}"/>
+                        <!-- Ref -->
+                        <!-- RefType needs DisplayMemberPath -->
+                        <duc:CheckboxFilterList x:Name="CbflistRef" Margin="387,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="136" ImageLocation="Right" DisplayMember="Name" Text="RefType from List" ListWindowWidth="130" ListWindowHeight="220"/>
+                        <Label Content="Result:" HorizontalAlignment="Left" Margin="435,221,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="380,240,0,0" Stroke="#FFDEDEDE"/>
+                        <CheckBox x:Name="cbcbflistRefall" Content="All" HorizontalAlignment="Left" Margin="408,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=CbflistRef, Mode=OneWay}" IsEnabled="False"/>
+                        <CheckBox x:Name="cbcbflistRefnone" Content="None" HorizontalAlignment="Left" Margin="469,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=CbflistRef, Mode=OneWay}" IsEnabled="False"/>
+                        <ListBox x:Name="LbResult_CbflistRef" Width="100" Margin="405,275,0,0" Height="143" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=CbflistRef}" DisplayMemberPath="Name" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                        <Label Content="DisplayMember:&quot;Name&quot;" HorizontalAlignment="Left" Margin="381,445,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="DisplayMember:&quot;Name&quot;" HorizontalAlignment="Left" Margin="382,161,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <!-- String List -->
+                        <duc:CheckboxFilterList x:Name="CbflistString" Margin="575,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="120" ImageLocation="Right" Text="List of String" ListWindowWidth="130" ListWindowHeight="220"/>
+                        <Label Content="Result:" HorizontalAlignment="Left" Margin="615,221,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="560,240,0,0" Stroke="#FFDEDEDE"/>
+                        <CheckBox x:Name="cbflistStringAll" Content="All" HorizontalAlignment="Left" Margin="580,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=CbflistString, Mode=OneWay}" IsEnabled="False"/>
+                        <CheckBox x:Name="cbflistStringNone" Content="None" HorizontalAlignment="Left" Margin="641,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=CbflistString, Mode=OneWay}" IsEnabled="False"/>
+                        <ListBox x:Name="LbResult_CbflistString" Width="100" Margin="585,275,0,0" Height="143" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=CbflistString, Mode=OneWay}"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tiMessageWindow" Header="Message Window" Background="{DynamicResource TabItemBackground1}">
+                    <Grid Focusable="True">
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl HorizontalAlignment="Left" VerticalAlignment="Top" Height="58" Width="140" Margin="10,10,0,0">
+                            <Image Source="/Resources/Images/MessageWindowSmall.png"/>
+                        </ContentControl>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_MessageWindow}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="97" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="30,89,27,0" Height="88" VerticalAlignment="Top" Content="{DynamicResource dsc2_MessageWindow}" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="14" HorizontalContentAlignment="Stretch"/>
+                        <!-- MessageWindow -->
+                        <GroupBox Margin="30,218,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="169" Height="172" Header="Message Window">
+                            <Grid>
+                                <Button x:Name="btnSimpleMessage" Content="Simple Message" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="120" Height="25"/>
+                                <Button x:Name="btnMessage1" Height="25" Margin="20,60,0,0" Content="Show Message 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+                                <Button x:Name="btnMessage2" Height="25" Margin="20,100,0,0" Content="Show Message 2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+                            </Grid>
+                        </GroupBox>
+
+                        <!-- QuestionWindow -->
+                        <GroupBox Margin="283,218,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Height="212" Header="Question Window">
+                            <Grid>
+                                <Button x:Name="btnSimpleQuestion" Content="Simple Question" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="120" Height="25"/>
+                                <Button x:Name="btnQuestion1" Height="25" Margin="20,60,0,0" Content="Show Question 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+                                <Button x:Name="btnQuestion2" Height="25" Margin="20,100,0,0" Content="Show Question 2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+                                <Label Content="Result:" HorizontalAlignment="Left" Margin="20,158,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                                <Label x:Name="lblQuestionResult" HorizontalAlignment="Left" Margin="70,152,0,0" VerticalAlignment="Top" Width="86" BorderThickness="1,1,1,1" BorderBrush="#FF949494" Height="30" HorizontalContentAlignment="Center"/>
+                            </Grid>
+                        </GroupBox>
+
+
+                    </Grid>
+                </TabItem>
+
+                <TabItem x:Name="tiSizeableExpander" Header="Sizeable Expander"  Background="{DynamicResource TabItemBackground1}">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <!-- sample Sizeable Expander -->
+                        <duc:SizeableExpander Width="100" Height="51" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,14,0,0" IsEnabled="False"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_SizeableExpander}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_SizeableExpander}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_SizeableExpander}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_SizeableExpander}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+
+                        <duc:SizeableExpander Margin="80,257,0,0" HorizontalAlignment="Left" Width="198" Height="94" VerticalAlignment="Top" HeaderBackground="#FFF7F394" ContentBackground="#FFC1D5EC" CornerRadius="5" BorderThickness="1,1,1,1" BorderBrush="#FF4055FF">
+                            <StackPanel>
+                                <TextBox Text="Text" Margin="5,5,5,0"/>
+                                <CheckBox Content="Check Me" Margin="5,5,5,0"/>
+                            </StackPanel>
+                        </duc:SizeableExpander>
+
+
+                        <ScrollViewer Margin="383,225,109,72" Background="#FFE5F7E2">
+                            <StackPanel>
+
+                                <duc:SizeableExpander Height="81" Header="Expander 1" BorderBrush="#FF004EE8" HeaderBackground="#FFF7F394" ContentBackground="#FF6AC3DA" BorderThickness="1,1,1,1">
+                                    <StackPanel>
+                                        <TextBox Text="Text" Margin="5,5,5,0"/>
+                                        <CheckBox Content="Check Me" Margin="5,5,5,0"/>
+                                    </StackPanel>
+                                </duc:SizeableExpander>
+
+                                <duc:SizeableExpander Height="72" ContentBackground="#FF6AC3DA" HeaderBackground="#FFF7F394" Header="Expander 2" BorderBrush="#FF004EE8" Margin="0,-1,0,0" BorderThickness="1,1,1,1"/>
+                                <duc:SizeableExpander Height="72" ContentBackground="#FF6AC3DA" HeaderBackground="#FFF7F394" Header="Expander 3" BorderBrush="#FF004EE8" Margin="0,-1,0,0" BorderThickness="1,1,1,1"/>
+
+                            </StackPanel>
+                        </ScrollViewer>
+
+
+                    </Grid>
+                </TabItem>
+
+                <TabItem x:Name="tiMisc" Header="Miscellaneous" Background="{DynamicResource TabItemBackground1}">
+                    <Grid Focusable="True">
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_Miscellaneous}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <!-- ComboBox -->
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,179,0,0" TextWrapping="Wrap" Height="42"><Run Text="ComboBox with changeable"/><LineBreak/><Run Language="de-ch" Text="Background and BorderBrush"/></TextBlock>
+                        <duc:ComboBox Width="113" Height="22" HorizontalAlignment="Left" Margin="121,231,0,0" VerticalAlignment="Top" Background="#FFFFEDD7" BorderBrush="#FFF3A648" BorderThickness="1,1,1,1"/>
+                    </Grid>
+                </TabItem>
+
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>

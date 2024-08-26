@@ -1,0 +1,292 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <TextBlock x:Key="dsc" TextWrapping="Wrap">
+  <Bold>TextBlock</Bold> is designed to be <Italic>lightweight</Italic>,
+  and is geared specifically at integrating <Italic>small</Italic> portions
+  of flow content into a UI.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2" TextWrapping="Wrap">
+  <Bold>TextBlock</Bold> is designed to be <Italic>lightweight</Italic>,
+  and is geared specifically at integrating <Italic>small</Italic> portions
+  of flow content into a UI.
+    </TextBlock>
+
+
+    <!--#region Image Button -->
+    <TextBlock x:Key="dsc_ImageButton" TextWrapping="Wrap">
+        <Bold>Image Button</Bold> allows placing text and an image on a button at the same time.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_ImageButton" TextWrapping="Wrap">
+        Properties: Image, ImageMargin, ImageLocation, Text, TextAlignment, 
+        TextPadding, Background, Foreground, ButtonPressedBackground, ButtonPressedBorder
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_ImageButton" TextWrapping="Wrap">
+        Space
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_ImageButton" TextWrapping="Wrap">
+        Click
+    </TextBlock>
+    
+    <!--#endregion-->
+
+    <!--#region Numeric UpDown -->
+    <TextBlock x:Key="dsc_NumericUpDown" TextWrapping="Wrap">
+        <Bold>Numeric UpDown</Bold> can be used to increase or decrease a numeric value.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_NumericUpDown" TextWrapping="Wrap" FontSize="14">        
+        can handle: decimal places, negative values, step values
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_NumericUpDown" TextWrapping="Wrap">
+        Up Down <LineBreak/>
+        Value+Enter
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_NumericUpDown" TextWrapping="Wrap">
+        Wheel
+    </TextBlock>
+
+    <!--#endregion-->
+    
+    <!--#region Selector Button -->
+    <TextBlock x:Key="dsc_SelectorButton" TextWrapping="Wrap">
+        <Bold>Selector Button</Bold> is a combination of a button and an up/down control.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_SelectorButton" TextWrapping="Wrap">
+        useful for a collection of items, when user wants to click on the button to open 
+        a dialog to select an item from a list <Bold>OR</Bold> the user can select items 
+        by scrolling through the collection with the up/down buttons and the mouse wheel.        
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_SelectorButton" TextWrapping="Wrap">
+        Up Down Space
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_SelectorButton" TextWrapping="Wrap">
+        Click Wheel
+    </TextBlock>
+
+    <!--#endregion-->
+
+    <!--#region Small Slider -->
+    <TextBlock x:Key="dsc_SmallSlider" TextWrapping="Wrap">
+        <Bold>SmallSlider</Bold> can be used to increase or decrease a numeric value  by dragging the bar. 
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_SmallSlider" TextWrapping="Wrap">
+        Properties: Value, MinimumValue, MaximumValue, StepValue, DecimalPlaces, 
+        Background, BorderBrush, Foreground, SliderBrush, MouseWheelHandled
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_SmallSlider" TextWrapping="Wrap">
+        Up Down Left Right Home End
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_SmallSlider" TextWrapping="Wrap">
+        Click Drag Wheel
+    </TextBlock>
+
+    <!--#endregion-->
+
+    <!--#region Toggle Button -->
+    <TextBlock x:Key="dsc_ToggleButton" TextWrapping="Wrap">
+        <Bold>Toggle Button</Bold> visualizes the on/off state by background, text or image.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_ToggleButton" TextWrapping="Wrap">
+        Based on the original ToggleButton, it has additional properties for text, image and background, 
+        each for checked and unchecked state
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_ToggleButton" TextWrapping="Wrap">
+        Space
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_ToggleButton" TextWrapping="Wrap">
+        Click
+    </TextBlock>
+
+    <!--#endregion-->
+
+    <!--#region VU-Bar -->
+    <TextBlock x:Key="dsc_VUBar" TextWrapping="Wrap">
+        <Bold>VU-Bar</Bold> can be used as a simple VU-Meter. Some additional code for timed value decrease is necessary.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_VUBar" TextWrapping="Wrap">
+        The <Bold>Tap</Bold> button simulates entering a value. The value decrease is performed by a timer 
+        in the test application
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_VUBar" TextWrapping="Wrap">
+        no keyboard input
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_VUBar" TextWrapping="Wrap">
+        no mouse input
+    </TextBlock>
+
+    <!--#endregion-->
+
+    <!--#region Progress Circle -->
+    <TextBlock x:Key="dsc_ProgressCircle" TextWrapping="Wrap">
+        <Bold>Progress Circle</Bold> visualizes progress or angle.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_ProgressCircle" TextWrapping="Wrap">
+        Basis for the circular visualization of progress. 
+        A possible improvement would be an optional text output of the percentage in the middle 
+        of the circle.
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_ProgressCircle" TextWrapping="Wrap">
+        no keyboard input
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_ProgressCircle" TextWrapping="Wrap">
+        no mouse input
+    </TextBlock>
+
+    <!--#endregion-->
+
+    <!--#region Progress Ring -->
+    <TextBlock x:Key="dsc_ProgressRing" TextWrapping="Wrap">
+    <Bold>Progress Ring</Bold> visualizes progress from start value to end value.
+        The input range goes from Minimum to Maximum and is mapped to the ring from 0 to 360 degrees.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_ProgressRing" TextWrapping="Wrap">
+    Circular visualization of progress. The progress value as angle or percent can be read from the control  
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_ProgressRing" TextWrapping="Wrap">
+    no keyboard input
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_ProgressRing" TextWrapping="Wrap">
+    no mouse input
+    </TextBlock>
+
+    <!--#endregion-->
+
+
+    <!--#region Knob -->
+    <TextBlock x:Key="dsc_Knob" TextWrapping="Wrap">
+        <Bold>Knob</Bold> is a value control that looks like a potentiometer.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_Knob" TextWrapping="Wrap">
+       Interesting from a programmer's point of view. It includes graphics rendering, some math 
+       and programming on the adorner layer. 
+       In practice, however, I haven't used it that much, because it takes up too much space.
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_Knob" TextWrapping="Wrap">
+        Ud Down PgUp PgDn Home End
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_Knob" TextWrapping="Wrap">
+        Wheel Drag
+    </TextBlock>
+
+    <!--#endregion-->
+
+    <!--#region DgTxtColX -->
+    <TextBlock x:Key="dsc_DgTxtColX" TextWrapping="Wrap">
+        <Bold>DataGridTextColumnX</Bold> is a CustomControl that adds TextAlignment and Color Properties to a DataGridTextColumn.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_DgTxtColX" TextWrapping="Wrap">
+        It can be used in a DataGrid when  
+        <Run Foreground="Red">AutoGenerateColumns</Run>
+         is set to 
+        <Run Foreground="Blue">False</Run>.
+        This control overwrites the CellStyle in code, therefore it is recommended to use the normal DataGridTextColumn 
+        when a Style is applied.
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_DgTxtColX" TextWrapping="Wrap">
+
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_DgTxtColX" TextWrapping="Wrap">
+
+    </TextBlock>
+
+    <!--#endregion-->
+
+    <!--#region CheckboxFilterList -->
+    <TextBlock x:Key="dsc_CbFilterList" TextWrapping="Wrap">
+ <Bold>Checkbox Filter List</Bold> Based on a List or an enum the user can select items in a Listbox Window.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_CbFilterList" TextWrapping="Wrap">
+ With little effort in the main window, a list of filter criteria can be created.
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_CbFilterList" TextWrapping="Wrap">
+ Input: <LineBreak/> 
+ Enum, Value List or List(Of T)
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_CbFilterList" TextWrapping="Wrap">
+ Output: <LineBreak/>
+ List of SelectedItems
+ SelectionChanged Event
+    </TextBlock>
+
+    <!--#endregion-->
+
+    <!--#region MessageWindow -->
+
+    <TextBlock x:Key="dsc_MessageWindow" TextWrapping="Wrap">
+<Bold>Message Window </Bold> and <Bold>Question Window</Bold> <LineBreak/>
+    Message Window is similar to Message Box and provides some functions to display status information to the user.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_MessageWindow" TextWrapping="Wrap">
+       In addition to text and title, one of the built-in icons can be displayed, 
+        a background brush can be set and the text size can be changed.<LineBreak/>
+        The window is placed centered above the owner and waits for ESC or ENTER or for the window to be closed.
+        The window is set to the size of the content.
+    </TextBlock>
+
+    <!--#endregion-->
+
+
+    <!--#region Sizeable Expander -->
+    <TextBlock x:Key="dsc_SizeableExpander" TextWrapping="Wrap">
+     <Bold>Sizeable Expander</Bold> allows the user to change the height of the expander content.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_SizeableExpander" TextWrapping="Wrap">
+     Dragging the lower edge changes the height. Clicking on the header switches between Collapsed and Expanded.
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_SizeableExpander" TextWrapping="Wrap">
+     
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_SizeableExpander" TextWrapping="Wrap">
+     Click, Left Mouse Button
+    </TextBlock>
+
+    <!--#endregion-->
+
+    <!--#region Miscellaneous -->
+
+    <TextBlock x:Key="dsc_Miscellaneous" TextWrapping="Wrap">
+<Bold>Miscellaneous</Bold> <LineBreak/>
+    Various controls without own example Tab.
+    </TextBlock>
+
+    <!--#endregion-->
+
+</ResourceDictionary>
