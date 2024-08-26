@@ -1,0 +1,45 @@
+﻿<UserControl x:Name="userControl" x:Class="NumericUpDown"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DailyUserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="120" Focusable="True" Background="#FFE6E6E6">
+    <Grid Margin="1">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto" MinWidth="{Binding UpDownColMinWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:NumericUpDown}}}"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- <ContentPresenter x:Name="ContentPresenter1"  Grid.RowSpan="2" Grid.ColumnSpan="2" Focusable="True"/> -->
+        <Grid Grid.RowSpan="2">
+            <ContentPresenter x:Name="ContentPresenter1" Focusable="True"/> 
+            <Viewbox>
+                <TextBox x:Name="TextBox1"  MaxLength="30" MaxLines="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="123"  Foreground="{Binding TextBoxForeground, ElementName=userControl}" Background="{Binding TextBoxBackground, ElementName=userControl}"/>
+            </Viewbox>
+        </Grid>
+        <!-- <Rectangle x:Name="FocusRect" Margin="-1" Grid.RowSpan="2" Grid.ColumnSpan="2" StrokeThickness="2"/> -->
+        <RepeatButton x:Name="upBotton" Grid.Column="1" Click="upButton_Click" Focusable="False">
+            <Path Data="M6.765,-3.2975501E-09 L13.53,10.333 0,10.333 z" Fill="Black" Stretch="Uniform" Margin="0,2"/>
+        </RepeatButton>
+        <RepeatButton x:Name="downButton" Grid.Column="1" Grid.Row="1" Click="downButton_click" Focusable="False" >
+            <Path Data="M6.7649999,-0.099792685 L13.03,9.164 0.5,9.164 z" Fill="Black" Stretch="Uniform" RenderTransformOrigin="0.5,0.5" Margin="0,2">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+        </RepeatButton>
+
+        <Rectangle x:Name="FocusRect" Margin="-1" Grid.RowSpan="2" Grid.ColumnSpan="2" StrokeThickness="{Binding FocusStrokeThickness, ElementName=userControl}"/>
+    </Grid>
+</UserControl>

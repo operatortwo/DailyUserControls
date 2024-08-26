@@ -1,0 +1,13 @@
+﻿Version History of Test DailyUserControls
+=========================================
+
+Date			Version		Changes
+------------------------------------------------	
+2024 08 19		1.0.1.4		added Miscellaneous Tab, inserted ComboBox example
+2024 07 17		1.0.1.3		NumericUpDown: added handlers for SpinUp/Down events
+2024 05 03		1.0.1.2		ImageButton: added example for Top and Bottom image alignment
+2024 01	29		1.0.1.1		added some data for CheckboxFilterList
+2024 01 05		1.0.1.0		added some data for DataGrid example
+2023 05 04		1.0.0.0		initial release
+2023 05 04		0.9.1.0		still writing
+

@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="SmallSlider"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DailyUserControls"
+             mc:Ignorable="d" 
+            d:DesignHeight="30" d:DesignWidth="120" MouseMove="UserControl_MouseMove" MouseLeftButtonDown="UserControl_MouseLeftButtonDown" MouseWheel="UserControl_MouseWheel" GotFocus="UserControl_GotFocus" LostFocus="UserControl_LostFocus" Focusable="True" Loaded="UserControl_Loaded" MouseLeftButtonUp="UserControl_MouseLeftButtonUp" PreviewKeyDown="UserControl_PreviewKeyDown" Background="#FFE6E6E6" IsTabStop="True" MouseDown="UserControl_MouseDown">
+    <Grid Margin="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2">
+            <Viewbox x:Name="ViewboxValue" HorizontalAlignment="Left">
+                <TextBox x:Name="TextBox1" MaxLines="1" MaxLength="30" Text="123" IsReadOnly="True" Focusable="False" IsTabStop="False" Cursor="Arrow" HorizontalAlignment="Left"/>
+            </Viewbox>
+        </Grid>
+        <Rectangle x:Name="FocusRect" Margin="-1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Grid x:Name="SliderRectGrid" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid Grid.ColumnSpan="2" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="SliderRectLeft" Width="20" HorizontalAlignment="Right" Fill="{Binding SliderBrush, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SmallSlider}}}"/>
+                <Rectangle x:Name="SliderRectRight" Width="20" HorizontalAlignment="Left" Grid.Column="1" Fill="{Binding SliderBrush, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SmallSlider}}}"/>
+                <Rectangle x:Name="SliderRect" Width="50" HorizontalAlignment="Left" Fill="{Binding SliderBrush, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SmallSlider}}}" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Grid>
+        <Rectangle x:Name="CenterMark" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="1" Height="3" Fill="Black" Grid.ColumnSpan="2"/>
+    </Grid>
+</UserControl>
