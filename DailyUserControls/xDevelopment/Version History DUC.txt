@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------
+2024 09 02		1.0.5.9		small slider: fix to allow negative MinimumValue
 2024 08 22		1.0.5.8		ImageButton: added IsCancel and IsDefault property
 2024 08	19		1.0.5.7		Added ComboBox
 2024 07 26		1.0.5.6		NumericUpDown:added Focus Brush and Thickness property, some focus improvements

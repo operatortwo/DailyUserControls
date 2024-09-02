@@ -464,10 +464,18 @@ Public Class SmallSlider
             SliderRectRight.Visibility = Visibility.Visible
 
             If valueRange > 0 Then
-                If Value < valueRange / 2 Then
-                    Lwidth = gwidth * (valueRange / 2 - Value) / valueRange
-                ElseIf Value > valueRange / 2 Then
-                    Rwidth = gwidth * (Value - valueRange / 2) / valueRange
+
+                ' old - right part has incorrect width when Minimum is negative
+                'If Value < valueRange / 2 Then
+                '    Lwidth = gwidth * (valueRange / 2 - Value) / valueRange
+                'ElseIf Value > valueRange / 2 Then
+                '    Rwidth = gwidth * (Value - valueRange / 2) / valueRange
+                'End If
+
+                If Value < (valueRange / 2 + MinimumValue) Then
+                    Lwidth = gwidth * (valueRange / 2 - Value + MinimumValue) / valueRange
+                ElseIf Value > (valueRange / 2 + MinimumValue) Then
+                    Rwidth = gwidth * (Value - valueRange / 2 - MinimumValue) / valueRange
                 End If
 
                 SliderRectLeft.Width = Lwidth
