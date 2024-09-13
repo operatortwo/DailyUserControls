@@ -9,12 +9,15 @@ Public Class ProgressCircle
 
         ' Add any initialization after the InitializeComponent() call.
 
-        '- initial values when inserted to the window
-        Width = 100
-        Height = 100
-        HorizontalAlignment = HorizontalAlignment.Left
-        VerticalAlignment = VerticalAlignment.Top
-        Margin = New Thickness(240, 160, 0, 0)
+        '- initial values when inserted to the window (until 1.0.5.9)
+        ' default initial values concerning sizing should not be set here, it can restrict the use of the control,
+        ' f.e. it can prevent setting Alignment to stretch
+        'Width = 100
+        'Height = 100
+        'HorizontalAlignment = HorizontalAlignment.Left
+        'VerticalAlignment = VerticalAlignment.Top
+        'Margin = New Thickness(240, 160, 0, 0)
+
         ArcAngle = 60
 
     End Sub

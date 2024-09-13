@@ -105,7 +105,11 @@ It is necessary to set a fixed height like: Height="150" and currently only TabS
 #### SetValueSilent
 Some value controls have a *SetValueSilent* method. This is useful in some special cases, generally when user and program code can set the value of the control.
 *SetValueSilent* causes the control's value to be updated, but does not raises a ValueChanged event.
-#### Known issues
+
+##
+### Known issues
+#### ValueChanged
+
 There seems to be a bug in VS 2022 17.5.5+  
 and also in VS 2019 when *Preview  features* */New WPF-XAML Designer for .NET Framework* is checked:  
 When creating a ValueChanged handler by double-clicking the event in the designer, an incomplete handler for ValueChanged is inserted.
@@ -131,7 +135,12 @@ This should be deleted, else ValueChanged is called twice.
 
 *'Handles' seems to be VB specific, it might work a little differently in C#.*
 
+#### Initial sizing
 
+Until version 1.0.5.9, initial values ​​for Width, Height, HorizontalAlignment and VerticalAlignment were set in the constructor.
+The intention was to give the controls an initial size to simplify the design process.
+Over time, however, it became apparent that this made designing more difficult and some settings for sizing and alignment could no longer be made.  
 
-
-
+Therefore, in version 1.0.6.0 the initial settings for Width, Height, HorizontalAlignment and VerticalAlignment were removed. 
+The behavior when adding UserControls to the design now corresponds to that of the built-in controls, such as the button. Width and Height are set to Stretch and so the initial size can be, for example, 600 x 400.
+The designer must now first limit the size, but in return he regains full control over the design.

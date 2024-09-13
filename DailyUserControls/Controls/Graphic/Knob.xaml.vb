@@ -11,12 +11,15 @@ Public Class Knob
 
         ' Add any initialization after the InitializeComponent() call.
 
-        '- initial values when inserted to the window
-        Width = 60
-        Height = 60
-        HorizontalAlignment = HorizontalAlignment.Left
-        VerticalAlignment = VerticalAlignment.Top
-        Margin = New Thickness(140, 180, 0, 0)
+        '- initial values when inserted to the window (until 1.0.5.9)
+        ' default initial values concerning sizing should not be set here, it can restrict the use of the control,
+        ' f.e. it can prevent setting Alignment to stretch
+        'Width = 60
+        'Height = 60
+        'HorizontalAlignment = HorizontalAlignment.Left
+        'VerticalAlignment = VerticalAlignment.Top
+        'Margin = New Thickness(140, 180, 0, 0)
+
         Value = 20
 
     End Sub

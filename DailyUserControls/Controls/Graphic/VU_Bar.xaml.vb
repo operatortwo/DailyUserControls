@@ -7,13 +7,15 @@ Public Class VU_Bar
 
         InitializeComponent()
 
+        '- initial values when inserted to the window (until 1.0.5.9)
+        ' default initial values concerning sizing should not be set here, it can restrict the use of the control,
+        ' f.e. it can prevent setting Alignment to stretch
+        'Width = 14
+        'Height = 40
+        'HorizontalAlignment = HorizontalAlignment.Left
+        'VerticalAlignment = VerticalAlignment.Top
 
-        '- initial values when inserted to the window
-        Width = 14
-        Height = 40
-        HorizontalAlignment = HorizontalAlignment.Left
-        VerticalAlignment = VerticalAlignment.Top
-        'Margin = New Thickness(100, 100, 0, 0)
+        ''Margin = New Thickness(100, 100, 0, 0)
 
     End Sub
 
