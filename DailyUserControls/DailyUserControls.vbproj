@@ -77,6 +77,9 @@
     <Compile Include="SidePanel\SidePanelButton.xaml.vb">
       <DependentUpon>SidePanelButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\MessageWindow.xaml.vb">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Controls\Common\ImageButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +136,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\TabControlExpander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MessageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,6 +225,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\StatusHelp_20x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\Error_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\Information_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\StatusOk_x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MessageWindow\Warning_x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

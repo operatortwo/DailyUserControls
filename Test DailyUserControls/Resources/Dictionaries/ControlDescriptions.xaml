@@ -223,6 +223,22 @@
 
     <!--#endregion-->
 
+    <!--#region MessageWindow -->
+
+    <TextBlock x:Key="dsc_MessageWindow" TextWrapping="Wrap">
+<Bold>Message Window</Bold> <LineBreak/>
+    Message Window is similar to Message Box and provides some functions to display status information to the user.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_MessageWindow" TextWrapping="Wrap">
+       In addition to text and title, one of the built-in icons can be displayed, 
+        a background brush can be set and the text size can be changed.<LineBreak/>
+        The window is placed centered above the owner and waits for ESC or ENTER or for the window to be closed.
+        The window is set to the size of the content.
+    </TextBlock>
+
+    <!--#endregion-->
+
     <!--#region Miscellaneous -->
 
     <TextBlock x:Key="dsc_Miscellaneous" TextWrapping="Wrap">

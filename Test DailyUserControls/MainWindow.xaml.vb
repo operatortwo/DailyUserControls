@@ -22,6 +22,14 @@ Class MainWindow
 
     End Sub
 
+#Region "Info About"
+    Private Sub MiAbout_Click(sender As Object, e As RoutedEventArgs) Handles MiAbout.Click
+        Dim win As New AboutWindow
+        win.Owner = Me
+        win.ShowDialog()
+    End Sub
+#End Region
+
 #Region "Image Button"
     Private Sub cbToggleIsEnabled_Checked(sender As Object, e As RoutedEventArgs) Handles cbToggleIsEnabled.Checked
         ImageButton1.IsEnabled = True
@@ -200,14 +208,26 @@ Class MainWindow
 
     End Sub
 
-    Private Sub cbflistE_SelectionChanged(sender As Object, e As RoutedEventArgs) Handles cbflistE.SelectionChanged
+#End Region
+
+#Region "MessageWindow"
+    Private Sub btnShowWindow_Click(sender As Object, e As RoutedEventArgs)
 
     End Sub
 
+    Private Sub btnSimpleMessage_Click(sender As Object, e As RoutedEventArgs) Handles btnSimpleMessage.Click
+        MessageWindow.Show("This is a simple message", "Message")
+    End Sub
 
+    Private Sub btnMessage1_Click(sender As Object, e As RoutedEventArgs) Handles btnMessage1.Click
+        MessageWindow.Show(Me, "Here is the Information", "This is a new Message", MessageIcon.Information, Brushes.PaleGoldenrod)
+    End Sub
+
+    Private Sub btnMessage2_Click(sender As Object, e As RoutedEventArgs) Handles btnMessage2.Click
+        MessageWindow.Show(Me, "Example 2" & vbCrLf & "with Icon, Background and Font Size 14", "New Message", MessageIcon.StatusOk, Brushes.BlanchedAlmond, 14)
+    End Sub
 
 #End Region
-
 
 
 End Class

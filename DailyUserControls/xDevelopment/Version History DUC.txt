@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------
+2024 09	23		1.0.7.0		added MessageWindow
 2024 09 10		1.0.6.0		removed initial size settings in user controls to regain full control over sizing
 2024 09 02		1.0.5.9		small slider: fix to allow negative MinimumValue
 2024 08 22		1.0.5.8		ImageButton: added IsCancel and IsDefault property

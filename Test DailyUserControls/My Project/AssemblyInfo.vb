@@ -12,7 +12,7 @@ Imports System.Windows
 ' Werte der Assemblyattribute überprüfen
 
 <Assembly: AssemblyTitle("Test_DailyUserControls")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyDescription("Testing and developing the library controls")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("Test_DailyUserControls")>
 <Assembly: AssemblyCopyright("Copyright ©  2023 - 2024  operatortwo")>
@@ -55,5 +55,5 @@ Imports System.Windows
 ' indem Sie "*" wie unten gezeigt eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.1.6")>
-<Assembly: AssemblyFileVersion("1.0.1.6")>
+<Assembly: AssemblyVersion("1.0.1.7")>
+<Assembly: AssemblyFileVersion("1.0.1.7")>
