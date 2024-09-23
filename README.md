@@ -74,6 +74,7 @@ The control then returns a list of the selected items.
 
 ##
 #### MessageWindow
+![MessageWindowSmall](https://github.com/user-attachments/assets/e690ce65-17fa-472f-96ad-393571c4e0e8)  
 Works similarly to MessageBox. Allows to display messages, for example whether an action was successful or not.  
 The built-in icons **Error**, **Information**, **StatusOk** and **Warning** can be used to clarify the meaning of the message.
 Because SizeToContent is used, both short and long messages can be displayed.
