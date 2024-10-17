@@ -34,7 +34,7 @@
                     <Grid>
                         <!-- Description -->
                         <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
-                        <duc:ImageButton Margin="30,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Text="Btn" Image="/Resources/Images/Play_x22.png" TextAlignment="Center" Background="#FFD5E0FF" Height="30"/>
+                        <duc:ImageButton Margin="30,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Text="Btn" Image="/Resources/Images/Play_x22.png" TextAlignment="Center" Background="#FFD5E0FF" Height="26"/>
                         <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <ContentControl  Margin="177,10,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc_ImageButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
                         <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
@@ -44,14 +44,14 @@
                         <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_ImageButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
                         <!-- Test Area -->
-                        <GroupBox Header="Toggle IsEnabled" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,194,0,0" Height="100" Width="175" FontSize="12">
+                        <GroupBox Header="Toggle IsEnabled" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,194,0,0" Height="100" Width="185" FontSize="12">
                             <Grid>
-                                <duc:ImageButton x:Name="ImageButton1" Margin="10,10,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFFFFB96" BorderBrush="Black" BorderThickness="0.5,0.5,0.5,0.5" Height="30" Width="140"/>
+                                <duc:ImageButton x:Name="ImageButton1" Margin="10,10,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFFFFB96" BorderBrush="Black" BorderThickness="0.5,0.5,0.5,0.5" Height="28" Width="150"/>
                                 <CheckBox x:Name="cbToggleIsEnabled" Content="IsEnabled" HorizontalAlignment="Left" Margin="45,52,0,0" VerticalAlignment="Top" IsChecked="True"/>
                             </Grid>
                         </GroupBox>
-                        <duc:ImageButton x:Name="PlayButton" HorizontalAlignment="Left" Margin="290,194,0,0" VerticalAlignment="Top" Image="/Resources/Images/Play_x22.png" Background="#FFDDF0FF" Text="Play" Width="100" ImageLocation="Right" BorderBrush="#FF2E46A5" BorderThickness="0.5,0.5,0.5,0.5" Height="30"/>
-                        <duc:ImageButton x:Name="StopButton" HorizontalAlignment="Left" Margin="290,244,0,0" VerticalAlignment="Top" Image="/Resources/Images/process_stop x22.png" Background="#FFDDF0FF" Text="Stop" Width="100" ImageLocation="Right" BorderBrush="#FF2E46A5" BorderThickness="0.5,0.5,0.5,0.5" Height="30"/>
+                        <duc:ImageButton x:Name="PlayButton" HorizontalAlignment="Left" Margin="290,194,0,0" VerticalAlignment="Top" Image="/Resources/Images/Play_x22.png" Background="#FFDDF0FF" Text="Play" Width="100" ImageLocation="Right" BorderBrush="#FF2E46A5" BorderThickness="0.5,0.5,0.5,0.5" Height="28" ImageMargin="5,2,5,2"/>
+                        <duc:ImageButton x:Name="StopButton" HorizontalAlignment="Left" Margin="290,244,0,0" VerticalAlignment="Top" Image="/Resources/Images/process_stop x22.png" Background="#FFDDF0FF" Text="Stop" Width="100" ImageLocation="Right" BorderBrush="#FF2E46A5" BorderThickness="0.5,0.5,0.5,0.5" Height="28" ImageMargin="5,1,5,1"/>
                         <Border Height="40" Width="200" Margin="432,209,0,0" Background="#FFEFFFE5" BorderBrush="#FF4C64CB" BorderThickness="2" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <TextBlock x:Name="tblk_ImageButtonMsg" Margin="0" TextWrapping="Wrap" Text="- Message -" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Border>
@@ -415,9 +415,25 @@
                         <Rectangle Height="97" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <ContentControl  Margin="30,89,27,0" Height="88" VerticalAlignment="Top" Content="{DynamicResource dsc2_MessageWindow}" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="14" HorizontalContentAlignment="Stretch"/>
                         <!-- MessageWindow -->
-                        <Button x:Name="btnSimpleMessage" Content="Simple Message" HorizontalAlignment="Left" Margin="60,222,0,0" VerticalAlignment="Top" Width="120" Height="25"/>
-                        <Button x:Name="btnMessage1" Height="25" Margin="60,266,0,0" Content="Show Message 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
-                        <Button x:Name="btnMessage2" Height="25" Margin="60,310,0,0" Content="Show Message 2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+                        <GroupBox Margin="30,218,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="169" Height="172" Header="Message Window">
+                            <Grid>
+                                <Button x:Name="btnSimpleMessage" Content="Simple Message" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="120" Height="25"/>
+                                <Button x:Name="btnMessage1" Height="25" Margin="20,60,0,0" Content="Show Message 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+                                <Button x:Name="btnMessage2" Height="25" Margin="20,100,0,0" Content="Show Message 2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+                            </Grid>
+                        </GroupBox>
+
+                        <!-- QuestionWindow -->
+                        <GroupBox Margin="283,218,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Height="212" Header="Question Window">
+                            <Grid>
+                                <Button x:Name="btnSimpleQuestion" Content="Simple Question" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="120" Height="25"/>
+                                <Button x:Name="btnQuestion1" Height="25" Margin="20,60,0,0" Content="Show Question 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+                                <Button x:Name="btnQuestion2" Height="25" Margin="20,100,0,0" Content="Show Question 2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+                                <Label Content="Result:" HorizontalAlignment="Left" Margin="20,158,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                                <Label x:Name="lblQuestionResult" HorizontalAlignment="Left" Margin="70,152,0,0" VerticalAlignment="Top" Width="86" BorderThickness="1,1,1,1" BorderBrush="#FF949494" Height="30" HorizontalContentAlignment="Center"/>
+                            </Grid>
+                        </GroupBox>
+
 
                     </Grid>
                 </TabItem>

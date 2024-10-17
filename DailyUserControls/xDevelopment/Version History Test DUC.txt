@@ -3,6 +3,8 @@
 
 Date			Version		Changes
 ------------------------------------------------	
+2024 10 17		1.0.1.9		added examples for QuestionWindow
+2024 10 15		1.0.1.8		little adjustments for ImageButton
 2024 09	23		1.0.1.7		added Tab for MessageWindow, added About Dialog
 2024 09 10		1.0.1.6		adjusted size settings for duc 1.0.6.0
 2024 09 02		1.0.1.5		added another example for small slider

@@ -3,6 +3,8 @@
 
 Date			Version		Changes
 ------------------------------------------------
+2024 10 17		1.0.7.2		added QuestionWindow
+2024 10 15		1.0.7.1		ImageButton: Grid2 Margin 2 -> 0 to increase text size
 2024 09	23		1.0.7.0		added MessageWindow
 2024 09 10		1.0.6.0		removed initial size settings in user controls to regain full control over sizing
 2024 09 02		1.0.5.9		small slider: fix to allow negative MinimumValue

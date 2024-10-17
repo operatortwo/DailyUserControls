@@ -211,9 +211,6 @@ Class MainWindow
 #End Region
 
 #Region "MessageWindow"
-    Private Sub btnShowWindow_Click(sender As Object, e As RoutedEventArgs)
-
-    End Sub
 
     Private Sub btnSimpleMessage_Click(sender As Object, e As RoutedEventArgs) Handles btnSimpleMessage.Click
         MessageWindow.Show("This is a simple message", "Message")
@@ -227,6 +224,29 @@ Class MainWindow
         MessageWindow.Show(Me, "Example 2" & vbCrLf & "with Icon, Background and Font Size 14", "New Message", MessageIcon.StatusOk, Brushes.BlanchedAlmond, 14)
     End Sub
 
+#End Region
+
+#Region "QuestionWindow"
+
+    Private Sub btnSimpleQuestion_Click(sender As Object, e As RoutedEventArgs) Handles btnSimpleQuestion.Click
+        Dim result As QuestionWindowResult
+        result = QuestionWindow.Show(Me, "Yes or No ?")
+        lblQuestionResult.Content = result
+    End Sub
+
+    Private Sub btnQuestion1_Click(sender As Object, e As RoutedEventArgs) Handles btnQuestion1.Click
+        Dim result As QuestionWindowResult
+        result = QuestionWindow.Show(Me, "Do you want to continue ?", "Closing", QuestionWindowButton.OkCancel)
+        lblQuestionResult.Content = result
+    End Sub
+
+    Private Sub btnQuestion2_Click(sender As Object, e As RoutedEventArgs) Handles btnQuestion2.Click
+        Dim result As QuestionWindowResult
+        result = QuestionWindow.Show(Me, "Do you want to save the changes ?", "Closing",
+                                     QuestionWindowButton.YesNoCancel, Brushes.Lavender, 16)
+
+        lblQuestionResult.Content = result
+    End Sub
 #End Region
 
 

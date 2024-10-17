@@ -226,7 +226,7 @@
     <!--#region MessageWindow -->
 
     <TextBlock x:Key="dsc_MessageWindow" TextWrapping="Wrap">
-<Bold>Message Window</Bold> <LineBreak/>
+<Bold>Message Window </Bold> and <Bold>Question Window</Bold> <LineBreak/>
     Message Window is similar to Message Box and provides some functions to display status information to the user.
     </TextBlock>
 

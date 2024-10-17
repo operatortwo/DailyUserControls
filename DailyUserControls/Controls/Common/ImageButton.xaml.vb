@@ -141,7 +141,7 @@ Public Class ImageButton
         End Set
     End Property
 
-    Public Shared ReadOnly ImageMarginProperty As DependencyProperty = DependencyProperty.Register("ImageMargin", GetType(Thickness), GetType(ImageButton), New UIPropertyMetadata(New Thickness(5, 0, 5, 0)))
+    Public Shared ReadOnly ImageMarginProperty As DependencyProperty = DependencyProperty.Register("ImageMargin", GetType(Thickness), GetType(ImageButton), New UIPropertyMetadata(New Thickness(2, 2, 0, 2)))
     ' appears in code
     ''' <summary>
     ''' Margins of the Image
