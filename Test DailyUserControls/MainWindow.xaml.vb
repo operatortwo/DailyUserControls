@@ -229,18 +229,21 @@ Class MainWindow
 #Region "QuestionWindow"
 
     Private Sub btnSimpleQuestion_Click(sender As Object, e As RoutedEventArgs) Handles btnSimpleQuestion.Click
+        lblQuestionResult.Content = ""
         Dim result As QuestionWindowResult
         result = QuestionWindow.Show(Me, "Yes or No ?")
         lblQuestionResult.Content = result
     End Sub
 
     Private Sub btnQuestion1_Click(sender As Object, e As RoutedEventArgs) Handles btnQuestion1.Click
+        lblQuestionResult.Content = ""
         Dim result As QuestionWindowResult
         result = QuestionWindow.Show(Me, "Do you want to continue ?", "Closing", QuestionWindowButton.OkCancel)
         lblQuestionResult.Content = result
     End Sub
 
     Private Sub btnQuestion2_Click(sender As Object, e As RoutedEventArgs) Handles btnQuestion2.Click
+        lblQuestionResult.Content = ""
         Dim result As QuestionWindowResult
         result = QuestionWindow.Show(Me, "Do you want to save the changes ?", "Closing",
                                      QuestionWindowButton.YesNoCancel, Brushes.Lavender, 16)

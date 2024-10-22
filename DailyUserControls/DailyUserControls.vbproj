@@ -252,10 +252,10 @@
     <Resource Include="Resources\Images\MessageWindow\Cancel_x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\MessageWindow\OK_x32.png" />
+    <Resource Include="Resources\Images\MessageWindow\NotOkGray_x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\MessageWindow\NotOkGray_x32.png" />
+    <Resource Include="Resources\Images\MessageWindow\Ok_g_x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
