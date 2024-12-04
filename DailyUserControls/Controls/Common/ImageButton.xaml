@@ -31,13 +31,12 @@
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="False">
                     <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
-                    <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
                     <Setter Property="Foreground" Value="#FF838383"/>
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </UserControl.Resources>
-    <Grid Background="{Binding Background, ElementName=userControl}">
+    <Grid x:Name="Grid1" Background="{Binding Background, ElementName=userControl}">
         <Button x:Name="Button" BorderBrush="{x:Null}" Background="#00000000" Foreground="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Template="{DynamicResource ButtonControlTemplate}"
             IsCancel="{Binding IsCancel, ElementName=userControl}" IsDefault="{Binding IsDefault, ElementName=userControl}">
             <Grid x:Name="Grid2" Margin="0">

@@ -3,6 +3,7 @@
     Private Shared ReturnCode As QuestionWindowResult
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         btnYes.Focus()
+        ReturnCode = QuestionWindowResult.Cancel            ' preset for closing the window with 'x' or alt+F4
     End Sub
     ''' <summary>
     ''' Simple question.

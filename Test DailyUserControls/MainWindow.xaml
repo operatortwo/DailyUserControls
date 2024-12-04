@@ -46,7 +46,7 @@
                         <!-- Test Area -->
                         <GroupBox Header="Toggle IsEnabled" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,194,0,0" Height="100" Width="185" FontSize="12">
                             <Grid>
-                                <duc:ImageButton x:Name="ImageButton1" Margin="10,10,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFFFFB96" BorderBrush="Black" BorderThickness="0.5,0.5,0.5,0.5" Height="28" Width="150"/>
+                                <duc:ImageButton x:Name="ImageButton1" Margin="10,10,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFFFFB96" Height="28" Width="150" BorderBrush="#FF1300FF"/>
                                 <CheckBox x:Name="cbToggleIsEnabled" Content="IsEnabled" HorizontalAlignment="Left" Margin="45,52,0,0" VerticalAlignment="Top" IsChecked="True"/>
                             </Grid>
                         </GroupBox>

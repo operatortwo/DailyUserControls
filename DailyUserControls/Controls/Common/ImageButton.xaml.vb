@@ -1,10 +1,10 @@
 ﻿Imports System.ComponentModel
 
 Public Class ImageButton
-    Private Shared DefaultBachgroundBrush As New SolidColorBrush(Color.FromArgb(&HFF, &HE6, &HE6, &HE6))
+    Private Shared DefaultBackgroundBrush As New SolidColorBrush(Color.FromArgb(&HFF, &HE6, &HE6, &HE6))
     Private Shared DefaultBorderBrush As New SolidColorBrush(Color.FromArgb(&HFF, &H70, &H70, &H70))
     Shared Sub New()
-        BackgroundProperty.OverrideMetadata(GetType(ImageButton), New FrameworkPropertyMetadata(DefaultBachgroundBrush))
+        BackgroundProperty.OverrideMetadata(GetType(ImageButton), New FrameworkPropertyMetadata(DefaultBackgroundBrush))
         BorderBrushProperty.OverrideMetadata(GetType(ImageButton), New FrameworkPropertyMetadata(DefaultBorderBrush))
         BorderThicknessProperty.OverrideMetadata(GetType(ImageButton), New FrameworkPropertyMetadata(New Thickness(1, 1, 1, 1)))
     End Sub
@@ -310,14 +310,25 @@ Public Class ImageButton
 
 
     Private ReadOnly DisabledOpacityMask As SolidColorBrush = New SolidColorBrush(Color.FromArgb(&H54, 0, 0, 0))
+    'Private OriginalBorderBrush As Brush                                     ' for IsEnabled.Changed
     Private Sub userControl_IsEnabledChanged(sender As Object, e As DependencyPropertyChangedEventArgs) Handles userControl.IsEnabledChanged
 
         If CBool(e.NewValue) = True Then
-            Grid2.OpacityMask = Nothing
+            'Grid1.OpacityMask = Nothing
+            OpacityMask = Nothing
         Else
-            Grid2.OpacityMask = DisabledOpacityMask
+            'Grid1.OpacityMask = DisabledOpacityMask
+            OpacityMask = DisabledOpacityMask
         End If
 
+        'If DesignerProperties.GetIsInDesignMode(Me) = False Then
+        '    If CBool(e.NewValue) = True Then
+        '        BorderBrush = OriginalBorderBrush
+        '    Else
+        '        OriginalBorderBrush = BorderBrush
+        '        BorderBrush = Brushes.Transparent
+        '    End If
+        'End If
 
     End Sub
 
