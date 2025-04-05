@@ -1,5 +1,5 @@
 # DailyUserControls
-This side work contains some usercontrols that I use in other projects.  
+This side work contains some usercontrols that I use in other **.NET Framework** projects.  
 The goal is to collect some common controls in a library to be able to maintain them in one place.  
 There's a compromise between looking good, working well, and acceptable programming effort.
 The current version offers quick and easy usability, while the graphics and the user input are kept rather simple.  
