@@ -15,7 +15,7 @@ Imports System.Windows
 <Assembly: AssemblyDescription("A small collection of WPF UserControls")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("DailyUserControls")>
-<Assembly: AssemblyCopyright("Copyright @  2023 - 2024  operatortwo")>
+<Assembly: AssemblyCopyright("Copyright @  2023 - 2025  operatortwo")>
 <Assembly: AssemblyTrademark("")> 
 <Assembly: ComVisible(false)>
 
@@ -55,5 +55,5 @@ Imports System.Windows
 ' indem Sie "*" wie unten gezeigt eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.8.2")>
-<Assembly: AssemblyFileVersion("1.0.8.2")>
+<Assembly: AssemblyVersion("1.0.8.3")>
+<Assembly: AssemblyFileVersion("1.0.8.3")>

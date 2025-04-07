@@ -221,9 +221,7 @@
   <ItemGroup>
     <Resource Include="xDevelopment\Version History Test DUC.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="xDevelopment\Private\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Images\Filter_x32.png" />
   </ItemGroup>

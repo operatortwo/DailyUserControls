@@ -82,7 +82,7 @@
 
     <TextBlock x:Key="dsc2_SmallSlider" TextWrapping="Wrap">
         Properties: Value, MinimumValue, MaximumValue, StepValue, DecimalPlaces, 
-        Background, BorderBrush, Foreground, SliderBrush
+        Background, BorderBrush, Foreground, SliderBrush, MouseWheelHandled
     </TextBlock>
 
     <TextBlock x:Key="dscKb_SmallSlider" TextWrapping="Wrap">

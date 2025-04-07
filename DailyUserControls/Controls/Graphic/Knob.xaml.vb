@@ -550,6 +550,19 @@ Public Class Knob
 
     End Sub
 
+    ''' <summary>
+    ''' Set to true to prevent MouseWheel-Event from bubbling up. For example, if the control belongs to the content of a ScrollViewer.
+    ''' </summary>
+    Public Shared ReadOnly MouseWheelHandledProperty As DependencyProperty = DependencyProperty.Register("MouseWheelHandled", GetType(Boolean), GetType(Knob))
+    <Description("Set to true to prevent MouseWheel-Event from bubbling up. For example, if the control belongs to the content of a ScrollViewer."), Category("Knob")>
+    Public Property MouseWheelHandled() As Boolean
+        Get
+            Return CDbl(GetValue(MouseWheelHandledProperty))
+        End Get
+        Set(ByVal value As Boolean)
+            SetValue(MouseWheelHandledProperty, value)
+        End Set
+    End Property
     Private Sub UserControl_MouseWheel(sender As Object, e As MouseWheelEventArgs)
         ' The amount of the delta value is currently not taken into account
         ' Increase/decrease value
@@ -562,6 +575,11 @@ Public Class Knob
         ' If the mouse wheel delta is negative, move the box down.
         If e.Delta < 0 Then
             Value -= StepValue
+        End If
+
+        ' control-property to prevent event from bubbling up
+        If MouseWheelHandled = True Then
+            e.Handled = True
         End If
     End Sub
     Private Sub ShowValue()

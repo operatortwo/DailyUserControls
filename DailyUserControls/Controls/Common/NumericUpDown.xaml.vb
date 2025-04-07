@@ -400,7 +400,28 @@ Public Class NumericUpDown
             Value -= StepValue
         End If
     End Sub
+
+
+    ''' <summary>
+    ''' Set to true to prevent MouseWheel-Event from bubbling up. For example, if the control belongs to the content of a ScrollViewer.
+    ''' </summary>
+    Public Shared ReadOnly MouseWheelHandledProperty As DependencyProperty = DependencyProperty.Register("MouseWheelHandled", GetType(Boolean), GetType(NumericUpDown))
+    <Description("Set to true to prevent MouseWheel-Event from bubbling up. For example, if the control belongs to the content of a ScrollViewer."), Category("Numeric UpDown")>
+    Public Property MouseWheelHandled() As Boolean
+        Get
+            Return CDbl(GetValue(MouseWheelHandledProperty))
+        End Get
+        Set(ByVal value As Boolean)
+            SetValue(MouseWheelHandledProperty, value)
+        End Set
+    End Property
+
     Private Sub userControl_MouseWheel(sender As Object, e As MouseWheelEventArgs) Handles userControl.MouseWheel
+        ' control-property to prevent event from bubbling up
+        ' set before exit sub below
+        If MouseWheelHandled = True Then
+            e.Handled = True
+        End If
 
         ' The amount of the delta value is currently not taken into account
         ' Increase/decrease value

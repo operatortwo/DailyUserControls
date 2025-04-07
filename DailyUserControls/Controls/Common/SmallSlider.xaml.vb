@@ -398,6 +398,20 @@ Public Class SmallSlider
         End If
     End Sub
 
+    ''' <summary>
+    ''' Set to true to prevent MouseWheel-Event from bubbling up. For example, if the control belongs to the content of a ScrollViewer.
+    ''' </summary>
+    Public Shared ReadOnly MouseWheelHandledProperty As DependencyProperty = DependencyProperty.Register("MouseWheelHandled", GetType(Boolean), GetType(SmallSlider))
+    <Description("Set to true to prevent MouseWheel-Event from bubbling up. For example, if the control belongs to the content of a ScrollViewer."), Category("Small Slider")>
+    Public Property MouseWheelHandled() As Boolean
+        Get
+            Return CDbl(GetValue(MouseWheelHandledProperty))
+        End Get
+        Set(ByVal value As Boolean)
+            SetValue(MouseWheelHandledProperty, value)
+        End Set
+    End Property
+
     Private Sub UserControl_MouseWheel(sender As Object, e As MouseWheelEventArgs)
         ' The amount of the delta value is currently not taken into account
         ' Increase/decrease value
@@ -412,6 +426,10 @@ Public Class SmallSlider
             Value -= StepValue
         End If
 
+        ' control-property to prevent event from bubbling up
+        If MouseWheelHandled = True Then
+            e.Handled = True
+        End If
     End Sub
 
     Private Sub UserControl_GotFocus(sender As Object, e As RoutedEventArgs)

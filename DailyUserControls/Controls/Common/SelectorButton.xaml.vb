@@ -313,6 +313,21 @@ Public Class SelectorButton
         End If
     End Sub
 
+
+    ''' <summary>
+    ''' Set to true to prevent MouseWheel-Event from bubbling up. For example, if the control belongs to the content of a ScrollViewer.
+    ''' </summary>
+    Public Shared ReadOnly MouseWheelHandledProperty As DependencyProperty = DependencyProperty.Register("MouseWheelHandled", GetType(Boolean), GetType(SelectorButton))
+    <Description("Set to true to prevent MouseWheel-Event from bubbling up. For example, if the control belongs to the content of a ScrollViewer."), Category("Selector Button")>
+    Public Property MouseWheelHandled() As Boolean
+        Get
+            Return CDbl(GetValue(MouseWheelHandledProperty))
+        End Get
+        Set(ByVal value As Boolean)
+            SetValue(MouseWheelHandledProperty, value)
+        End Set
+    End Property
+
     Private Sub UserControl_MouseWheel(sender As Object, e As MouseWheelEventArgs)
         ' The amount of the delta value is currently not taken into account
         ' Increase/decrease value
@@ -327,6 +342,11 @@ Public Class SelectorButton
         If e.Delta < 0 Then
             Value -= 1
             e.Handled = True                    ' avoid scrolling inside scrollbar
+        End If
+
+        ' control-property to prevent event from bubbling up
+        If MouseWheelHandled = True Then
+            e.Handled = True
         End If
     End Sub
 

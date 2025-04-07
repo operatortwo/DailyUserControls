@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Test_DailyUserControls"            
         xmlns:duc="clr-namespace:DailyUserControls;assembly=DailyUserControls"                
         mc:Ignorable="d"
-        Title="Test DailyUserControls" Height="520" Width="850" Loaded="Window_Loaded">
+        Title="Test DailyUserControls" Height="600" Width="850" Loaded="Window_Loaded">
     <Window.Resources>
         <LinearGradientBrush x:Key="TabItemBackground1" EndPoint="0,1">
             <GradientStop Color="White"/>
@@ -61,7 +61,7 @@
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="tiNumericUpDown" Header="Numeric UpDown" Background="{DynamicResource TabItemBackground1}">
-                    <Grid>
+                    <Grid x:Name="NumericUpDownGrid">
                         <!-- Description -->
                         <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <duc:NumericUpDown Margin="30,26,0,0" Background="#FF87CA94" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="27" TextBoxBackground="#FFD7FFCF" TextBoxForeground="#FF001BFF"/>
@@ -74,8 +74,8 @@
                         <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_NumericUpDown}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
                         <!-- Test Area -->
-                        <TextBox x:Name="tbNudMsg" HorizontalAlignment="Left" Margin="33,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="159" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
-                        <duc:NumericUpDown x:Name="nud1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Height="50" Margin="33,176,0,0" MinimumValue="-10" MaximumValue="10" StepValue="0.25" DecimalPlaces="2" Value="1" />
+                        <TextBox x:Name="tbNudMsg" HorizontalAlignment="Left" Margin="33,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="150" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                        <duc:NumericUpDown x:Name="NumericUpDown1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Height="50" Margin="33,176,0,0" MinimumValue="-10" MaximumValue="10" StepValue="0.25" DecimalPlaces="2" Value="1" />
                         <duc:NumericUpDown x:Name="nud2" Margin="269,273,0,0" Width="75" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         <Button x:Name="btnNudSilent" Content="SetValueSilent 5.5" Width="139" Margin="205,186,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" ToolTip="Special function to set the value without raising the ValueChanged event"/>
                         <duc:NumericUpDown x:Name="nud3" HorizontalAlignment="Left" Margin="445,273,0,0" VerticalAlignment="Top" MaximumValue="10" Width="75" Height="30"/>
@@ -87,6 +87,9 @@
                         <Label Content="0" HorizontalAlignment="Left" Margin="504,308,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
                         <Label Content="10" HorizontalAlignment="Left" Margin="500,249,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
                         <Label Content="handles SpinUp/Down" HorizontalAlignment="Left" Margin="413,231,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <CheckBox x:Name="cbNumericUpDownWheelHandled" Content="MousewheelHandled" HorizontalAlignment="Left" Margin="33,420,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="tbNumericUpDownWheel" Margin="33,450,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="56" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="156,456,0,0" VerticalAlignment="Top" Background="#FFFFFDED" Width="159" Padding="5,0,0,0" Height="44" TextWrapping="Wrap" TextAlignment="Center"><Run Text="Wheel Event"/><Run Text="s"/><Run Text=" "/><Run Language="de-ch" Text="bubbled"/><Run Text=" "/><Run Language="de-ch" Text="to"/><Run Text=" the Grid"/></TextBlock>
 
                     </Grid>
                 </TabItem>
@@ -119,7 +122,7 @@
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="tiSmallSlider" Header="Small Slider" Background="{DynamicResource TabItemBackground1}">
-                    <Grid>
+                    <Grid x:Name="SmallSliderGrid">
                         <!-- Description -->
                         <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <duc:SmallSlider Margin="25,25,0,0" Value="50" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="25" Background="#FF87CA94"/>
@@ -132,8 +135,8 @@
                         <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_SmallSlider}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
                         <!-- Test Area -->
-                        <TextBox x:Name="tbSmallSliderValueChanged" Margin="25,266,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Height="134" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
-                        <duc:SmallSlider x:Name="SmallSlider1" HorizontalAlignment="Left" Margin="50,202,0,0" VerticalAlignment="Top" Value="46" Height="24" Width="104" BorderBrush="Black" BorderThickness="0.5,0.5,0.5,0.5" Background="#FFE5EFFF"/>
+                        <TextBox x:Name="tbSmallSliderValueChanged" Margin="25,210,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Height="130" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                        <duc:SmallSlider x:Name="SmallSlider1" HorizontalAlignment="Left" Margin="50,175,0,0" VerticalAlignment="Top" Value="46" Height="24" Width="104" BorderBrush="Black" BorderThickness="0.5,0.5,0.5,0.5" Background="#FFE5EFFF"/>
 
                         <Label Content="-99 ... +99" HorizontalAlignment="Left" Margin="250,172,0,0" VerticalAlignment="Top"/>
                         <duc:SmallSlider Margin="241,212,0,0" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Background="#FFADE68E" SliderBrush="#FFFF2845" LeftRightLook="{Binding IsChecked, ElementName=cbLeftRightLook1}" MinimumValue="-99" MaximumValue="99"/>
@@ -143,7 +146,9 @@
                         <duc:SmallSlider Margin="241,315,0,0" MaximumValue="127" DisplayedValueOffset="-64" Value="64" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Background="#FFC1D9FF" SliderBrush="#FF003EFF" LeftRightLook="{Binding IsChecked, ElementName=cbLeftRightLook2}"/>
                         <CheckBox x:Name="cbLeftRightLook2" Content="LeftRightLook" HorizontalAlignment="Left" Margin="364,319,0,0" VerticalAlignment="Top"/>
                         <TextBlock HorizontalAlignment="Left" Margin="364,351,0,0" VerticalAlignment="Top" Background="#FFFFFDED" Width="288" Padding="5,0,0,0" Height="61"><Run Text="DisplayedValueOffset"/><Run Text=" is set to -64"/><LineBreak/><Run Text="- -&gt; "/><Run Text="Value"/><Run Language="de-ch" Text=" range is"/><Run Text="  0 to 127"/><LineBreak/><Run Text="a practical example "/><Run Language="de-ch" Text="for this is MIDI Pan"/><LineBreak/><Run/></TextBlock>
-
+                        <CheckBox x:Name="cbSmallSliderWheelHandled" Content="MousewheelHandled" HorizontalAlignment="Left" Margin="25,350,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="tbSmallSliderWheel" Margin="25,380,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Height="56" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="25,441,0,0" VerticalAlignment="Top" Background="#FFFFFDED" Width="153" Padding="5,0,0,0" Height="40" TextWrapping="Wrap" TextAlignment="Center"><Run Text="Wheel Event"/><Run Text="s"/><Run Text=" "/><Run Language="de-ch" Text="bubbled"/><Run Text=" "/><Run Language="de-ch" Text="to "/><Run Text="the Grid"/></TextBlock>
 
                     </Grid>
                 </TabItem>

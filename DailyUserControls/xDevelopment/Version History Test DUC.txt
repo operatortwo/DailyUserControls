@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------	
+2025 04 07		1.0.2.1		MouseWheelHandled-property example for SmallSlider and NumericUpDown
 2024 10 30		1.0.2.0		Release
 2024 10 17		1.0.1.9		added examples for QuestionWindow
 2024 10 15		1.0.1.8		little adjustments for ImageButton

@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------
+2025 04 07		1.0.8.3		MouseWheelHandled property for SmallSlider, NumericUpDown, SelectorButton, Knob
 2024 12 04		1.0.8.2		ImageButton: IsEnabled Border improvements
 2024 10 30		1.0.8.0		Release
 2024 10 29		1.0.7.3		ImageButton: added default border

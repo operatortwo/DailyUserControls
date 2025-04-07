@@ -53,16 +53,41 @@ Class MainWindow
 #End Region
 
 #Region "Numeric UpDown"
-    Private Sub nud1_ValueChanged(sender As Object, e As RoutedPropertyChangedEventArgs(Of Double)) Handles nud1.ValueChanged
+
+#Region "NumericUpDown 1"
+    Private Sub NumericUpDown_ValueChanged(sender As Object, e As RoutedPropertyChangedEventArgs(Of Double)) Handles NumericUpDown1.ValueChanged
         If tbNudMsg.LineCount > 200 Then tbNudMsg.Clear()
-        tbNudMsg.AppendText("Value changed = " & nud1.Value & vbCrLf)
+        tbNudMsg.AppendText("Value changed = " & NumericUpDown1.Value & vbCrLf)
         tbNudMsg.ScrollToEnd()
         'e.Handled = True
     End Sub
 
     Private Sub btnNudSilent_Click(sender As Object, e As RoutedEventArgs) Handles btnNudSilent.Click
-        nud1.SetValueSilent(5.5)
+        NumericUpDown1.SetValueSilent(5.5)
     End Sub
+
+    Private Sub cbNumericUpDownWheelHandled_Click(sender As Object, e As RoutedEventArgs) Handles cbNumericUpDownWheelHandled.Click
+        If cbNumericUpDownWheelHandled.IsChecked = True Then
+            NumericUpDown1.MouseWheelHandled = True
+            tbNumericUpDownWheel.Clear()
+        Else
+            NumericUpDown1.MouseWheelHandled = False
+        End If
+    End Sub
+
+    Private Sub NumericUpDownGrid_MouseWheel(sender As Object, e As MouseWheelEventArgs) Handles NumericUpDownGrid.MouseWheel
+        Dim nud As NumericUpDown = TryCast(e.Source, NumericUpDown)
+        If nud IsNot Nothing Then
+            Dim sname As String = nud.Name
+            If tbNumericUpDownWheel.LineCount > 100 Then tbNumericUpDownWheel.Clear()
+            If nud.Name = "NumericUpDown1" Then
+                tbNumericUpDownWheel.AppendText("Wheel: " & NumericUpDown1.Value & vbCrLf)
+                tbNumericUpDownWheel.ScrollToEnd()
+            End If
+        End If
+    End Sub
+
+#End Region
 
     Private Sub nud2_ValueChanged(sender As Object, e As RoutedPropertyChangedEventArgs(Of Double)) Handles nud2.ValueChanged
         If tbNudMsg.LineCount > 200 Then tbNudMsg.Clear()
@@ -111,6 +136,27 @@ Class MainWindow
         If tbSmallSliderValueChanged.LineCount > 200 Then tbSmallSliderValueChanged.Clear()
         tbSmallSliderValueChanged.AppendText("Value changed = " & SmallSlider1.Value & vbCrLf)
         tbSmallSliderValueChanged.ScrollToEnd()
+    End Sub
+
+    Private Sub cbSmallSliderWheelHandled_Click(sender As Object, e As RoutedEventArgs) Handles cbSmallSliderWheelHandled.Click
+        If cbSmallSliderWheelHandled.IsChecked = True Then
+            SmallSlider1.MouseWheelHandled = True
+            tbSmallSliderWheel.Clear()
+        Else
+            SmallSlider1.MouseWheelHandled = False
+        End If
+    End Sub
+
+    Private Sub SmallSliderGrid_MouseWheel(sender As Object, e As MouseWheelEventArgs) Handles SmallSliderGrid.MouseWheel
+        Dim sld As SmallSlider = TryCast(e.Source, SmallSlider)
+        If sld IsNot Nothing Then
+            Dim sname As String = sld.Name
+            If tbSmallSliderWheel.LineCount > 100 Then tbSmallSliderWheel.Clear()
+            If sld.Name = "SmallSlider1" Then
+                tbSmallSliderWheel.AppendText("Wheel: " & SmallSlider1.Value & vbCrLf)
+                tbSmallSliderWheel.ScrollToEnd()
+            End If
+        End If
     End Sub
 
 #End Region
@@ -250,6 +296,7 @@ Class MainWindow
 
         lblQuestionResult.Content = result
     End Sub
+
 #End Region
 
 
