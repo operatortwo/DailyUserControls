@@ -209,6 +209,15 @@ Class MainWindow
 
 #End Region
 
+#Region "Progress Ring"
+    Private Sub btnSetProgRingDefaultStartA_Click(sender As Object, e As RoutedEventArgs) Handles btnSetProgRingDefaultStartA.Click
+        SldProgressRingStartAngle.Value = 270
+    End Sub
+
+
+
+#End Region
+
 #Region "Knob"
     Private Sub knob1_ValueChanged(sender As Object, e As RoutedPropertyChangedEventArgs(Of Double)) Handles knob1.ValueChanged
         If tbKnobMsg.LineCount > 200 Then tbKnobMsg.Clear()

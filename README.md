@@ -47,11 +47,15 @@ Is a very simple indicator showing activity on an audio track.
 Some additional code for timed value decrease is necessary.  
 Bar can be SolidColorBrush, LinearGradientBrush or ImageBrush.
 
-
 ##
 #### Progress Circle
 ![ProgressCircle](https://user-images.githubusercontent.com/88147904/236564902-81b50848-d7fb-4400-aa28-65f055ec450d.PNG)  
 Visualizes progress or angle.
+
+##
+#### Progress Ring
+
+Visualizes progress in ring- / donut style
 
 ##
 #### Knob

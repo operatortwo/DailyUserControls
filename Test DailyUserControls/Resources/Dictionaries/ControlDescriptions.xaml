@@ -142,8 +142,8 @@
 
     <TextBlock x:Key="dsc2_ProgressCircle" TextWrapping="Wrap">
         Basis for the circular visualization of progress. 
-        A possible improvement would be an optional circle in the middle 
-        with an optional text output of the percentage.
+        A possible improvement would be an optional text output of the percentage in the middle 
+        of the circle.
     </TextBlock>
 
     <TextBlock x:Key="dscKb_ProgressCircle" TextWrapping="Wrap">
@@ -155,6 +155,27 @@
     </TextBlock>
 
     <!--#endregion-->
+
+    <!--#region Progress Ring -->
+    <TextBlock x:Key="dsc_ProgressRing" TextWrapping="Wrap">
+    <Bold>Progress Ring</Bold> visualizes progress from start value to end value.
+        The input range goes from Minimum to Maximum and is mapped to the ring from 0 to 360 degrees.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_ProgressRing" TextWrapping="Wrap">
+    Circular visualization of progress. The progress value as angle or percent can be read from the control  
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_ProgressRing" TextWrapping="Wrap">
+    no keyboard input
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_ProgressRing" TextWrapping="Wrap">
+    no mouse input
+    </TextBlock>
+
+    <!--#endregion-->
+
 
     <!--#region Knob -->
     <TextBlock x:Key="dsc_Knob" TextWrapping="Wrap">

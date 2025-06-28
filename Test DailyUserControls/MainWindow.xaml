@@ -258,7 +258,7 @@
                         <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_ProgressCircle}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
                         <!-- Test Area -->
 
-                        <duc:ProgressCircle Margin="21,183,0,0" Width="200" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" ArcAngle="{Binding Value, ElementName=ArcAngleSlider}" BorderThickness="0" Foreground="{x:Null}" StartAngle="{Binding Value, ElementName=StartAngleSlider}">
+                        <duc:ProgressCircle Margin="30,190,0,0" Width="200" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" ArcAngle="{Binding Value, ElementName=ArcAngleSlider}" BorderThickness="0" Foreground="{x:Null}" StartAngle="{Binding Value, ElementName=StartAngleSlider}">
                             <duc:ProgressCircle.Fill>
                                 <RadialGradientBrush>
                                     <GradientStop Color="#FFE7F388" Offset="0"/>
@@ -284,6 +284,59 @@
 
                     </Grid>
                 </TabItem>
+
+
+                <TabItem x:Name="tiProgressRing" Header="Progress Ring" Background="{DynamicResource TabItemBackground1}">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:ProgressRing Margin="55,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" ProgressValue="75" RingWidthRatio="30" />
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_ProgressRing}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_ProgressRing}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_ProgressRing}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_ProgressRing}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+
+                        <!-- ProgressRing1 -->
+                        <duc:ProgressRing x:Name="ProgressRing1" Width="200" Height="200" Margin="30,190,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" StartAngle="{Binding Value, ElementName=SldProgressRingStartAngle}" ProgressValue="{Binding Value, ElementName=SldProgressRingValue}" RingWidthRatio="30"/>
+                        <Slider x:Name="SldProgressRingValue" HorizontalAlignment="Left" Margin="64,419,0,0" VerticalAlignment="Top" Height="21" Width="100" SmallChange="1" Maximum="100" IsSnapToTickEnabled="True" ToolTip="Binding from green and yellow circle" TabIndex="30" Value="66"/>
+                        <Label x:Name="lblStartAngleValueProgRing_Kopieren" Content="{Binding Value, ElementName=SldProgressRingValue}" HorizontalAlignment="Left" Margin="191,414,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="Value" HorizontalAlignment="Left" Margin="97,449,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="lblProgRingArcAngle" Content="{Binding ArcAngle, ElementName=ProgressRing1, Mode=OneWay}" HorizontalAlignment="Left" Margin="199,169,0,0" VerticalAlignment="Top" Padding="0,0,0,0" Width="37" HorizontalContentAlignment="Right"/>
+                        <!-- ProgressRing2 -->
+                        <duc:ProgressRing x:Name="ProgressRing2" Width="100" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="381,190,0,0" RingBackFill="#FFFFF8C9" RingFill="#FFF3EC5A" StartAngle="{Binding Value, ElementName=SldProgressRingStartAngle}" ProgressValue="{Binding Value, ElementName=SldProgressRing2Value}" MinimumValue="{Binding Value, ElementName=SldProgressRing2Minimum1}" MaximumValue="{Binding Value, ElementName=SldProgressRing2Maximum1}"  />
+
+
+                        <!-- start angle for both -->
+                        <Slider x:Name="SldProgressRingStartAngle" HorizontalAlignment="Left" Margin="254,459,0,0" VerticalAlignment="Top" Height="21" Width="100" SmallChange="10" Maximum="360" IsSnapToTickEnabled="True" TickFrequency="10" Value="270" ToolTip="Binding from green and yellow circle" TabIndex="30"/>
+                        <Label Content="Start Angle" HorizontalAlignment="Left" Margin="270,485,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="lblStartAngleValueProgRing" Content="{Binding Value, ElementName=SldProgressRingStartAngle}" HorizontalAlignment="Left" Margin="370,455,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Button x:Name="btnSetProgRingDefaultStartA" Content="Default" HorizontalAlignment="Left" Margin="370,483,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="LblProgressRingPercent" Content="{Binding ProgressPercent, ElementName=ProgressRing2, Mode=OneWay}" HorizontalAlignment="Left" Margin="515,193,0,0" VerticalAlignment="Top" Padding="0,0,0,0" HorizontalContentAlignment="Right" Width="27"/>
+                        <Label Content="%" HorizontalAlignment="Left" Margin="547,193,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Slider x:Name="SldProgressRing2Value" HorizontalAlignment="Left" Margin="381,314,0,0" VerticalAlignment="Top" Width="100" Minimum="{Binding Value, ElementName=SldProgressRing2Minimum1}" Maximum="{Binding Value, ElementName=SldProgressRing2Maximum1}"/>
+                        <Slider x:Name="SldProgressRing2Maximum1" HorizontalAlignment="Left" Margin="522,372,0,0" VerticalAlignment="Top" Width="100" Minimum="101" Maximum="250" Value="150"/>
+                        <Slider x:Name="SldProgressRing2Minimum1" HorizontalAlignment="Left" Margin="522,405,0,0" VerticalAlignment="Top" Width="100" Maximum="100" Minimum="-50" Value="-20"/>
+                        <Label Content="Value" HorizontalAlignment="Left" Margin="336,313,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="SldProgressRing2Minimum" Content="Minimum" HorizontalAlignment="Left" Margin="445,405,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="SldProgressRing2Maximum" Content="Maximum" HorizontalAlignment="Left" Margin="445,372,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="LblProgRing2Value" Content="{Binding Value, ElementName=SldProgressRing2Value, StringFormat=\{0:F4\}}" HorizontalAlignment="Left" Margin="496,313,0,0" VerticalAlignment="Top" Padding="0,0,0,0" ContentStringFormat="{}{0:F1}"/>
+                        <Label x:Name="LblProgRing2Min" Content="{Binding Value, ElementName=SldProgressRing2Minimum1}" HorizontalAlignment="Left" Margin="635,405,0,0" VerticalAlignment="Top" Padding="0,0,0,0" ContentStringFormat="{}{0:F1}"/>
+                        <Label x:Name="LblProgRing2Max" Content="{Binding Value, ElementName=SldProgressRing2Maximum1}" HorizontalAlignment="Left" Margin="635,372,0,0" VerticalAlignment="Top" Padding="0,0,0,0" ContentStringFormat="{}{0:F1}"/>
+                        <Label Content="degrees" HorizontalAlignment="Left" Margin="241,169,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="lblProgRingArcAngle_Kopieren" Content="{Binding ArcAngle, ElementName=ProgressRing2, Mode=OneWay}" HorizontalAlignment="Left" Margin="505,169,0,0" VerticalAlignment="Top" Padding="0,0,0,0" Width="37" HorizontalContentAlignment="Right" ContentStringFormat="{}{0:F1}"/>
+                        <Label Content="degrees" HorizontalAlignment="Left" Margin="547,169,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label x:Name="LblProgressRingPercent_Kopieren" Content="{Binding ProgressPercent, ElementName=ProgressRing1, Mode=OneWay}" HorizontalAlignment="Left" Margin="209,193,0,0" VerticalAlignment="Top" Padding="0,0,0,0" HorizontalContentAlignment="Right" Width="27"/>
+                        <Label Content="%" HorizontalAlignment="Left" Margin="241,193,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+
+                    </Grid>
+                </TabItem>
+
+
                 <TabItem x:Name="tiKnob" Header="Knob" Background="{DynamicResource TabItemBackground1}">
                     <Grid>
                         <!-- Description -->
@@ -313,7 +366,7 @@
                         <duc:Knob x:Name="knob3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="356,249,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" BackFill="#FFFFF8C9" Fill="#FFF3EC5A" TabIndex="13"/>
                         <duc:Knob x:Name="knob4" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="442,249,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" BackFill="#FFFFC9C9" Fill="#FFF35A5A" TabIndex="14"/>
                         <duc:Knob x:Name="knob5" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="257,347,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" BackFill="#FFC9C9F8" Fill="#FF9090EE" TabIndex="15" MinimumValue="10" MaximumValue="60"/>
-                        <duc:Knob x:Name="knob2" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="257,249,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" TabIndex="12"/>
+                        <duc:Knob x:Name="knob2" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="257,249,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" TabIndex="12" ProgressValue="8.188889E+19"/>
                         <duc:Knob x:Name="knob6" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="354,347,0,0" ArcAngle="{Binding Value, ElementName=ArcAngleSlider2}" BackFill="#FFFFF5B9" Fill="#FFFFFF16" TabIndex="16" MaximumValue="63" MinimumValue="-63"/>
 
                         <Label Content="-10                  10" Margin="47,284,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Background="WhiteSmoke"/>

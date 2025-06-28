@@ -71,6 +71,9 @@
     <Compile Include="Controls\Data\Filter\FilterListWindow.xaml.vb">
       <DependentUpon>FilterListWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Graphic\ProgressRing.xaml.vb">
+      <DependentUpon>ProgressRing.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SidePanel\SidePanel.xaml.vb">
       <DependentUpon>SidePanel.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Common\ToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Graphic\ProgressRing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

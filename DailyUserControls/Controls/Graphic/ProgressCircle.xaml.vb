@@ -234,8 +234,8 @@ Public Class ProgressCircle
 
         '---
 
-        Dim maxWidth = Math.Max(0.0, RenderSize.Width - Ellipse1.StrokeThickness)
-        Dim maxHeight = Math.Max(0.0, RenderSize.Height - Ellipse1.StrokeThickness)
+        Dim maxWidth = Math.Max(0.0, RenderSize.Width - StrokeThickness)
+        Dim maxHeight = Math.Max(0.0, RenderSize.Height - StrokeThickness)
 
         Dim xStart = maxWidth / 2.0 * Math.Cos((StartAngle) * Math.PI / 180.0)
         Dim yStart = maxHeight / 2.0 * Math.Sin((StartAngle) * Math.PI / 180.0)
@@ -276,19 +276,9 @@ Public Class ProgressCircle
     End Sub
 
 #End Region
+
     '--- usage:
     '
-    '<local:CPieSlice x : Name="PieSlice" Width="200" Height="200"
-    '                    StartAngle="0" ArcAngle="280" Stroke="#FF0E2346" StrokeThickness="2">
-    '<local: CPieSlice.Fill>
-    '<RadialGradientBrush>
-    '<GradientStop Color = "#FFE7F388" Offset="0"/>
-    '<GradientStop Color = "#FF7BE42E" Offset="1"/>
-    '           </RadialGradientBrush>
-    '      </local:CPieSlice.Fill>
-    ' </local:CPieSlice>
-
-
     '--- Radians
     '  An angle of 360° corresponds to a radian (radian/rad) of 2*pi
     '
