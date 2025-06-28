@@ -54,7 +54,7 @@ Visualizes progress or angle.
 
 ##
 #### Progress Ring
-
+![ProgressRing](https://github.com/user-attachments/assets/3fcc389b-c88f-4cd2-a47c-0fe756956600)
 Visualizes progress in ring- / donut style
 
 ##
