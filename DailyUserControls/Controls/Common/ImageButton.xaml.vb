@@ -3,6 +3,9 @@
 Public Class ImageButton
     Private Shared DefaultBackgroundBrush As New SolidColorBrush(Color.FromArgb(&HFF, &HE6, &HE6, &HE6))
     Private Shared DefaultBorderBrush As New SolidColorBrush(Color.FromArgb(&HFF, &H70, &H70, &H70))
+
+    Private Shared DefaultMouseOverBackgroundColor As Color = Color.FromArgb(&HFF, &HBE, &HE6, &HFD)
+    Private Shared DefaultMouseOverBorderColor As Color = Color.FromArgb(&HFF, &H3C, &H7F, &HB1)
     Shared Sub New()
         BackgroundProperty.OverrideMetadata(GetType(ImageButton), New FrameworkPropertyMetadata(DefaultBackgroundBrush))
         BorderBrushProperty.OverrideMetadata(GetType(ImageButton), New FrameworkPropertyMetadata(DefaultBorderBrush))
@@ -88,6 +91,36 @@ Public Class ImageButton
         End Get
         Set(ByVal value As Color)
             SetValue(ButtonPressedBorderProperty, value)
+        End Set
+    End Property
+
+    Public Shared ReadOnly MouseOverBackgroundProperty As DependencyProperty = DependencyProperty.Register("MouseOverBackground", GetType(Color), GetType(ImageButton), New UIPropertyMetadata(DefaultMouseOverBackgroundColor))
+    ' appears in code
+    ''' <summary>
+    ''' Color when the Button is pressed
+    ''' </summary>
+    <Description("Color when Mouse is over the button"), Category("ImageButton")>   ' appears in VS property
+    Public Overloads Property MouseOverBackground As Color
+        Get
+            Return CType(GetValue(MouseOverBackgroundProperty), Color)
+        End Get
+        Set(ByVal value As Color)
+            SetValue(MouseOverBackgroundProperty, value)
+        End Set
+    End Property
+
+    Public Shared ReadOnly MouseOverBorderProperty As DependencyProperty = DependencyProperty.Register("MouseOverBorder", GetType(Color), GetType(ImageButton), New UIPropertyMetadata(DefaultMouseOverBorderColor))
+    ' appears in code
+    ''' <summary>
+    ''' Color when the Button is pressed
+    ''' </summary>
+    <Description("Border color when Mouse is over the button"), Category("ImageButton")>   ' appears in VS property
+    Public Overloads Property MouseOverBorder As Color
+        Get
+            Return CType(GetValue(MouseOverBorderProperty), Color)
+        End Get
+        Set(ByVal value As Color)
+            SetValue(MouseOverBorderProperty, value)
         End Set
     End Property
 

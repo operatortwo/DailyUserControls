@@ -58,6 +58,8 @@
                         <Label Content="Image alignment Top and Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="432,267,0,0"/>
                         <duc:ImageButton Margin="445,301,0,0" HorizontalAlignment="Left" Width="83" Height="81" VerticalAlignment="Top" Text="On Top" Image="/Resources/Images/go_up_x22.png" ImageLocation="Top" Background="#FFC7F1B8" TextPadding="0,6,0,3"/>
                         <duc:ImageButton Margin="549,301,0,0" HorizontalAlignment="Left" Width="83" Height="80" VerticalAlignment="Top" Text="Bottom" Image="/Resources/Images/go_down_x22.png" ImageLocation="Bottom" TextPadding="0,2,0,10" Background="#FFC7F1B8"/>
+                        <duc:ImageButton x:Name="ImageButton1_Kopieren" Margin="65,354,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFDDF0FF" Height="28" Width="150" MouseOverBackground="#FFFFC8FD" MouseOverBorder="#FFFF8686"/>
+                        <Label Content="MouseOver-Colors modified" HorizontalAlignment="Left" Margin="66,330,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="tiNumericUpDown" Header="Numeric UpDown" Background="{DynamicResource TabItemBackground1}">

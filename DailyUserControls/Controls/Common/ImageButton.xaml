@@ -9,6 +9,8 @@
     <UserControl.Resources>
         <SolidColorBrush x:Key="ButtonPressedBackground" Color="{Binding ButtonPressedBackground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"/>
         <SolidColorBrush x:Key="ButtonPressedBorder" Color="{Binding ButtonPressedBorder, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"/>
+        <SolidColorBrush x:Key="MouseOverBackground" Color="{Binding MouseOverBackground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" />
+        <SolidColorBrush x:Key="MouseOverBorder" Color="{Binding MouseOverBorder, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" />
         <ControlTemplate x:Key="ButtonControlTemplate" TargetType="{x:Type Button}">
             <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                 <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -18,8 +20,8 @@
                     <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" TargetName="border" Value="#FFBEE6FD"/>
-                    <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource MouseOverBackground}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource MouseOverBorder}"/>
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" TargetName="border" Value="{StaticResource ButtonPressedBackground}"/>

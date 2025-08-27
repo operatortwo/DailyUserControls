@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------
+2025 08 27		1.0.9.1		ImageButton: added Property for MouseOverBackground and MouseOverBorder
 2025 06 28		1.0.9.0		added ProgressRing
 2025 04 07		1.0.8.3		MouseWheelHandled property for SmallSlider, NumericUpDown, SelectorButton, Knob
 2024 12 04		1.0.8.2		ImageButton: IsEnabled Border improvements
