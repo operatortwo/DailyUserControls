@@ -135,7 +135,7 @@ Public Class TabControlExpander
     Public Shared ReadOnly HelpButtonVisibilityProperty As DependencyProperty = DependencyProperty.Register("HelpButtonVisibility", GetType(Visibility), GetType(TabControlExpander), New UIPropertyMetadata(Visibility.Hidden))
     ' appears in code
     ''' <summary>
-    ''' Background brush when checked
+    ''' Visibility of the Help button on the right side of the header panel
     ''' </summary>    
     <Description("Visibility of the Help button on the right side of the header panel"), Category("TabControlExpander")>   ' appears in VS property
     Public Property HelpButtonVisibility As Visibility

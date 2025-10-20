@@ -55,4 +55,7 @@ Partial Public Class MainWindow
     Public Property ValueList As New List(Of Integer) From
         {101, 102, 103, 104, 105, 106, 107, 108, 109, 110}
 
+    Public StringList As New List(Of String) From
+        {"Bear", "Dolphin", "Elephant", "Giraffe", "Kangaroo", "Lion", "Owl", "Penguin", "Tiger", "Zebra"}
+
 End Class

@@ -78,29 +78,33 @@
 
         End If
 
-        '--- nice in some cases, but here it shows the ListWindow again when the Button is pressed again
-        'Me.Visibility = Visibility.Hidden
-        Close()
+        '--- 
+        Me.Visibility = Visibility.Hidden
+        'Prevent black rectangle when jumping directly to another Checkbox Filter List (when not in Debug-mode)
+        Me.Width = 0
+        Me.Height = 0
+        'Close()                            ' do not close at this moment
 
         If selchanged = True Then
             ' inform caller about update (after close)
             control.RaiseSelectionChangedEvent()
         End If
 
+        '--- delayed UnLock ListWindow ---
         If Owner IsNot Nothing Then
-            Owner.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, New SetFocusDelegate(AddressOf MySetFocus))
+            Owner.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, New UnlockWindowDelegate(AddressOf UnlockWindow))
         End If
 
     End Sub
 
+    Public Delegate Sub UnlockWindowDelegate()
 
-    Public Delegate Sub SetFocusDelegate()
-
-    Public Sub MySetFocus()
-        If Owner IsNot Nothing Then
-            Owner.Activate()
-            Owner.Focus()
-        End If
+    Public Sub UnlockWindow()
+        control.IsListWindowOpen = False
+        'If Owner IsNot Nothing Then
+        '    Owner.Activate()                   ' flickers
+        '    Owner.Focus()
+        'End If
     End Sub
 
     Private Function WasSelectionChanged() As Boolean

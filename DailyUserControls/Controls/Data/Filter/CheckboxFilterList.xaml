@@ -23,7 +23,7 @@
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" TargetName="border" Value="{StaticResource ButtonPressedBackground}"/>
-                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ButtonPressedBorder}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource ButtonPressedBorder}"/>
                 </Trigger>
                 <Trigger Property="ToggleButton.IsChecked" Value="True">
                     <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
@@ -38,7 +38,7 @@
         </ControlTemplate>
     </UserControl.Resources>
     <Grid Background="{Binding Background, ElementName=userControl}">
-        <Button x:Name="Button" BorderBrush="{x:Null}" Background="#00000000" Foreground="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Template="{DynamicResource ButtonControlTemplate}" >
+        <Button x:Name="Button" BorderBrush="{x:Null}" Background="#00000000" Foreground="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Template="{DynamicResource ButtonControlTemplate}" ClickMode="Press" >
             <Grid x:Name="Grid2" Margin="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

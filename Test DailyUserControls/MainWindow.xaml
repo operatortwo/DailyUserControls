@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Test_DailyUserControls"            
         xmlns:duc="clr-namespace:DailyUserControls;assembly=DailyUserControls"                
         mc:Ignorable="d"
-        Title="Test DailyUserControls" Height="600" Width="850" Loaded="Window_Loaded">
+        Title="Test DailyUserControls" Height="600" Width="900" Loaded="Window_Loaded">
     <Window.Resources>
         <LinearGradientBrush x:Key="TabItemBackground1" EndPoint="0,1">
             <GradientStop Color="White"/>
@@ -442,25 +442,36 @@
                         <ContentControl  Margin="323,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_CbFilterList}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
                         <!-- Test Area -->
                         <!-- enum -->
-                        <duc:CheckboxFilterList x:Name="cbflistE" Margin="72,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" ImageLocation="Right" Text="From Enum" ListWindowHeight="235"/>
-                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="72,231,0,0" Stroke="#FFDEDEDE"/>
-                        <CheckBox x:Name="cbcbflistEall" Content="All" HorizontalAlignment="Left" Margin="85,240,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=cbflistE, Mode=OneWay}" IsEnabled="False"/>
-                        <CheckBox x:Name="cbcbflistEnone" Content="None" HorizontalAlignment="Left" Margin="142,240,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=cbflistE, Mode=OneWay}" IsEnabled="False"/>
-                        <ListBox x:Name="lbResult_cbflistE" Width="100" Margin="97,270,0,0" Height="143" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=cbflistE}"/>
-
+                        <duc:CheckboxFilterList x:Name="CbflistEnum" Margin="45,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" ImageLocation="Right" Text="From Enum" ListWindowHeight="235"/>
+                        <Label Content="Result:" HorizontalAlignment="Left" Margin="75,221,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="20,240,0,0" Stroke="#FFDEDEDE"/>
+                        <CheckBox x:Name="cbcbflistEall" Content="All" HorizontalAlignment="Left" Margin="45,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=CbflistEnum, Mode=OneWay}" IsEnabled="False"/>
+                        <CheckBox x:Name="cbcbflistEnone" Content="None" HorizontalAlignment="Left" Margin="95,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=CbflistEnum, Mode=OneWay}" IsEnabled="False"/>
+                        <ListBox x:Name="LbResult_CbflistEnum" Width="100" Margin="45,275,0,0" Height="143" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=CbflistEnum}"/>
                         <!-- val -->
-                        <duc:CheckboxFilterList x:Name="cbflistVal" Margin="277,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="120" ImageLocation="Right" Text="Value from List" ListWindowWidth="100"/>
-                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="277,231,0,0" Stroke="#FFDEDEDE"/>
-                        <CheckBox x:Name="cbcbflistValall" Content="All" HorizontalAlignment="Left" Margin="291,240,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=cbflistVal, Mode=OneWay}" IsEnabled="False"/>
-                        <CheckBox x:Name="cbcbflistValnone" Content="None" HorizontalAlignment="Left" Margin="348,240,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=cbflistVal, Mode=OneWay}" IsEnabled="False"/>
-                        <ListBox x:Name="lbResult_cbflistVal" Width="100" Margin="302,270,0,0" Height="143" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=cbflistVal}"/>
+                        <duc:CheckboxFilterList x:Name="CbflistVal" Margin="215,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="120" ImageLocation="Right" Text="Value from List" ListWindowWidth="100"/>
+                        <Label Content="Result:" HorizontalAlignment="Left" Margin="256,221,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="200,240,0,0" Stroke="#FFDEDEDE"/>
+                        <CheckBox x:Name="cbcbflistValall" Content="All" HorizontalAlignment="Left" Margin="226,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=CbflistVal, Mode=OneWay}" IsEnabled="False"/>
+                        <CheckBox x:Name="cbcbflistValnone" Content="None" HorizontalAlignment="Left" Margin="281,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=CbflistVal, Mode=OneWay}" IsEnabled="False"/>
+                        <ListBox x:Name="LbResult_CbflistVal" Width="100" Margin="226,275,0,0" Height="142" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=CbflistVal}"/>
                         <!-- Ref -->
                         <!-- RefType needs DisplayMemberPath -->
-                        <duc:CheckboxFilterList x:Name="cbflistRef" Margin="487,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="136" ImageLocation="Right" DisplayMember="Name" Text="RefType from List" ListWindowWidth="130" ListWindowHeight="220"/>
-                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="487,231,0,0" Stroke="#FFDEDEDE"/>
-                        <CheckBox x:Name="cbcbflistRefall" Content="All" HorizontalAlignment="Left" Margin="500,240,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=cbflistRef, Mode=OneWay}" IsEnabled="False"/>
-                        <CheckBox x:Name="cbcbflistRefnone" Content="None" HorizontalAlignment="Left" Margin="557,240,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=cbflistRef, Mode=OneWay}" IsEnabled="False"/>
-                        <ListBox x:Name="lbResult_cbflistRef" Width="100" Margin="511,270,0,0" Height="143" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=cbflistRef}" DisplayMemberPath="Name" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                        <duc:CheckboxFilterList x:Name="CbflistRef" Margin="387,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="136" ImageLocation="Right" DisplayMember="Name" Text="RefType from List" ListWindowWidth="130" ListWindowHeight="220"/>
+                        <Label Content="Result:" HorizontalAlignment="Left" Margin="435,221,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="380,240,0,0" Stroke="#FFDEDEDE"/>
+                        <CheckBox x:Name="cbcbflistRefall" Content="All" HorizontalAlignment="Left" Margin="408,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=CbflistRef, Mode=OneWay}" IsEnabled="False"/>
+                        <CheckBox x:Name="cbcbflistRefnone" Content="None" HorizontalAlignment="Left" Margin="469,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=CbflistRef, Mode=OneWay}" IsEnabled="False"/>
+                        <ListBox x:Name="LbResult_CbflistRef" Width="100" Margin="405,275,0,0" Height="143" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=CbflistRef}" DisplayMemberPath="Name" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                        <Label Content="DisplayMember:&quot;Name&quot;" HorizontalAlignment="Left" Margin="381,445,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Label Content="DisplayMember:&quot;Name&quot;" HorizontalAlignment="Left" Margin="382,161,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <!-- String List -->
+                        <duc:CheckboxFilterList x:Name="CbflistString" Margin="575,185,0,0" ImageMargin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="120" ImageLocation="Right" Text="List of String" ListWindowWidth="130" ListWindowHeight="220"/>
+                        <Label Content="Result:" HorizontalAlignment="Left" Margin="615,221,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="200" Margin="560,240,0,0" Stroke="#FFDEDEDE"/>
+                        <CheckBox x:Name="cbflistStringAll" Content="All" HorizontalAlignment="Left" Margin="580,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedAll, ElementName=CbflistString, Mode=OneWay}" IsEnabled="False"/>
+                        <CheckBox x:Name="cbflistStringNone" Content="None" HorizontalAlignment="Left" Margin="641,250,0,0" VerticalAlignment="Top" IsChecked="{Binding SelectedNone, ElementName=CbflistString, Mode=OneWay}" IsEnabled="False"/>
+                        <ListBox x:Name="LbResult_CbflistString" Width="100" Margin="585,275,0,0" Height="143" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItems, ElementName=CbflistString, Mode=OneWay}"/>
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="tiMessageWindow" Header="Message Window" Background="{DynamicResource TabItemBackground1}">

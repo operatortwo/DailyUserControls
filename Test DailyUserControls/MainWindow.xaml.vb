@@ -16,9 +16,13 @@ Class MainWindow
         tiImageButton.Focus()
 
         '--- Data to CheckboxFilterList
-        cbflistE.ItemList = [Enum].GetValues(GetType(Months))
-        cbflistVal.ItemList = ValueList
-        cbflistRef.ItemList = ColorList
+        CbflistEnum.ItemList = [Enum].GetValues(GetType(Months))
+        CbflistVal.ItemList = ValueList
+        CbflistRef.ItemList = ColorList
+        '--- for simple string-list: 
+        ' until V 1.0.9.1: need "DisplayMember = "Name"
+        ' V 1.0.9.2 and up: when DisplayMember is empty, DisplayMember is set automatically to "Name"
+        CbflistString.ItemList = StringList
 
     End Sub
 

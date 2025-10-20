@@ -27,10 +27,6 @@
                     <Setter Property="Background" TargetName="border" Value="{StaticResource ButtonPressedBackground}"/>
                     <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ButtonPressedBorder}"/>
                 </Trigger>
-                <Trigger Property="ToggleButton.IsChecked" Value="True">
-                    <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
-                    <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
-                </Trigger>
                 <Trigger Property="IsEnabled" Value="False">
                     <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
                     <Setter Property="Foreground" Value="#FF838383"/>

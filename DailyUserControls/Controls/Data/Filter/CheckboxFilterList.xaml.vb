@@ -374,9 +374,19 @@ Public Class CheckboxFilterList
     'Public Event Click As RoutedEventHandler
     'Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
 
+    Friend IsListWindowOpen As Boolean
+
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs) Handles Button.Click
 
-        '--- test
+        '--- allows pressing the button to close the listWindow
+        '--- without reopening the ListWindow again
+
+        If IsListWindowOpen = True Then
+            IsListWindowOpen = False
+            Exit Sub
+        End If
+
+        '---
 
         Dim pt As Point
         pt = Me.PointToScreen(New Point)
@@ -398,6 +408,7 @@ Public Class CheckboxFilterList
         win.Height = ListWindowHeight
         win.Show()
 
+        IsListWindowOpen = True
     End Sub
 
 
