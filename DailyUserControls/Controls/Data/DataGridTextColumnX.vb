@@ -129,7 +129,7 @@ Public Class DataGridTextColumnX
 #Region "IsSelected Foreground"
     Public Shared ReadOnly SelectedForegroundProperty As DependencyProperty = DependencyProperty.Register("SelectedForeground",
            GetType(SolidColorBrush), GetType(DataGridTextColumnX),
-           New FrameworkPropertyMetadata(SystemColors.HighlightTextBrush,
+           New FrameworkPropertyMetadata(Brushes.Black,
            New PropertyChangedCallback(AddressOf OnSelectedForegroundChanged)))
     <Description("Foreground brush when cell is selected"), Category("Column Options")>   ' appears in VS property
     Public Property SelectedForeground() As SolidColorBrush
@@ -196,7 +196,7 @@ Public Class DataGridTextColumnX
 #Region "IsFocused Foreground"
     Public Shared ReadOnly FocusedForegroundProperty As DependencyProperty = DependencyProperty.Register("FocusedForeground",
           GetType(SolidColorBrush), GetType(DataGridTextColumnX),
-          New FrameworkPropertyMetadata(SystemColors.HighlightTextBrush,
+          New FrameworkPropertyMetadata(Brushes.Black,
           New PropertyChangedCallback(AddressOf OnFocusedForegroundChanged)))
     <Description("Foreground brush when cell is focused"), Category("Column Options")>   ' appears in VS property
     Public Property FocusedForeground() As SolidColorBrush
