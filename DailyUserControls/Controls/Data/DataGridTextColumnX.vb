@@ -147,6 +147,27 @@ Public Class DataGridTextColumnX
     End Sub
 #End Region
 
+#Region "IsSelected Border"
+    Public Shared ReadOnly SelectedBorderBrushProperty As DependencyProperty = DependencyProperty.Register("SelectedBorderBrush",
+           GetType(SolidColorBrush), GetType(DataGridTextColumnX),
+           New FrameworkPropertyMetadata(SystemColors.ActiveBorderBrush,
+           New PropertyChangedCallback(AddressOf OnSelectedBorderBrushChanged)))
+    <Description("Border brush when cell is selected"), Category("Column Options")>   ' appears in VS property
+    Public Property SelectedBorderBrush() As SolidColorBrush
+        Get
+            Return CType(Me.GetValue(SelectedBorderBrushProperty), SolidColorBrush)
+        End Get
+        Set
+            Me.SetValue(SelectedBorderBrushProperty, Value)
+        End Set
+    End Property
+
+    Private Shared Sub OnSelectedBorderBrushChanged(ByVal d As DependencyObject, ByVal args As DependencyPropertyChangedEventArgs)
+        Dim control As DataGridTextColumnX = CType(d, DataGridTextColumnX)
+        CollectCellProperties(control)
+    End Sub
+#End Region
+
 #End Region
 
 #Region "IsFocused"
@@ -193,6 +214,27 @@ Public Class DataGridTextColumnX
     End Sub
 #End Region
 
+#Region "IsFocused Border"
+    Public Shared ReadOnly FocusedBorderBrushProperty As DependencyProperty = DependencyProperty.Register("FocusedBorderBrush",
+           GetType(SolidColorBrush), GetType(DataGridTextColumnX),
+           New FrameworkPropertyMetadata(SystemColors.ActiveBorderBrush,
+           New PropertyChangedCallback(AddressOf OnFocusedBorderBrushChanged)))
+    <Description("Border brush when cell is focused"), Category("Column Options")>   ' appears in VS property
+    Public Property FocusedBorderBrush() As SolidColorBrush
+        Get
+            Return CType(Me.GetValue(FocusedBorderBrushProperty), SolidColorBrush)
+        End Get
+        Set
+            Me.SetValue(FocusedBorderBrushProperty, Value)
+        End Set
+    End Property
+
+    Private Shared Sub OnFocusedBorderBrushChanged(ByVal d As DependencyObject, ByVal args As DependencyPropertyChangedEventArgs)
+        Dim control As DataGridTextColumnX = CType(d, DataGridTextColumnX)
+        CollectCellProperties(control)
+    End Sub
+#End Region
+
 #End Region
 
     Private Shared Sub CollectCellProperties(col As DataGridTextColumnX)
@@ -207,11 +249,13 @@ Public Class DataGridTextColumnX
         Dim trig As New Trigger With {.Property = DataGridCell.IsSelectedProperty, .Value = True}
         trig.Setters.Add(New Setter(ForegroundProperty, col.SelectedForeground))
         trig.Setters.Add(New Setter(Control.BackgroundProperty, col.SelectedBackground))
+        trig.Setters.Add(New Setter(Control.BorderBrushProperty, col.SelectedBorderBrush))
         stl.Triggers.Add(trig)
 
         trig = New Trigger With {.Property = DataGridCell.IsFocusedProperty, .Value = True}
         trig.Setters.Add(New Setter(DataGridCell.ForegroundProperty, col.FocusedForeground))
         trig.Setters.Add(New Setter(DataGridCell.BackgroundProperty, col.FocusedBackground))
+        trig.Setters.Add(New Setter(Control.BorderBrushProperty, col.FocusedBorderBrush))
         stl.Triggers.Add(trig)
 
         col.CellStyle = stl

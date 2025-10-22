@@ -16,9 +16,11 @@
         <SolidColorBrush x:Key="SampleFill" Color="#FFFFFDED"/>
         <!-- for DataGrid -->
         <SolidColorBrush x:Key="DgSelectedFore" Color="Black"/>
-        <SolidColorBrush x:Key="DgSelectedBack" Color="LightBlue"/>
-        <SolidColorBrush x:Key="DgFocusedFore" Color="Blue"/>
-        <SolidColorBrush x:Key="DgFocusedBack" Color="#FFDEF7FF"/>
+        <SolidColorBrush x:Key="DgSelectedBack" Color="#FFD7F6FF"/>
+        <SolidColorBrush x:Key="DgSelectedBorder" Color="#FF5757F7"/>
+        <SolidColorBrush x:Key="DgFocusedFore" Color="White"/>
+        <SolidColorBrush x:Key="DgFocusedBack" Color="#FF559BF9"/>
+        <SolidColorBrush x:Key="DgFocusedBorder" Color="White"/>
     </Window.Resources>
     <Grid Background="#FFE0E9FE">
         <DockPanel>
@@ -399,12 +401,13 @@
                         <!-- Test Area -->
                         <DataGrid x:Name="DataGrid1" Margin="126,173,118,38"  AutoGenerateColumns="False" ItemsSource="{Binding ColorList, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" CanUserDeleteRows="False" CanUserResizeRows="False"   >
                             <DataGrid.Columns>
-                                <duc:DataGridTextColumnX x:Name="IndexCol" Header="Index" Binding="{Binding BaseIndex}"  TextAlignment="Right" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}"/>
-                                <duc:DataGridTextColumnX x:Name="NameCol"  Header="Name" Binding="{Binding Name}" Width="80" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}"/>
-                                <duc:DataGridTextColumnX x:Name="HexCol"  Header="HexValue" Binding="{Binding HexValue}" Width="80" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}"/>
-                                <duc:DataGridTextColumnX x:Name="RPercCol"  Header="R %" Binding="{Binding R_Percent}" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}"/>
-                                <duc:DataGridTextColumnX x:Name="GPercCol"  Header="G %" Binding="{Binding G_Percent}" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}"/>
-                                <duc:DataGridTextColumnX x:Name="BPercCol"  Header="B %" Binding="{Binding B_Percent}" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}"/>
+                                <!-- Cell Colors must be defined as StaticResource not DynamicResource -->
+                                <duc:DataGridTextColumnX x:Name="IndexCol" Header="Index" Binding="{Binding BaseIndex}"  TextAlignment="Right" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <duc:DataGridTextColumnX x:Name="NameCol"  Header="Name" Binding="{Binding Name}" Width="80" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <duc:DataGridTextColumnX x:Name="HexCol"  Header="HexValue" Binding="{Binding HexValue}" Width="80" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <duc:DataGridTextColumnX x:Name="RPercCol"  Header="R %" Binding="{Binding R_Percent}" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <duc:DataGridTextColumnX x:Name="GPercCol"  Header="G %" Binding="{Binding G_Percent}" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
+                                <duc:DataGridTextColumnX x:Name="BPercCol"  Header="B %" Binding="{Binding B_Percent}" TextAlignment="Center" HeaderTextAlignment="Center" SelectedBackground="{StaticResource DgSelectedBack}" SelectedForeground="{StaticResource DgSelectedFore}" FocusedBackground="{StaticResource DgFocusedBack}" FocusedForeground="{StaticResource DgFocusedFore}" FocusedBorderBrush="{StaticResource DgFocusedBorder}" SelectedBorderBrush="{StaticResource DgSelectedBorder}"/>
                                 <DataGridTemplateColumn x:Name="SampleCol" Header="Sample">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
