@@ -4,6 +4,7 @@
     
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/DailyUserControls;component/Themes/TabControlExpander.xaml" />
+        <ResourceDictionary Source="/DailyUserControls;component/Themes/SizeableExpander.xaml" />
     </ResourceDictionary.MergedDictionaries>
-      
+          
 </ResourceDictionary>

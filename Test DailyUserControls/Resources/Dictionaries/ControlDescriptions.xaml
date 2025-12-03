@@ -260,6 +260,26 @@
 
     <!--#endregion-->
 
+
+    <!--#region Sizeable Expander -->
+    <TextBlock x:Key="dsc_SizeableExpander" TextWrapping="Wrap">
+     <Bold>Sizeable Expander</Bold> allows the user to change the height of the expander content.
+    </TextBlock>
+
+    <TextBlock x:Key="dsc2_SizeableExpander" TextWrapping="Wrap">
+     Dragging the lower edge changes the height. Clicking on the header switches between Collapsed and Expanded.
+    </TextBlock>
+
+    <TextBlock x:Key="dscKb_SizeableExpander" TextWrapping="Wrap">
+     
+    </TextBlock>
+
+    <TextBlock x:Key="dscMou_SizeableExpander" TextWrapping="Wrap">
+     Click, Left Mouse Button
+    </TextBlock>
+
+    <!--#endregion-->
+
     <!--#region Miscellaneous -->
 
     <TextBlock x:Key="dsc_Miscellaneous" TextWrapping="Wrap">

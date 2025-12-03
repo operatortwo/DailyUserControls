@@ -209,44 +209,6 @@
                     </Grid>
                 </TabItem>
 
-                <TabItem x:Name="tiVUBar" Header="VU-Bar" Background="{DynamicResource TabItemBackground1}">
-                    <Grid>
-                        <!-- Description -->
-                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
-                        <duc:VU_Bar Width="14" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,19,0,0" BorderBrush="Black" BorderThickness="1,1,1,1" Value="50"/>
-                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
-                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
-                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
-                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
-                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
-                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
-                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
-                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
-                        <!-- Test Area -->
-                        <Button x:Name="btnVU_Tap" Content="Tap" HorizontalAlignment="Left" Margin="100,225,0,0" VerticalAlignment="Top" Width="50"/>
-                        <duc:VU_Bar x:Name="VU_Bar1" HorizontalAlignment="Left" Margin="73,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98" Width="14"/>
-                        <duc:NumericUpDown x:Name="VU_decFactor" HorizontalAlignment="Left" Margin="177,259,0,0" VerticalAlignment="Top" Height="26" Width="78" DecimalPlaces="2" MinimumValue="0.4" MaximumValue="0.95" StepValue="0.05" Value="0.75"/>
-                        <Label Content="decrease factor" HorizontalAlignment="Left" Margin="177,230,0,0" VerticalAlignment="Top"/>
-                        <duc:VU_Bar x:Name="VU_Bar2" HorizontalAlignment="Left" Margin="300,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98" Width="14">
-                            <duc:VU_Bar.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="LightGreen" Offset="1"/>
-                                    <GradientStop Color="#FFF59A9A" Offset="0"/>
-                                    <GradientStop Color="#FFFFF856" Offset="0.265"/>
-                                </LinearGradientBrush>
-                            </duc:VU_Bar.Fill>
-                        </duc:VU_Bar>
-                        <duc:VU_Bar x:Name="VU_Bar3" HorizontalAlignment="Left" Margin="400,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98" Width="14">
-                            <duc:VU_Bar.Fill>
-                                <ImageBrush ImageSource="/Resources/Images/VU_20_Segemnts.png"/>
-                            </duc:VU_Bar.Fill>
-                        </duc:VU_Bar>
-                        <Label Content="Solid" HorizontalAlignment="Left" Margin="60,293,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Gradient" HorizontalAlignment="Left" Margin="275,293,0,0" VerticalAlignment="Top"/>
-                        <Label Content="ImageBrush" HorizontalAlignment="Left" Margin="365,293,0,0" VerticalAlignment="Top"/>
-
-                    </Grid>
-                </TabItem>
                 <TabItem x:Name="tiProgressCircle" Header="Progress Circle" Background="{DynamicResource TabItemBackground1}">
                     <Grid>
                         <!-- Description -->
@@ -288,8 +250,6 @@
 
                     </Grid>
                 </TabItem>
-
-
                 <TabItem x:Name="tiProgressRing" Header="Progress Ring" Background="{DynamicResource TabItemBackground1}">
                     <Grid>
                         <!-- Description -->
@@ -339,8 +299,6 @@
 
                     </Grid>
                 </TabItem>
-
-
                 <TabItem x:Name="tiKnob" Header="Knob" Background="{DynamicResource TabItemBackground1}">
                     <Grid>
                         <!-- Description -->
@@ -382,6 +340,45 @@
 
                     </Grid>
                 </TabItem>
+                <TabItem x:Name="tiVUBar" Header="VU-Bar" Background="{DynamicResource TabItemBackground1}">
+                    <Grid>
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <duc:VU_Bar Width="14" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,19,0,0" BorderBrush="Black" BorderThickness="1,1,1,1" Value="50"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_VUBar}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+                        <Button x:Name="btnVU_Tap" Content="Tap" HorizontalAlignment="Left" Margin="100,225,0,0" VerticalAlignment="Top" Width="50"/>
+                        <duc:VU_Bar x:Name="VU_Bar1" HorizontalAlignment="Left" Margin="73,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98" Width="14"/>
+                        <duc:NumericUpDown x:Name="VU_decFactor" HorizontalAlignment="Left" Margin="177,259,0,0" VerticalAlignment="Top" Height="26" Width="78" DecimalPlaces="2" MinimumValue="0.4" MaximumValue="0.95" StepValue="0.05" Value="0.75"/>
+                        <Label Content="decrease factor" HorizontalAlignment="Left" Margin="177,230,0,0" VerticalAlignment="Top"/>
+                        <duc:VU_Bar x:Name="VU_Bar2" HorizontalAlignment="Left" Margin="300,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98" Width="14">
+                            <duc:VU_Bar.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="LightGreen" Offset="1"/>
+                                    <GradientStop Color="#FFF59A9A" Offset="0"/>
+                                    <GradientStop Color="#FFFFF856" Offset="0.265"/>
+                                </LinearGradientBrush>
+                            </duc:VU_Bar.Fill>
+                        </duc:VU_Bar>
+                        <duc:VU_Bar x:Name="VU_Bar3" HorizontalAlignment="Left" Margin="400,187,0,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Height="98" Width="14">
+                            <duc:VU_Bar.Fill>
+                                <ImageBrush ImageSource="/Resources/Images/VU_20_Segemnts.png"/>
+                            </duc:VU_Bar.Fill>
+                        </duc:VU_Bar>
+                        <Label Content="Solid" HorizontalAlignment="Left" Margin="60,293,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Gradient" HorizontalAlignment="Left" Margin="275,293,0,0" VerticalAlignment="Top"/>
+                        <Label Content="ImageBrush" HorizontalAlignment="Left" Margin="365,293,0,0" VerticalAlignment="Top"/>
+
+                    </Grid>
+                </TabItem>
+
                 <TabItem x:Name="tiDgColX" Header="DataGridTextColumnX" Background="{DynamicResource TabItemBackground1}">
                     <Grid>
                         <!-- Description -->
@@ -511,6 +508,51 @@
 
                     </Grid>
                 </TabItem>
+
+                <TabItem x:Name="tiSizeableExpander" Header="Sizeable Expander"  Background="{DynamicResource TabItemBackground1}">
+                    <Grid HorizontalAlignment="Left">
+                        <!-- Description -->
+                        <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <!-- sample Sizeable Expander -->
+                        <duc:SizeableExpander Width="100" Height="51" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,14,0,0" IsEnabled="False"/>
+                        <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_SizeableExpander}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
+                        <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="21,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscKb_SizeableExpander}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="90" FontSize="12"/>
+                        <Rectangle Height="64" Margin="126,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="80" HorizontalAlignment="Left"/>
+                        <ContentControl  Margin="137,83,0,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dscMou_SizeableExpander}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" HorizontalAlignment="Left" Width="60" FontSize="12"/>
+                        <Rectangle Height="64" Margin="212,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
+                        <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_SizeableExpander}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
+                        <!-- Test Area -->
+
+                        <duc:SizeableExpander Margin="80,257,0,0" HorizontalAlignment="Left" Width="198" Height="94" VerticalAlignment="Top" HeaderBackground="#FFF7F394" ContentBackground="#FFC1D5EC" CornerRadius="5" BorderThickness="1,1,1,1" BorderBrush="#FF4055FF">
+                            <StackPanel>
+                                <TextBox Text="Text" Margin="5,5,5,0"/>
+                                <CheckBox Content="Check Me" Margin="5,5,5,0"/>
+                            </StackPanel>
+                        </duc:SizeableExpander>
+
+
+                        <ScrollViewer Margin="383,225,109,72" Background="#FFE5F7E2">
+                            <StackPanel>
+
+                                <duc:SizeableExpander Height="81" Header="Expander 1" BorderBrush="#FF004EE8" HeaderBackground="#FFF7F394" ContentBackground="#FF6AC3DA" BorderThickness="1,1,1,1">
+                                    <StackPanel>
+                                        <TextBox Text="Text" Margin="5,5,5,0"/>
+                                        <CheckBox Content="Check Me" Margin="5,5,5,0"/>
+                                    </StackPanel>
+                                </duc:SizeableExpander>
+
+                                <duc:SizeableExpander Height="72" ContentBackground="#FF6AC3DA" HeaderBackground="#FFF7F394" Header="Expander 2" BorderBrush="#FF004EE8" Margin="0,-1,0,0" BorderThickness="1,1,1,1"/>
+                                <duc:SizeableExpander Height="72" ContentBackground="#FF6AC3DA" HeaderBackground="#FFF7F394" Header="Expander 3" BorderBrush="#FF004EE8" Margin="0,-1,0,0" BorderThickness="1,1,1,1"/>
+
+                            </StackPanel>
+                        </ScrollViewer>
+
+
+                    </Grid>
+                </TabItem>
+
                 <TabItem x:Name="tiMisc" Header="Miscellaneous" Background="{DynamicResource TabItemBackground1}">
                     <Grid Focusable="True">
                         <!-- Description -->
