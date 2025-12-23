@@ -510,7 +510,7 @@
                 </TabItem>
 
                 <TabItem x:Name="tiSizeableExpander" Header="Sizeable Expander"  Background="{DynamicResource TabItemBackground1}">
-                    <Grid HorizontalAlignment="Left">
+                    <Grid>
                         <!-- Description -->
                         <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <!-- sample Sizeable Expander -->
