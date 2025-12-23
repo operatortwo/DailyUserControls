@@ -15,7 +15,7 @@ Imports System.Windows
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("xTest_TabControlExpander")>
-<Assembly: AssemblyCopyright("Copyright ©  2024")>
+<Assembly: AssemblyCopyright("Copyright ©  2023 - 2025  operatortwo")>
 <Assembly: AssemblyTrademark("")>
 <Assembly: ComVisible(false)>
 

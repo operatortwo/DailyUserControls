@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>xTest_TabControlExpander</RootNamespace>
     <AssemblyName>xTest TabControlExpander</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />

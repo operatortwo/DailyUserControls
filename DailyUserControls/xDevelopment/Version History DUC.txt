@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------
+2025 12 23		1.1.0.0		targeting .NET Framework 4.8
 2025 12 23		1.0.9.6		targeting .NET Framework 4.6
 2025 12 03		1.0.9.4		added SizeableExpander
 2025 10 22					DataGridTextColumnX: default black Brush for IsSelected and IsFocused

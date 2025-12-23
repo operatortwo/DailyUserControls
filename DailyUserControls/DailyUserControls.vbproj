@@ -7,7 +7,7 @@
     <RootNamespace>DailyUserControls</RootNamespace>
     <AssemblyName>DailyUserControls</AssemblyName>
     <OutputType>Library</OutputType>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <Deterministic>true</Deterministic>
     <ProjectGuid>{A37681E9-38FB-48E6-B2E6-1200CBA74725}</ProjectGuid>
