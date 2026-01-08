@@ -6,52 +6,42 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SizeableExpander}">
-                    <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <Grid x:Name="MainGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="HeaderRow" Height="Auto"/>
+                            <RowDefinition x:Name="ContentRow"/>
+                            <RowDefinition x:Name="SplitterRow" Height="Auto"/>
+                        </Grid.RowDefinitions>
 
-                        <Grid x:Name="MainGrid">
-                            <Grid.RowDefinitions>
-                                <RowDefinition x:Name="HeaderRow" Height="Auto"/>
-                                <RowDefinition x:Name="ContentRow"/>
-                                <RowDefinition x:Name="SplitterRow" Height="6"/>
-                            </Grid.RowDefinitions>
+                        <Border x:Name="HeaderBorder"   Background="{TemplateBinding HeaderBackground}" BorderBrush="{TemplateBinding BorderBrush}"  >
+                            <Grid>
+                                <HeaderedContentControl x:Name="HeaderContent" Margin="30,0,0,0" VerticalAlignment="Center" Content="{TemplateBinding Header}" />
 
-                            <Rectangle x:Name="ContentBackgroundRect" Grid.Row="1" Grid.RowSpan="2" RadiusX="4" RadiusY="4" Fill="{TemplateBinding ContentBackground}"/>
+                                <!-- Expander must be above to be clickable -->
+                                <Expander x:Name="ExpanderIcon" IsExpanded="{TemplateBinding IsExpanded}" RenderTransformOrigin="0.5,0.5">
+                                    <!-- correct view: point down if Expanded, point up if collapsed -->
+                                    <Expander.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Expander.RenderTransform>
+                                </Expander>
 
-                            <Rectangle x:Name="HeaderBackgroundRect" Fill="{TemplateBinding HeaderBackground}"  RadiusX="4" RadiusY="4" Margin="1,1,1,0"/>
+                            </Grid>
+                        </Border>
 
-                            <ContentPresenter x:Name="HeaderContent" Margin="30,0,0,0" VerticalAlignment="Center" Content="Header" />
-
-                            <!-- Expander must be above to be clickable -->
-                            <Expander x:Name="ExpanderIcon" IsExpanded="True" RenderTransformOrigin="0.5,0.5">
-                                <!-- correct view: point down if Expanded, point up if collapsed -->
-                                <Expander.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleY="-1"/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Expander.RenderTransform>
-
-                            </Expander>
-
+                        <Border x:Name="ContentBorder" Grid.Row="1"  Grid.RowSpan="2" Background="{TemplateBinding ContentBackground}" CornerRadius="10"  BorderBrush="{TemplateBinding BorderBrush}" >
                             <!-- <ContentPresenter x:Name="CP1"  Grid.Row="1" Content="{TemplateBinding UserContent}" Margin="1,4,1,0"/>  -->
-                            <ContentPresenter x:Name="CP1"  Grid.Row="1"  Margin="1,4,1,0"/>
+                            <ContentPresenter  x:Name="CP1"  />
+                        </Border>
 
+                        <!-- must have 'Transparent' Background to detect Mouse -->
+                        <GridSplitter x:Name="GridSplitter" Grid.Row="2" HorizontalAlignment="Stretch"  Background="Transparent" Height="10"/>
 
-                            <!-- must have 'Transparent' Background to detect Mouse -->
-                            <GridSplitter x:Name="GridSplitter" Grid.Row="2" HorizontalAlignment="Stretch" Margin="2,0,2,1"   Background="Transparent"/>
-
-
-                            <!-- draw border over content -->
-                            <Border x:Name="HeaderBorder" BorderBrush="#FF4055FF"  CornerRadius="4,4,4,4" BorderThickness="1,1,1,1"/>
-                            <Border x:Name="ContentBorder" Grid.Row="1" Grid.RowSpan="2" BorderBrush="#FF4055FF" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4" Margin="0,-1,0,0"/>
-
-                        </Grid>
-
-                    </Border>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

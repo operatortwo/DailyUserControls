@@ -15,7 +15,7 @@ Imports System.Windows
 <Assembly: AssemblyDescription("Testing and developing the library controls")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("Test_DailyUserControls")>
-<Assembly: AssemblyCopyright("Copyright ©  2023 - 2025  operatortwo")>
+<Assembly: AssemblyCopyright("Copyright ©  2023 - 2026  operatortwo")>
 <Assembly: AssemblyTrademark("")>
 <Assembly: ComVisible(false)>
 
@@ -55,5 +55,5 @@ Imports System.Windows
 ' indem Sie "*" wie unten gezeigt eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.1.0.0")>
-<Assembly: AssemblyFileVersion("1.1.0.0")>
+<Assembly: AssemblyVersion("1.1.0.3")>
+<Assembly: AssemblyFileVersion("1.1.0.3")>

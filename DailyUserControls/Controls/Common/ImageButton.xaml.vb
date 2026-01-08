@@ -37,6 +37,15 @@ Public Class ImageButton
         Bottom
     End Enum
 
+
+#Region "Hide some Properties"
+    ' hide unused Properties of UserControl in designer
+    <Browsable(False)>
+    Public Overloads Property HorizontalContentAlignment As HorizontalAlignment
+    <Browsable(False)>
+    Public Overloads Property VerticalContentAlignment As VerticalAlignment
+#End Region
+
 #Region "Appearance"
 
     ' V 1.0.5.1
@@ -217,8 +226,8 @@ Public Class ImageButton
             Case Location.Left
                 control.Image1.SetValue(Grid.RowProperty, 0)
                 control.Image1.SetValue(Grid.ColumnProperty, 0)
-                control.Viewbox1.SetValue(Grid.RowProperty, 0)
-                control.Viewbox1.SetValue(Grid.ColumnProperty, 1)
+                control.Textgrid.SetValue(Grid.RowProperty, 0)
+                control.Textgrid.SetValue(Grid.ColumnProperty, 1)
 
                 control.Grid2.RowDefinitions(0).Height = New GridLength(1, GridUnitType.Star)
                 control.Grid2.RowDefinitions(1).Height = New GridLength(1, GridUnitType.Auto)
@@ -229,8 +238,8 @@ Public Class ImageButton
             Case Location.Right
                 control.Image1.SetValue(Grid.RowProperty, 0)
                 control.Image1.SetValue(Grid.ColumnProperty, 1)
-                control.Viewbox1.SetValue(Grid.RowProperty, 0)
-                control.Viewbox1.SetValue(Grid.ColumnProperty, 0)
+                control.Textgrid.SetValue(Grid.RowProperty, 0)
+                control.Textgrid.SetValue(Grid.ColumnProperty, 0)
 
                 control.Grid2.RowDefinitions(0).Height = New GridLength(1, GridUnitType.Star)
                 control.Grid2.RowDefinitions(1).Height = New GridLength(1, GridUnitType.Auto)
@@ -241,8 +250,8 @@ Public Class ImageButton
             Case Location.Top
                 control.Image1.SetValue(Grid.RowProperty, 0)
                 control.Image1.SetValue(Grid.ColumnProperty, 0)
-                control.Viewbox1.SetValue(Grid.RowProperty, 1)
-                control.Viewbox1.SetValue(Grid.ColumnProperty, 0)
+                control.Textgrid.SetValue(Grid.RowProperty, 1)
+                control.Textgrid.SetValue(Grid.ColumnProperty, 0)
 
                 control.Grid2.RowDefinitions(0).Height = New GridLength(1, GridUnitType.Star)
                 control.Grid2.RowDefinitions(1).Height = New GridLength(1, GridUnitType.Star)
@@ -253,8 +262,8 @@ Public Class ImageButton
             Case Location.Bottom
                 control.Image1.SetValue(Grid.RowProperty, 1)
                 control.Image1.SetValue(Grid.ColumnProperty, 0)
-                control.Viewbox1.SetValue(Grid.RowProperty, 0)
-                control.Viewbox1.SetValue(Grid.ColumnProperty, 0)
+                control.Textgrid.SetValue(Grid.RowProperty, 0)
+                control.Textgrid.SetValue(Grid.ColumnProperty, 0)
 
                 control.Grid2.RowDefinitions(0).Height = New GridLength(1, GridUnitType.Star)
                 control.Grid2.RowDefinitions(1).Height = New GridLength(1, GridUnitType.Star)
@@ -296,20 +305,36 @@ Public Class ImageButton
 
     End Property
 
-
-    Public Shared ReadOnly TextAlignmentProperty As DependencyProperty = DependencyProperty.Register("TextAlignment", GetType(HorizontalAlignment), GetType(ImageButton), New UIPropertyMetadata(HorizontalAlignment.Stretch))
+    Public Shared ReadOnly HorizontalTextAlignmentProperty As DependencyProperty = DependencyProperty.Register("HorizontalTextAlignment", GetType(HorizontalAlignment), GetType(ImageButton), New UIPropertyMetadata(HorizontalAlignment.Center))
     ' appears in code
     ''' <summary>
     ''' Horizontal alignment of the text
     ''' </summary>
     <Description("Horizontal text alignment"), Category("ImageButton")>   ' appears in VS property
-    Public Property TextAlignment As HorizontalAlignment
+    Public Property HorizontalTextAlignment As HorizontalAlignment
 
         Get
-            Return CType(GetValue(TextAlignmentProperty), HorizontalAlignment)
+            Return CType(GetValue(HorizontalTextAlignmentProperty), HorizontalAlignment)
         End Get
         Set(ByVal value As HorizontalAlignment)
-            SetValue(TextAlignmentProperty, value)
+            SetValue(HorizontalTextAlignmentProperty, value)
+        End Set
+
+    End Property
+
+    Public Shared ReadOnly VerticalTextAlignmentProperty As DependencyProperty = DependencyProperty.Register("VerticalTextAlignment", GetType(VerticalAlignment), GetType(ImageButton), New UIPropertyMetadata(VerticalAlignment.Center))
+    ' appears in code
+    ''' <summary>
+    ''' Vertical alignment of the text
+    ''' </summary>
+    <Description("Vertical text alignment"), Category("ImageButton")>   ' appears in VS property
+    Public Property VerticalTextAlignment As VerticalAlignment
+
+        Get
+            Return CType(GetValue(VerticalTextAlignmentProperty), VerticalAlignment)
+        End Get
+        Set(ByVal value As VerticalAlignment)
+            SetValue(VerticalTextAlignmentProperty, value)
         End Set
 
     End Property
@@ -327,6 +352,40 @@ Public Class ImageButton
         End Get
         Set(ByVal value As Thickness)
             SetValue(TextPaddingProperty, value)
+        End Set
+
+    End Property
+
+    Public Shared ReadOnly TextWrappingProperty As DependencyProperty = DependencyProperty.Register("TextWrapping", GetType(TextWrapping), GetType(ImageButton), New UIPropertyMetadata(TextWrapping.NoWrap))
+    ' appears in code
+    ''' <summary>
+    ''' TextBlock TextWrapping
+    ''' </summary>
+    <Description("TextBlock TextWrapping"), Category("ImageButton")>   ' appears in VS property
+    Public Property TextWrapping As TextWrapping
+
+        Get
+            Return CType(GetValue(TextWrappingProperty), TextWrapping)
+        End Get
+        Set(ByVal value As TextWrapping)
+            SetValue(TextWrappingProperty, value)
+        End Set
+
+    End Property
+
+    Public Shared ReadOnly TextBlockTextAlignmentProperty As DependencyProperty = DependencyProperty.Register("TextBlockTextAlignment", GetType(TextAlignment), GetType(ImageButton), New UIPropertyMetadata(TextAlignment.Left))
+    ' appears in code
+    ''' <summary>
+    ''' Text alignment in paragraph
+    ''' </summary>
+    <Description("Text alignment in paragraph"), Category("ImageButton")>   ' appears in VS property
+    Public Property TextBlockTextAlignment As TextAlignment
+
+        Get
+            Return CType(GetValue(TextBlockTextAlignmentProperty), TextAlignment)
+        End Get
+        Set(ByVal value As TextAlignment)
+            SetValue(TextBlockTextAlignmentProperty, value)
         End Set
 
     End Property

@@ -47,9 +47,15 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Image x:Name="Image1" Source="{Binding Image, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Margin="{Binding ImageMargin, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"/>
-                <Viewbox x:Name="Viewbox1" Grid.Column="1" HorizontalAlignment="{Binding TextAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" >
-                    <TextBlock Text="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Margin="0" Padding="{Binding TextPadding, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" Foreground="{Binding Foreground, ElementName=userControl}"/>
-                </Viewbox>
+                <Grid x:Name="Textgrid" Grid.Column="1" >
+                    <TextBlock Text="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" 
+                               HorizontalAlignment="{Binding HorizontalTextAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" 
+                               VerticalAlignment="{Binding VerticalTextAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" 
+                               Padding="{Binding TextPadding, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" 
+                               Foreground="{Binding Foreground, ElementName=userControl}"
+                               TextWrapping="{Binding TextWrapping, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"
+                               TextAlignment="{Binding TextBlockTextAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}" />
+                </Grid>
             </Grid>
         </Button>
     </Grid>

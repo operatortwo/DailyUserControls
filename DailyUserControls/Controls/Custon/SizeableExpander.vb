@@ -1,5 +1,4 @@
 ﻿Imports System.ComponentModel
-Imports System.Windows.Controls.Primitives
 Imports System.Windows.Markup
 
 <ContentProperty("UserContent")> Public Class SizeableExpander
@@ -15,28 +14,22 @@ Imports System.Windows.Markup
         'SetInitialHeight()
     End Sub
 
-    Private ContentHeight As Double
-    Private Const DefaultContentHeight = 170
-
-    Private HeaderRow As RowDefinition
+    Private HeaderRow As New RowDefinition
     'Private SplitterRow As RowDefinition
-    Private GridSplitter As GridSplitter
+    Private GridSplitter As New GridSplitter
     Private HeaderBackgroundRect As Rectangle
     Private ContentBackgroundRect As Rectangle
-    Private HeaderBorder As Border
-    Private ContentBorder As Border
+    Private HeaderBorder As New Border
+    Private ContentBorder As New Border
 
-    Private ExpanderIcon As Expander
+    Private ExpanderIcon As New Expander
 
     Private CP1 As ContentPresenter
 
     Private Sub ExpanderLoaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        'SetInitialHeight()
-
         If Me.Template IsNot Nothing Then
 
             HeaderRow = TryCast(Me.Template.FindName("HeaderRow", Me), RowDefinition)
-            'SplitterRow = TryCast(Me.Template.FindName("SplitterRow", Me), RowDefinition)
             GridSplitter = TryCast(Me.Template.FindName("GridSplitter", Me), GridSplitter)
 
             HeaderBackgroundRect = TryCast(Me.Template.FindName("HeaderBackgroundRect", Me), Rectangle)
@@ -47,10 +40,32 @@ Imports System.Windows.Markup
 
             ExpanderIcon = TryCast(Me.Template.FindName("ExpanderIcon", Me), Expander)
 
+            If ExpanderIcon IsNot Nothing Then
+                ExpanderIcon.IsExpanded = IsExpanded
+            End If
+
             CP1 = TryCast(Me.Template.FindName("CP1", Me), ContentPresenter)
 
             If CP1 IsNot Nothing Then
                 CP1.Content = UserContent
+            End If
+
+            If HeaderBorder IsNot Nothing Then
+                HeaderBorder.CornerRadius = New CornerRadius(CornerUniformRadius)
+                HeaderBorder.BorderThickness = New Thickness(BorderStrokeThickness)
+            End If
+
+            If ContentBorder IsNot Nothing Then
+                ContentBorder.CornerRadius = New CornerRadius(CornerUniformRadius)
+                ContentBorder.BorderThickness = New Thickness(BorderStrokeThickness)
+                ContentBorder.Margin = New Thickness(0, 0 - BorderStrokeThickness, 0, 0)
+            End If
+
+            If GridSplitter IsNot Nothing Then
+                If IsExpanded = False Then
+                    ContentBorder.Visibility = Visibility.Collapsed
+                    GridSplitter.Visibility = Visibility.Collapsed
+                End If
             End If
 
             If ExpanderIcon IsNot Nothing Then
@@ -79,21 +94,6 @@ Imports System.Windows.Markup
             RemoveHandler GridSplitter.PreviewMouseMove, AddressOf GridSplitter_PreviewMouseMove
         End If
     End Sub
-
-
-    ''' <summary>
-    ''' Set the initial height depending on the IsExpanded state.
-    ''' </summary>
-    Private Sub SetInitialHeight()
-        If IsExpanded = True Then
-            ContentHeight = Me.Height
-        Else
-            ContentHeight = DefaultContentHeight
-            Me.Height = Me.HeaderRow.ActualHeight                           ' MinHeight
-        End If
-    End Sub
-
-
 
 
 #Region "Appearance"
@@ -145,7 +145,7 @@ Imports System.Windows.Markup
     ''' <summary>
     ''' Header content
     ''' </summary>
-    Public Shared ReadOnly HeaderProperty As DependencyProperty = DependencyProperty.Register("Header", GetType(Object), GetType(SizeableExpander), New UIPropertyMetadata("Header"))
+    Public Shared ReadOnly HeaderProperty As DependencyProperty = DependencyProperty.Register("Header", GetType(Object), GetType(SizeableExpander), Nothing)
     <Description("Header content"), Category("SizeableExpander")>   ' appears in VS property
     Public Property Header As Object
         Get
@@ -156,49 +156,70 @@ Imports System.Windows.Markup
         End Set
     End Property
 
+
     ''' <summary>
-    ''' BorderThickness for Header and UserContent
+    ''' Border Stroke-Thickness for header and content border
     ''' </summary>
-    Public Shared Shadows ReadOnly BorderThicknessProperty As DependencyProperty = DependencyProperty.Register("BorderThickness", GetType(Thickness), GetType(SizeableExpander), New UIPropertyMetadata(New Thickness(0.0)))
-    <Description("BorderThickness for Header and UserContent"), Category("SizeableExpander")>   ' appears in VS property
-    Public Overloads Property BorderThickness As Thickness
+    Public Shared ReadOnly BorderStrokeThicknessProperty As DependencyProperty = DependencyProperty.Register("BorderStrokeThickness",
+            GetType(Double), GetType(SizeableExpander), New UIPropertyMetadata(1.0,
+            New PropertyChangedCallback(AddressOf OnBorderStrokeThicknessChanged),
+            New CoerceValueCallback(AddressOf CoerceBorderStrokeThickness)))
+    <Description("Border Stroke-Thickness for header and content border"), Category("SizeableExpander")>   ' appears in VS property
+    Public Property BorderStrokeThickness As Double
         Get
-            Return GetValue(BorderThicknessProperty)
+            Return GetValue(BorderStrokeThicknessProperty)
         End Get
-        Set(value As Thickness)
-            SetValue(BorderThicknessProperty, value)
+        Set(value As Double)
+            SetValue(BorderStrokeThicknessProperty, value)
         End Set
     End Property
+    Private Shared Sub OnBorderStrokeThicknessChanged(ByVal d As DependencyObject, ByVal args As DependencyPropertyChangedEventArgs)
+        Dim control As SizeableExpander = CType(d, SizeableExpander)
+        Dim value As Double = control.BorderStrokeThickness
+
+        If control.HeaderBorder IsNot Nothing Then
+            control.HeaderBorder.BorderThickness = New Thickness(value)
+        End If
+
+        If control.ContentBorder IsNot Nothing Then
+            control.ContentBorder.BorderThickness = New Thickness(value)
+            control.ContentBorder.Margin = New Thickness(0, 0 - control.BorderStrokeThickness, 0, 0)
+        End If
+
+    End Sub
+
+    Private Overloads Shared Function CoerceBorderStrokeThickness(ByVal d As DependencyObject, ByVal value As Object) As Object
+        Dim val As Double = CDbl(value)
+        If val > 10 Then
+            val = 10
+        ElseIf val < 0.0 Then
+            val = 0.0
+        End If
+        Return val
+    End Function
+
 
     ''' <summary>
     ''' Corner Radius for Header and Content, Background and Border
     ''' </summary>
-    Public Shared ReadOnly CornerRadiusProperty As DependencyProperty = DependencyProperty.Register("CornerRadius",
+    Public Shared ReadOnly CornerUniformRadiusProperty As DependencyProperty = DependencyProperty.Register("CornerUniformRadius",
             GetType(Double), GetType(SizeableExpander), New UIPropertyMetadata(0.0,
-            New PropertyChangedCallback(AddressOf OnCornerRadiusChanged),
-            New CoerceValueCallback(AddressOf CoerceCornerRadius)))
-    <Description("Corner Radius for Header and Content, Background and Border"), Category("SizeableExpander")>   ' appears in VS property
-    Public Property CornerRadius As Double
+            New PropertyChangedCallback(AddressOf OnCornerUniformRadiusChanged),
+            New CoerceValueCallback(AddressOf CoerceCornerUniformRadius)))
+    <Description("Corner Radius for header and content border"), Category("SizeableExpander")>   ' appears in VS property
+    Public Property CornerUniformRadius As Double
         Get
-            Return GetValue(CornerRadiusProperty)
+            Return GetValue(CornerUniformRadiusProperty)
         End Get
         Set(value As Double)
-            SetValue(CornerRadiusProperty, value)
+            SetValue(CornerUniformRadiusProperty, value)
         End Set
     End Property
 
-    Private Shared Sub OnCornerRadiusChanged(ByVal d As DependencyObject, ByVal args As DependencyPropertyChangedEventArgs)
+    Private Shared Sub OnCornerUniformRadiusChanged(ByVal d As DependencyObject, ByVal args As DependencyPropertyChangedEventArgs)
         Dim control As SizeableExpander = CType(d, SizeableExpander)
-        Dim value As Double = control.CornerRadius
+        Dim value As Double = control.CornerUniformRadius
 
-        If control.HeaderBackgroundRect IsNot Nothing Then
-            control.HeaderBackgroundRect.RadiusX = value
-            control.HeaderBackgroundRect.RadiusY = value
-        End If
-        If control.ContentBackgroundRect IsNot Nothing Then
-            control.ContentBackgroundRect.RadiusX = value
-            control.ContentBackgroundRect.RadiusY = value
-        End If
         If control.HeaderBorder IsNot Nothing Then
             control.HeaderBorder.CornerRadius = New CornerRadius(value)
         End If
@@ -207,10 +228,10 @@ Imports System.Windows.Markup
         End If
     End Sub
 
-    Private Overloads Shared Function CoerceCornerRadius(ByVal d As DependencyObject, ByVal value As Object) As Object
+    Private Overloads Shared Function CoerceCornerUniformRadius(ByVal d As DependencyObject, ByVal value As Object) As Object
         Dim val As Double = CDbl(value)
-        If val > 100 Then
-            val = 100
+        If val > 40 Then
+            val = 40
         ElseIf val < 0.0 Then
             val = 0.0
         End If
@@ -244,25 +265,28 @@ Imports System.Windows.Markup
 
         If control.IsExpanded = True Then
             control.ExpanderIcon.IsExpanded = True
-            control.CP1.Visibility = Visibility.Visible
-            'control.IsExpanded = True
-            'control.CP1.InvalidateVisual()
-            'control.Height = 100
-
+            control.ContentBorder.Visibility = Visibility.Visible
+            control.GridSplitter.Visibility = Visibility.Visible
             control.Height = control.ExpandedHeight
-            'control.Height = control.HeaderRow.ActualHeight + control.SplitterRow.ActualHeight + control.CP1.ActualHeight
-        Else
-            If control.ActualHeight > 0 Then
-                control.ExpandedHeight = control.ActualHeight
+
+            If control.ExpandedHeight > 40 Then
+                control.Height = control.ExpandedHeight
+            Else
+                control.Height = 100
             End If
-
+        Else
             control.ExpanderIcon.IsExpanded = False
-            control.CP1.Visibility = Visibility.Collapsed
+            control.GridSplitter.Visibility = Visibility.Collapsed
+            control.ContentBorder.Visibility = Visibility.Collapsed
 
-            'control.Height = control.HeaderRow.ActualHeight + control.SplitterRow.ActualHeight
-            control.Height = control.HeaderRow.ActualHeight
-
+            If control.HeaderRow.ActualHeight > 0 Then
+                control.Height = control.HeaderRow.ActualHeight
+                control.ExpandedHeight = control.ActualHeight
+            Else
+                control.Height = Double.NaN
+            End If
         End If
+
     End Sub
 
     '--- Allow setting IsExpanded by code. This can also be done by setting the IsExpanded Property.
@@ -318,34 +342,13 @@ Imports System.Windows.Markup
         Dim el As UIElement = CType(sender, UIElement)
         If el.IsMouseCaptured Then
 
-
             If e.LeftButton = MouseButtonState.Pressed Then     ' dragging
-                'If IsExpanded = False Then
-                '    ' is collapsed
-                '    If Height > MinHeight Then
-                '        IsExpanded = True
-                '        Exit Sub
-                '    End If
-                'Else
-                '    'is expanded
-                '    If Height <= MinHeight Then
-                '        IsExpanded = False            ' collapse                        
-                '        'ExpandedHeight = DefaultExpandedHeight      ' set ExpandedHeight for next 'expanded'
-                '        Exit Sub
-                '    End If
-                'End If
 
                 Dim pt As Point
                 pt = e.GetPosition(Me)
 
-                'If pt.Y <= HeaderRow.ActualHeight Then
-                '    IsExpanded = False
-                '    Exit Sub
-                'End If
-
                 Dim minheight2 As Double = HeaderRow.ActualHeight + GridSplitter.ActualHeight
                 Dim newheight2 As Double
-
 
                 If pt.Y < minheight2 Then
                     newheight2 = minheight2
@@ -354,16 +357,6 @@ Imports System.Windows.Markup
                 End If
 
                 Me.Height = newheight2
-
-                'If pt.Y < SplitterRow.ActualHeight Then pt.Y = SplitterRow.ActualHeight
-
-                'If pt.Y > MaxHeight Then pt.Y = MaxHeight       ' defined in UserControl property (TrackPanel)
-                'Me.Height = pt.Y
-
-
-                'If Height > MinHeight Then
-                '    'ExpandedHeight = Height
-                'End If
 
             End If
         End If

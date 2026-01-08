@@ -3,6 +3,9 @@
 
 Date			Version		Changes
 ------------------------------------------------	
+2026 01 08		1.1.0.3		improved SizeableExpander
+2026 01 05		1.1.0.2		set Headers in SizeableExpanders
+				1.1.0.1		adjusted Text settings in ImageButtons
 2025 12 23		1.1.0.0		targeting .NET Framework 4.8
 2025 12 23		1.0.3.6		targeting .NET Framework 4.6
 2025 12 03		1.0.3.3		added Tab for SizeableExpander

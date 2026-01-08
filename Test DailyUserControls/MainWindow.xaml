@@ -36,7 +36,7 @@
                     <Grid>
                         <!-- Description -->
                         <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
-                        <duc:ImageButton Margin="30,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Text="Btn" Image="/Resources/Images/Play_x22.png" TextAlignment="Center" Background="#FFD5E0FF" Height="26"/>
+                        <duc:ImageButton Margin="30,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Text="Btn" Image="/Resources/Images/Play_x22.png" Background="#FFD5E0FF" Height="26"/>
                         <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <ContentControl  Margin="177,10,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc_ImageButton}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
                         <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
@@ -48,7 +48,7 @@
                         <!-- Test Area -->
                         <GroupBox Header="Toggle IsEnabled" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,194,0,0" Height="100" Width="185" FontSize="12">
                             <Grid>
-                                <duc:ImageButton x:Name="ImageButton1" Margin="10,10,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFFFFB96" Height="28" Width="150" BorderBrush="#FF1300FF"/>
+                                <duc:ImageButton x:Name="ImageButton1" Margin="10,10,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFFFFB96" Width="150" BorderBrush="#FF1300FF" Height="28"/>
                                 <CheckBox x:Name="cbToggleIsEnabled" Content="IsEnabled" HorizontalAlignment="Left" Margin="45,52,0,0" VerticalAlignment="Top" IsChecked="True"/>
                             </Grid>
                         </GroupBox>
@@ -60,8 +60,9 @@
                         <Label Content="Image alignment Top and Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="432,267,0,0"/>
                         <duc:ImageButton Margin="445,301,0,0" HorizontalAlignment="Left" Width="83" Height="81" VerticalAlignment="Top" Text="On Top" Image="/Resources/Images/go_up_x22.png" ImageLocation="Top" Background="#FFC7F1B8" TextPadding="0,6,0,3"/>
                         <duc:ImageButton Margin="549,301,0,0" HorizontalAlignment="Left" Width="83" Height="80" VerticalAlignment="Top" Text="Bottom" Image="/Resources/Images/go_down_x22.png" ImageLocation="Bottom" TextPadding="0,2,0,10" Background="#FFC7F1B8"/>
-                        <duc:ImageButton x:Name="ImageButton1_Kopieren" Margin="65,354,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFDDF0FF" Height="28" Width="150" MouseOverBackground="#FFFFC8FD" MouseOverBorder="#FFFF8686"/>
                         <Label Content="MouseOver-Colors modified" HorizontalAlignment="Left" Margin="66,330,0,0" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                        <duc:ImageButton Margin="65,354,0,0" Image="/Resources/Images/go_next x22.png" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFDDF0FF" Height="28" Width="151" MouseOverBackground="#FFFFC8FD" MouseOverBorder="#FFFF8686"/>
+                        <duc:ImageButton Height="45" Margin="234,435,0,0" HorizontalAlignment="Left" Width="145" VerticalAlignment="Top" Image="/Resources/Images/Information_x16.png" Text="Image Button text wrap" FontSize="12" ImageMargin="10,5,0,5" TextWrapping="Wrap" TextBlockTextAlignment="Center" TextPadding="10,0,10,0" Background="#FFC5D9F9" ButtonPressedBackground="#FFF9F9C5" VerticalContentAlignment="Top"/>
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="tiNumericUpDown" Header="Numeric UpDown" Background="{DynamicResource TabItemBackground1}">
@@ -514,7 +515,7 @@
                         <!-- Description -->
                         <Rectangle HorizontalAlignment="Left" Height="69" Margin="10,5,0,0" VerticalAlignment="Top" Width="140" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <!-- sample Sizeable Expander -->
-                        <duc:SizeableExpander Width="100" Height="51" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,14,0,0" IsEnabled="False"/>
+                        <duc:SizeableExpander Width="100" Height="51" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,14,0,0" IsEnabled="False" Header="Expander"/>
                         <Rectangle Height="69" Margin="156,5,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}"/>
                         <ContentControl  Margin="177,10,26,0" Height="59" VerticalAlignment="Top" Content="{DynamicResource dsc_SizeableExpander}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False"/>
                         <Rectangle Height="64" Margin="10,80,10,0" VerticalAlignment="Top" RadiusX="17" RadiusY="17" Stroke="{DynamicResource SampleStroke}" Fill="{DynamicResource SampleFill}" Width="110" HorizontalAlignment="Left"/>
@@ -525,7 +526,7 @@
                         <ContentControl  Margin="229,82,27,0" Height="60" VerticalAlignment="Top" Content="{DynamicResource dsc2_SizeableExpander}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False" FontSize="12"/>
                         <!-- Test Area -->
 
-                        <duc:SizeableExpander Margin="80,257,0,0" HorizontalAlignment="Left" Width="198" Height="94" VerticalAlignment="Top" HeaderBackground="#FFF7F394" ContentBackground="#FFC1D5EC" CornerRadius="5" BorderThickness="1,1,1,1" BorderBrush="#FF4055FF">
+                        <duc:SizeableExpander Margin="80,257,0,0" HorizontalAlignment="Left" Width="198" Height="94" VerticalAlignment="Top" HeaderBackground="#FFF7F394" ContentBackground="#FF6AC3DA" Header="Header" BorderBrush="#FF004EE8" CornerUniformRadius="10" BorderThickness="3,8,2,6" Foreground="Black" BorderStrokeThickness="2">
                             <StackPanel>
                                 <TextBox Text="Text" Margin="5,5,5,0"/>
                                 <CheckBox Content="Check Me" Margin="5,5,5,0"/>
@@ -533,18 +534,19 @@
                         </duc:SizeableExpander>
 
 
+
                         <ScrollViewer Margin="383,225,109,72" Background="#FFE5F7E2">
                             <StackPanel>
 
-                                <duc:SizeableExpander Height="81" Header="Expander 1" BorderBrush="#FF004EE8" HeaderBackground="#FFF7F394" ContentBackground="#FF6AC3DA" BorderThickness="1,1,1,1">
+                                <duc:SizeableExpander Height="81" Header="Expander 1" BorderBrush="#FF004EE8" HeaderBackground="#FFF7F394" ContentBackground="#FF6AC3DA" BorderThickness="1,1,1,1" CornerUniformRadius="10" BorderStrokeThickness="2">
                                     <StackPanel>
                                         <TextBox Text="Text" Margin="5,5,5,0"/>
                                         <CheckBox Content="Check Me" Margin="5,5,5,0"/>
                                     </StackPanel>
                                 </duc:SizeableExpander>
 
-                                <duc:SizeableExpander Height="72" ContentBackground="#FF6AC3DA" HeaderBackground="#FFF7F394" Header="Expander 2" BorderBrush="#FF004EE8" Margin="0,-1,0,0" BorderThickness="1,1,1,1"/>
-                                <duc:SizeableExpander Height="72" ContentBackground="#FF6AC3DA" HeaderBackground="#FFF7F394" Header="Expander 3" BorderBrush="#FF004EE8" Margin="0,-1,0,0" BorderThickness="1,1,1,1"/>
+                                <duc:SizeableExpander ContentBackground="#FF6AC3DA" HeaderBackground="#FFF7F394" Header="Expander 2" BorderBrush="#FF004EE8" BorderThickness="1,1,1,1" CornerUniformRadius="10" BorderStrokeThickness="2" Margin="0,-2,0,0" Height="50" IsExpanded="False" />
+                                <duc:SizeableExpander Height="102" ContentBackground="#FF6AC3DA" HeaderBackground="#FFF7F394" Header="Expander 3" BorderBrush="#FF004EE8" BorderThickness="1,1,1,1" CornerUniformRadius="10" BorderStrokeThickness="2" Margin="0,-2,0,0"/>
 
                             </StackPanel>
                         </ScrollViewer>
