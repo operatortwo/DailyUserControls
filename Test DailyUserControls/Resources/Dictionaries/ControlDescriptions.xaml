@@ -267,7 +267,8 @@
     </TextBlock>
 
     <TextBlock x:Key="dsc2_SizeableExpander" TextWrapping="Wrap">
-     Dragging the lower edge changes the height. Clicking on the header switches between Collapsed and Expanded.
+     Dragging the lower edge changes the height. Clicking on the header switches between Collapsed and Expanded.<LineBreak/>
+   Stacked Expanders should have Margin.Top = (0 - BorderStrokeThickness)
     </TextBlock>
 
     <TextBlock x:Key="dscKb_SizeableExpander" TextWrapping="Wrap">
