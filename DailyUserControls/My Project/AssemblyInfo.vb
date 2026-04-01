@@ -12,7 +12,7 @@ Imports System.Windows
 ' Werte der Assemblyattribute überprüfen
 
 <Assembly: AssemblyTitle("DailyUserControls")>
-<Assembly: AssemblyDescription("A small collection of WPF UserControls")>
+<Assembly: AssemblyDescription("A small collection of WPF User- and Custom Controls")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("DailyUserControls")>
 <Assembly: AssemblyCopyright("Copyright @  2023 - 2026  operatortwo")>
