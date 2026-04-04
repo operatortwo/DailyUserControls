@@ -123,6 +123,7 @@ Public Class TreeViewItemX
         '--- vertical line ---
 
         Dim ic As ItemsControl = ItemsControl.ItemsControlFromItemContainer(Me)
+        If ic Is Nothing Then Exit Sub              ' when 1 TreeViewItemX is inserted outside a TreeView
         Dim ndx = ic.ItemContainerGenerator.IndexFromContainer(Me)
 
         Dim iccount = ic.Items.Count
