@@ -1,121 +1,59 @@
 # DailyUserControls
-This side work contains some usercontrols that I use in other **.NET Framework** projects.  
-The goal is to collect some common controls in a library to be able to maintain them in one place.  
+This Library contains some User-and CustomControls for the use in WPF .Net and WPF .Net Framework applications.  
+From version 1.2 onwards, it is a .Net project that targets .Net **and** .NetFramework.  
 There's a compromise between looking good, working well, and acceptable programming effort.
 The current version offers quick and easy usability, while the graphics and the user input are kept rather simple.  
 The test application is an important part of the project. On the one hand to present and describe the controls, on the other hand for debugging and development.  
 During development, it became clear that not all ideas can be solved with **UserControls**. Where necessary, **CustomControls** were added to the library.
 
-
 ##
 ### The Controls
+<br>
 
-##
-#### Image Button
-![ImageButton](https://user-images.githubusercontent.com/88147904/236563904-b4d02a48-60af-43fd-9e03-8d6ee09edc90.PNG)  
- Allows placing a text and an image on a button. The image location can be set to left, right, top or bottom.
- The view can be adjusted using *ImageMargin* and *TextPadding*.
- 
-##
-#### Numeric Up Down
-![NumericUpDown](https://user-images.githubusercontent.com/88147904/236563999-ddb60ac5-b0bd-439d-b84a-3d27cfa4fd18.PNG)  
-Can be used to increase, decrease or enter a numeric value.
-The value can have decimal places, can be negative and can be restricted to step values.
+|<div style="width:150px">Image Button</div> ||
+|:---:|---|
+|<img alt="ImageButton" src=https://user-images.githubusercontent.com/88147904/236563904-b4d02a48-60af-43fd-9e03-8d6ee09edc90.PNG width=150> | Allows placing a text and an image on a button. <br>The image location can be set to left, right, top or bottom. The view can be adjusted using *ImageMargin* and *TextPadding*.  |
+| **Numeric Up Down** | |
+|<img alt="NumericUpDown" src="https://user-images.githubusercontent.com/88147904/236563999-ddb60ac5-b0bd-439d-b84a-3d27cfa4fd18.PNG">  |Can be used to increase, decrease or enter a numeric value. The value can have decimal places, can be negative and can be restricted to step values. |
+| **Small Slider** | |
+|<img alt="SmallSlider" src="https://user-images.githubusercontent.com/88147904/236564707-593c6bf1-cb88-48b1-bbfd-1c15aa76675a.PNG"> |Allows increasing and decreasing a numeric value. Responds to mouse wheel and needs only little space. |
+| **Toggle Button** | |
+|<img alt="ToggleButton" src="https://user-images.githubusercontent.com/88147904/236564734-5005cba6-acdb-4b5d-9930-59057779eb31.PNG"> |Based on the original ToggleButton, it has additional properties for text, background and image, each for checked and unchecked state. This allows the control to be used flexibly. For example, an on-off push button switch can be shown that is backlit when ON. |
+| **Selector Button** | |
+|<img alt="Selector Button" src="https://user-images.githubusercontent.com/88147904/236564028-7c245dec-0e85-4ff0-a13d-e3afea0b53d5.PNG"> |Is a combination of a button and an up/down control. The control contains an integer value which can be used as an index to a list of items. The user can press the button to open a dialog to choose an item from a list, or can scroll through the list with the up/down buttons and the mouse wheel. The control itself only manages button click, increasing and decreasing the value. Additional code is required for handling the list and displaying the dialog |
+| **Progress Circle** | |
+|<img alt="ProgressCircle" src="https://user-images.githubusercontent.com/88147904/236564902-81b50848-d7fb-4400-aa28-65f055ec450d.PNG"> |Visualizes progress or angle. |
+| **Progress Ring** | |
+|<img alt="ProgressRing" src="https://github.com/user-attachments/assets/3fcc389b-c88f-4cd2-a47c-0fe756956600"> |Visualizes progress in ring- / donut style |
+| **Knob** | |
+|<img alt="Knob" src="https://user-images.githubusercontent.com/88147904/236564934-270e07cd-a5e8-4b54-b6fe-ae467bf36556.PNG"> |Is a value control that simulates a potentiometer. |
+| **DataGridTextColumnX** | |
+|<img alt="DataGridTextColumnX" src="https://github.com/user-attachments/assets/b9cfd82c-50e4-4c2c-bd85-44a43801a763"> |A CustomControl that adds TextAlignment and Color Properties to a DataGridTextColumn |
+| **TreeViewItemX** | |
+|<img alt="TreeViewItemX" src="https://github.com/user-attachments/assets/4e99c257-9f28-4de6-a868-9eaac8f054e9" > |TreeViewItem with Image and connecting lines |
+| **MessageWindow** | |
+|<img alt="MessageWindow" src="https://github.com/user-attachments/assets/e690ce65-17fa-472f-96ad-393571c4e0e8"> |Works similarly to MessageBox. Allows to display messages, for example whether an action was successful or not. The built-in icons **Error**, **Information**, **StatusOk** and **Warning** can be used to clarify the meaning of the message. Because SizeToContent is used, both short and long messages can be displayed.  A subset is **QuestionWindow** which returns Yes, No or Cancel.|
+| **CheckboxFilterList** | |
+|<img alt="CheckboxFilterList" src="https://github.com/operatortwo/DailyUserControls/assets/88147904/7db2466d-a989-47b9-a2f4-1dbec5e7aa4f"> |Based on a List or an Enum the user can select items in a Listbox Window. The control then returns a list of the selected items. |
+| **Sizeable Expander** | |
+|<img alt="SizeableExpander" src="https://github.com/user-attachments/assets/a5182d06-60ec-4d1e-b402-64a549eede43"> |Allows the user to change the height of the expander content |
+| **TabControlExpander** ||
+|<img alt="TabControlExpander" src="https://github.com/operatortwo/DailyUserControls/assets/88147904/1f424a6b-2d52-471d-a7a6-372abc70c024"> |A combination of TabControl and Expander.  The basic function is inspired by the Ribbon Control: TabItems can be filled with controls and, if desired, the height of the TabControl can be reduced to the height of the header. It is necessary to set a fixed height like: Height="150" and currently only TabStripPlacement TOP can be used. |
+| **SidePanel** | |
+|<img alt="SidePanel" src="https://user-images.githubusercontent.com/88147904/236564981-e5dd04d4-f29e-4a35-98a6-0283e260c5d0.PNG"> |A panel on the left side of the window which can contain SidePanelButtons, each associated with a tool window. There are no docking or other functions. Such projects can be found by looking for *wpf avalondock*. |
+| **VU Bar** | |
+|<img alt="VU__Bar" src="https://user-images.githubusercontent.com/88147904/236564761-2143aa9c-e7e7-46b4-96c7-acfc371fe6e4.PNG"> |Is a very simple indicator showing activity on an audio track. Some additional code for timed value decrease is necessary. Bar can be SolidColorBrush, LinearGradientBrush or ImageBrush. |
+| **ComboBox** | |
+|<img alt="ComboBox" src=""> |A custom control that inherits from ComboBox and allows to set Background and BorderBrush. This is because with the original ComboBox, changing the Background or BorderBrush has no effect. |
 
-##
-#### Toggle Button
-![ToggleButton](https://user-images.githubusercontent.com/88147904/236564734-5005cba6-acdb-4b5d-9930-59057779eb31.PNG)  
-Based on the original ToggleButton, it has additional properties for text, background and image, each for checked and unchecked state.
-This allows the control to be used flexibly. For example, an on-off push button switch can be shown that is backlit when ON.
-
-##
-#### Selector Button
-![SelectorButton](https://user-images.githubusercontent.com/88147904/236564028-7c245dec-0e85-4ff0-a13d-e3afea0b53d5.PNG)  
-Is a combination of a button and an up/down control. The control contains an integer value which can be used as an index to a list of items.
-The user can press the button to open a dialog to choose an item from a list, or can scroll through the list with the up/down buttons and the mouse wheel.  
-The control itself only manages button click, increasing and decreasing the value. Additional code is required for handling the list and displaying the dialog
-
-##
-#### Small Slider
-![SmallSlider](https://user-images.githubusercontent.com/88147904/236564707-593c6bf1-cb88-48b1-bbfd-1c15aa76675a.PNG)  
-Allows increasing and decreasing a numeric value. Responds to mouse wheel and needs only little space.
-
-##
-#### Progress Circle
-![ProgressCircle](https://user-images.githubusercontent.com/88147904/236564902-81b50848-d7fb-4400-aa28-65f055ec450d.PNG)  
-Visualizes progress or angle.
-
-##
-#### Progress Ring
-![ProgressRing](https://github.com/user-attachments/assets/3fcc389b-c88f-4cd2-a47c-0fe756956600)  
-Visualizes progress in ring- / donut style
-
-##
-#### Knob
-![Knob](https://user-images.githubusercontent.com/88147904/236564934-270e07cd-a5e8-4b54-b6fe-ae467bf36556.PNG)  
-Is a value control that simulates a potentiometer.
-
-##
-#### DataGridTextColumnX
-<img width="211" height="86" alt="DataGridTextColumnX" src="https://github.com/user-attachments/assets/b9cfd82c-50e4-4c2c-bd85-44a43801a763" />  
-
-A CustomControl that adds TextAlignment and Color Properties to a DataGridTextColumn
-
-##
-#### TreeViewItemX
-<img width="165" height="115" alt="TreeViewItemX" src="https://github.com/user-attachments/assets/4e99c257-9f28-4de6-a868-9eaac8f054e9" />  
-   TreeViewItem with Image and connecting lines
-
-##
-#### Sizeable Expander
-<img width="236" height="85" alt="Sizeable Expander" src="https://github.com/user-attachments/assets/a5182d06-60ec-4d1e-b402-64a549eede43" />  
-Allows the user to change the height of the expander content
-
-
-##
-#### TabControlExpander
-![TabControlExpander](https://github.com/operatortwo/DailyUserControls/assets/88147904/1f424a6b-2d52-471d-a7a6-372abc70c024)  
-A combination of TabControl and Expander.
-Since it wasn't possible to have named TabItem's
-(such as x:Name="Tab 1") in a UserControl, this control was created as a CustomControl.
-The basic function is inspired by the Ribbon Control: TabItems can be filled with controls and, if desired, the height of the TabControl can be reduced to the height of the header.  
-It is necessary to set a fixed height like: Height="150" and currently only TabStripPlacement TOP can be used.
-
-##
-#### MessageWindow
-![MessageWindowSmall](https://github.com/user-attachments/assets/e690ce65-17fa-472f-96ad-393571c4e0e8)  
-Works similarly to MessageBox. Allows to display messages, for example whether an action was successful or not.  
-The built-in icons **Error**, **Information**, **StatusOk** and **Warning** can be used to clarify the meaning of the message.
-Because SizeToContent is used, both short and long messages can be displayed.  
-A subset is **QuestionWindow** which returns Yes, No or Cancel.
-
-##
-#### Side Panel
-![SidePanel](https://user-images.githubusercontent.com/88147904/236564981-e5dd04d4-f29e-4a35-98a6-0283e260c5d0.PNG)  
-A panel on the left side of the window which can contain SidePanelButtons, each associated with a tool window.
-There are no docking or other functions. Such projects can be found by looking for *wpf avalondock*.
-
-##
-#### CheckboxFilterList
-![CheckboxFilterList](https://github.com/operatortwo/DailyUserControls/assets/88147904/7db2466d-a989-47b9-a2f4-1dbec5e7aa4f)  
-Based on a List or an Enum the user can select items in a Listbox Window.
-The control then returns a list of the selected items.
-
-##
-#### VU Bar
-![VU_Bar](https://user-images.githubusercontent.com/88147904/236564761-2143aa9c-e7e7-46b4-96c7-acfc371fe6e4.PNG)  
-Is a very simple indicator showing activity on an audio track.
-Some additional code for timed value decrease is necessary.  
-Bar can be SolidColorBrush, LinearGradientBrush or ImageBrush.
-
-##
-#### ComboBox
-A custom control that inherits from ComboBox and allows to set Background and BorderBrush. This is because with the original ComboBox, changing the Background or BorderBrush has no effect.
 
 ##
 ### Notes
 
 #### Using the controls
+
+Make sure you reference the correct library for your project type.  
+The .NET library is located in '/bin/.../net8.0-windows' (depending on the .NET version), while the .NET Framework library is located in '/bin/.../net48' (depending on the .NET Framework version).
 
 - References / Add Reference -> DailyUserControls
 - In XAML header add namespace:  
@@ -132,6 +70,12 @@ Some value controls have a *SetValueSilent* method. This is useful in some speci
 
 ##
 ### Known issues
+
+#### Image resource cannot be found
+It is important that for every image used as a resource, the BuildAction is set to "Resource" and not to "None".
+Otherwise, the build process may complete successfully, but then a runtime error may occur.
+This can happen if the images are inserted into the project via drag and drop.
+
 #### ValueChanged
 
 There seems to be a bug in VS 2022 17.5.5+  
