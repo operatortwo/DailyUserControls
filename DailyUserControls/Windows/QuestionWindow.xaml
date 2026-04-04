@@ -1,0 +1,29 @@
+﻿<Window x:Class="QuestionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DailyUserControls"
+        mc:Ignorable="d"
+        Title="Question" Height="160" Width="320" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" SizeToContent="WidthAndHeight"  IsTabStop="False" Loaded="Window_Loaded">
+    <Grid x:Name="Grid1" Background="#FFF1F1F1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="Image1" HorizontalAlignment="Center" Width="32" Height="32" VerticalAlignment="Center" Source="/DailyUserControls;component/Resources/Images/MessageWindow/Question_x32.png" Grid.Row="1"/>
+        <TextBlock x:Name="txblkMessage"  Text="Textblock" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Margin="0,10,20,10" Grid.Row="1" />
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <local:ImageButton x:Name="btnYes" Height="24" Width="70" Text="Yes" Margin="20,0,20,0" IsTabStop="True" TabIndex="1" BorderBrush="#FF707070" BorderThickness="1,1,1,1" Image="/DailyUserControls;component/Resources/Images/MessageWindow/Ok_g_x32.png" Focusable="True" IsDefault="True" ImageMargin="2,2,0,2" TextPadding="0,0,5,0"/>
+                <local:ImageButton x:Name="btnNo"  Height="24" Width="70" Text="No" Margin="0,0,20,0" TabIndex="2" BorderBrush="#FF707070" BorderThickness="1,1,1,1" Image="/DailyUserControls;component/Resources/Images/MessageWindow/NotOkGray_x32.png" ImageMargin="4,4,0,2" TextPadding="0,0,5,0"/>
+                <local:ImageButton x:Name="btnCancel"  Height="24" Width="70" Text="Cancel" Margin="0,0,20,0" IsCancel="True" TabIndex="3" BorderBrush="#FF707070" BorderThickness="1,1,1,1" Image="/DailyUserControls;component/Resources/Images/MessageWindow/Cancel_x32.png" ImageMargin="2,2,0,2"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

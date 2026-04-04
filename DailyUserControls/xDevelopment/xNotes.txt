@@ -1,0 +1,14 @@
+﻿
+
+Troubleshooting
+---------------
+
+- Library and Application Build is successful, but when running the Application Exception appears:
+
+	XDG0003 The resource "resources/images/filter_x32.png" cannot be found.
+
+	--> for Image-Resources the Property "BuildAction" must be set to "Resource" not "None"
+
+	This can happen if the images are inserted into the project via drag and drop.
+	This applies to image resources both in the library and in the application.
+
