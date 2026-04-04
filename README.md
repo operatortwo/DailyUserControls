@@ -32,7 +32,7 @@ During development, it became clear that not all ideas can be solved with **User
 | **TreeViewItemX** | |
 |<img alt="TreeViewItemX" src="https://github.com/user-attachments/assets/4e99c257-9f28-4de6-a868-9eaac8f054e9" > |TreeViewItem with Image and connecting lines |
 | **MessageWindow** | |
-|<img alt="MessageWindow" src="https://github.com/user-attachments/assets/e690ce65-17fa-472f-96ad-393571c4e0e8"> |Works similarly to MessageBox. Allows to display messages, for example whether an action was successful or not. The built-in icons **Error**, **Information**, **StatusOk** and **Warning** can be used to clarify the meaning of the message. Because SizeToContent is used, both short and long messages can be displayed.  A subset is **QuestionWindow** which returns Yes, No or Cancel.|
+|<img alt="MessageWindow" src="https://github.com/user-attachments/assets/83bbb261-db2b-48eb-af9a-960ef567e52c"> |Works similarly to MessageBox. Allows to display messages, for example whether an action was successful or not. The built-in icons **Error**, **Information**, **StatusOk** and **Warning** can be used to clarify the meaning of the message. Because SizeToContent is used, both short and long messages can be displayed.  A subset is **QuestionWindow** which returns Yes, No or Cancel.|
 | **CheckboxFilterList** | |
 |<img alt="CheckboxFilterList" src="https://github.com/operatortwo/DailyUserControls/assets/88147904/7db2466d-a989-47b9-a2f4-1dbec5e7aa4f"> |Based on a List or an Enum the user can select items in a Listbox Window. The control then returns a list of the selected items. |
 | **Sizeable Expander** | |
@@ -44,8 +44,7 @@ During development, it became clear that not all ideas can be solved with **User
 | **VU Bar** | |
 |<img alt="VU__Bar" src="https://user-images.githubusercontent.com/88147904/236564761-2143aa9c-e7e7-46b4-96c7-acfc371fe6e4.PNG"> |Is a very simple indicator showing activity on an audio track. Some additional code for timed value decrease is necessary. Bar can be SolidColorBrush, LinearGradientBrush or ImageBrush. |
 | **ComboBox** | |
-|<img alt="ComboBox" src=""> |A custom control that inherits from ComboBox and allows to set Background and BorderBrush. This is because with the original ComboBox, changing the Background or BorderBrush has no effect. |
-
+|<img alt="ComboBox" src="https://github.com/user-attachments/assets/884126f1-7233-4243-8530-a01fcfcf53e3"> |A custom control that inherits from ComboBox and allows to set Background and BorderBrush. This is because with the original ComboBox, changing the Background or BorderBrush has no effect. |
 
 ##
 ### Notes
