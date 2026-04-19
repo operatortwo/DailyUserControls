@@ -102,13 +102,17 @@ Public Class TreeViewItemX
 
     Private TemplateBd As Border
     Private ConnectingLineBrush As Brush = New SolidColorBrush(Color.FromArgb(&HFF, &H5D, &H5D, &H5D))
-    Private ConnectingLinePen As New Pen(ConnectingLineBrush, 1.0)
+    Private ConnectingLinePen As New Pen(ConnectingLineBrush, 1.0)   ' With {.DashStyle = DashStyles.Dot}
 
     Protected Overrides Sub OnRender(dc As DrawingContext)
         MyBase.OnRender(dc)
 
         '--- connectig lines ---
 
+        ' RenderOptions.SetEdgeMode(Me, EdgeMode.Aliased)         ' sharp connecting lines
+        ' Different thicknesses at high dpi / scaled screens with EdgeMode.Aliased
+
+        Dim posx As Double = 8
         Dim posy As Double = 1
 
         TemplateBd = TryCast(Me.Template.FindName("Bd", Me), Border)
@@ -118,7 +122,7 @@ Public Class TreeViewItemX
 
         '--- horizontal line ---
 
-        dc.DrawLine(ConnectingLinePen, New Point(7, posy), New Point(19, posy))
+        dc.DrawLine(ConnectingLinePen, New Point(posx, posy), New Point(19, posy))
 
         '--- vertical line ---
 
@@ -130,8 +134,6 @@ Public Class TreeViewItemX
         Dim islast As Boolean
 
         If ndx = iccount - 1 Then islast = True
-
-        Dim posx As Double = 8
 
         If islast = True Then
             If HasItems = True Then

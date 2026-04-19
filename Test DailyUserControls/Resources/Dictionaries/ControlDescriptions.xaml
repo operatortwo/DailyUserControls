@@ -224,12 +224,12 @@
 
     <!--#region TreeViewItemX -->
     <TextBlock x:Key="dsc_TviXX" TextWrapping="Wrap">
- <Bold>TreeViewItemX</Bold> is a CustomControl that adds an Image Property and connecting lines to TreeViewItem.
+ <Bold>TreeViewItemX</Bold> is a CustomControl that adds an Image Property and connecting lines to TreeViewItem.                
     </TextBlock>
 
     <TextBlock x:Key="dsc2_TviXX" TextWrapping="Wrap">
- Properties:  Image, MaxImageHeight, Header, SelectedBackground, SelectedForeground
-
+        Properties:  Image, MaxImageHeight, Header, SelectedBackground, SelectedForeground
+        <LineBreak/> FontSize and Foreground is inherited from Parent ItemsControl (TreeView)
     </TextBlock>
 
     <TextBlock x:Key="dscKb_TviX" TextWrapping="Wrap">

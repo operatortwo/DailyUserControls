@@ -9,7 +9,7 @@
     <Description>Testing and developing the library controls</Description>
     <Title>Test_DailyUserControls</Title>
     <Copyright>Copyright ©  2023 - 2026  operatortwo</Copyright>
-    <Version>1.2.0.0</Version>
+    <Version>1.2.0.3</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows|AnyCPU'">

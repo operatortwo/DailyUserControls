@@ -3,6 +3,8 @@
 
 Date			Version		Changes
 ------------------------------------------------	
+2026 04 19		1.2.0.3		TreeViewItemX: improved connectinng-lines rendering
+				1.2.0.2		TreeViewItemX: description edited
 2026 04 04		1.2.0.0		newly created as a .Net Project, targeting .Net and .Net Framework
 ------------------------------------------------
 2026 04 01		1.1.1.0		added Tab for TreeViewItemX
