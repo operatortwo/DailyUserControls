@@ -33,6 +33,8 @@ Imports System.ComponentModel
 Public Class TreeViewItemX
     Inherits TreeViewItem
 
+    Private Shared DefaultMouseOverBackgroundBrush As Brush = New SolidColorBrush(Colors.Azure)
+
     Shared Sub New()
         'This OverrideMetadata call tells the system that this element wants to provide a style that is different than its base class.
         'This style is defined in themes\generic.xaml
@@ -97,6 +99,22 @@ Public Class TreeViewItemX
         End Set
     End Property
 
+    Public Shared ReadOnly MouseOverBackgroundProperty As DependencyProperty = DependencyProperty.Register("MouseOverBackground",
+            GetType(Brush), GetType(TreeViewItemX),
+            New FrameworkPropertyMetadata(DefaultMouseOverBackgroundBrush))
+    ' appears in code
+    ''' <summary>
+    ''' Background Brush when Mouse is over the header or the Image, except when Item IsSelected
+    ''' </summary>
+    <Description("Background Brush when Mouse is over the the header or the Image, except when Item IsSelected")>   ' appears in VS property
+    Public Overloads Property MouseOverBackground As Brush
+        Get
+            Return CType(GetValue(MouseOverBackgroundProperty), Brush)
+        End Get
+        Set(ByVal value As Brush)
+            SetValue(MouseOverBackgroundProperty, value)
+        End Set
+    End Property
 
 #Region "Render"
 
