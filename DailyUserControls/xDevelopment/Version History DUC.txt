@@ -3,6 +3,7 @@
 
 Date			Version		Changes
 ------------------------------------------------
+2026 04 29		1.2.0.5		DataGridTextColumnX: added SystemColors for InactiveSelection
 2026 04 20		1.2.0.4		TreeViewItemX: added MouseOverBackground property
 2026 04 19		1.2.0.3		TreeViewItemX: improved connectinng-lines rendering
 				1.2.0.2		TreeViewItemX: Foreground can be set in parent

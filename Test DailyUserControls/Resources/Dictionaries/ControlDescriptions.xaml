@@ -228,7 +228,7 @@
     </TextBlock>
 
     <TextBlock x:Key="dsc2_TviXX" TextWrapping="Wrap">
-        Properties:  Image, MaxImageHeight, Header, SelectedBackground, SelectedForeground
+        Properties:  Image, MaxImageHeight, Header, SelectedBackground, SelectedForeground, MouseOverBackground
         <LineBreak/> FontSize and Foreground is inherited from Parent ItemsControl (TreeView)
     </TextBlock>
 

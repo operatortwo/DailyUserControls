@@ -258,6 +258,14 @@ Public Class DataGridTextColumnX
         trig.Setters.Add(New Setter(Control.BorderBrushProperty, col.FocusedBorderBrush))
         stl.Triggers.Add(trig)
 
+        Dim mtrig As New MultiTrigger
+        mtrig.Conditions.Add(New Condition With {.[Property] = DataGridCell.IsSelectedProperty, .Value = True})
+        mtrig.Conditions.Add(New Condition With {.[Property] = Selector.IsSelectionActiveProperty, .Value = False})
+        mtrig.Setters.Add(New Setter(Control.BackgroundProperty, SystemColors.InactiveSelectionHighlightBrush))
+        mtrig.Setters.Add(New Setter(Control.ForegroundProperty, SystemColors.InactiveSelectionHighlightTextBrush))
+        mtrig.Setters.Add(New Setter(Control.BorderBrushProperty, SystemColors.InactiveSelectionHighlightBrush))
+        stl.Triggers.Add(mtrig)
+
         col.CellStyle = stl
 
     End Sub
